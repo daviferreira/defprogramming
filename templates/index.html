@@ -1,20 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-
-
   {% if latest_quotes_list %}
   	{% for quote in latest_quotes_list %}
-  		<article>
-  			<cite>
-  				<a href="{{ quote.get_absolute_url }}">{{ quote.body}}</a>
-  			</cite>
-        <p class="author">&dash; &dash; 
-        {% for author in quote.authors.all %}
-          <a href="{{ author.get_absolute_url }}">{{ author.name }}</a> 
-          {% if not forloop.last %} and {% endif %}
-        {% endfor %}
-        </p>
-  		</article>
+  		{% include "quote.html" %}
   	{% endfor %}
   {% else %}
   	<p>No quotes are available.</p>
