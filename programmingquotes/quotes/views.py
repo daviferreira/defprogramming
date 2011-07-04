@@ -26,7 +26,9 @@ def authors(request):
   return HttpResponse("Authors page")
 
 def author_detail(request, slug):
-  return HttpResponse("You're looking at author %s." % slug)
+  a = get_object_or_404(Author, slug=slug)
+  quotes_by_author = a.quote_set.all().order_by('-id')
+  return render_to_response('author_detail.html', {'author': a, 'quotes_by_author': quotes_by_author})
 
 def tags(request):
   return HttpResponse("Tags page")

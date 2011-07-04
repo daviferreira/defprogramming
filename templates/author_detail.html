@@ -1,0 +1,8 @@
+{% extends "base.html" %}
+
+{% block content %}
+<header><h1>Quotes by {{ author.name }}</h1></header>
+{% for quote in quotes_by_author %}
+  {% include "quote.html" %}
+{% endfor %}
+{% endblock %}
