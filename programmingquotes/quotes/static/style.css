@@ -31,7 +31,7 @@ blockquote, q {
 blockquote:before, blockquote:after,
 q:before, q:after {
 	content: '';
-	content: none;
+	content: none;s
 }
 
 /* remember to define focus styles! */
@@ -210,7 +210,33 @@ ul.share{
   margin:20px 0 0;
 }
 
+ul.share li.tags{
+  margin:0 20px 0 0;
+  font-size:12px;
+  font-weight:300;
+  color:#ccc;
+}
+
+ul.share li.tags a{
+  color:#666;
+  text-decoration:none/
+}
+
 ul.share li{
   float:left;
   padding:10px 0 0;
+}
+
+ul.list-all li{
+float:left;
+width:196px;
+text-align:center;
+padding:6px;
+margin:6px;
+}
+
+ul.list-all li a{
+  color:#333;
+  text-decoration:none;
+  border-bottom:1px dotted #ccc;
 }

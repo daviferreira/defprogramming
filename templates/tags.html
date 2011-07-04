@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article>
+  <ul id="tags-list" class="list-all clearfix">
+    {% for tag in tags %}
+      <li><a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a></li>
+    {% endfor %}
+  </ul>
+</article>
+{% endblock %}

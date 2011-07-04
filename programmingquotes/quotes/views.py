@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def index(request):
-  quotes = Quote.objects.all().order_by('-id')
+  quotes = Quote.objects.all().order_by('-publish_date')
   paginator = Paginator(quotes, 10)
   
   page = request.GET.get('page') or 1
@@ -23,15 +23,41 @@ def detail(request, slug):
   return render_to_response('detail.html', {'quote': q})
 
 def authors(request):
-  return HttpResponse("Authors page")
+  authors = Author.objects.all().order_by('name')
+  return render_to_response('authors.html', {'authors': authors})
 
 def author_detail(request, slug):
   a = get_object_or_404(Author, slug=slug)
-  quotes_by_author = a.quote_set.all().order_by('-id')
-  return render_to_response('author_detail.html', {'author': a, 'quotes_by_author': quotes_by_author})
+  quotes = a.quote_set.all().order_by('-publish_date')
+  
+  paginator = Paginator(quotes, 10)
+  
+  page = request.GET.get('page') or 1
+  try:
+    quotes = paginator.page(page)
+  except PageNotAnInteger:
+    quotes = paginator.page(1)
+  except EmptyPage:
+    quotes = paginator.page(paginator.num_pages)
+  
+  return render_to_response('author_detail.html', {'author': a, 'quotes': quotes})
 
 def tags(request):
-  return HttpResponse("Tags page")
+  tags = Tag.objects.all().order_by('name')
+  return render_to_response('tags.html', {'tags': tags})
 
 def tag_detail(request, slug):
-  return HttpResponse("You're looking at tag %s." % slug)
+  t = get_object_or_404(Tag, slug=slug)
+  quotes = t.quote_set.all().order_by('-publish_date')
+  
+  paginator = Paginator(quotes, 10)
+  
+  page = request.GET.get('page') or 1
+  try:
+    quotes = paginator.page(page)
+  except PageNotAnInteger:
+    quotes = paginator.page(1)
+  except EmptyPage:
+    quotes = paginator.page(paginator.num_pages)
+  
+  return render_to_response('tag_detail.html', {'tag': t, 'quotes': quotes})
