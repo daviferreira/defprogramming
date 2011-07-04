@@ -2,10 +2,21 @@ from django.template import Context, loader
 from django.shortcuts import render_to_response, get_object_or_404
 from quotes.models import Author, Tag, Quote
 from django.http import HttpResponse
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def index(request):
-  latest_quotes_list = Quote.objects.all().order_by('-id')[:20]
-  return render_to_response('index.html', {'latest_quotes_list': latest_quotes_list})
+  quotes = Quote.objects.all().order_by('-id')
+  paginator = Paginator(quotes, 10)
+  
+  page = request.GET.get('page') or 1
+  try:
+    quotes = paginator.page(page)
+  except PageNotAnInteger:
+    quotes = paginator.page(1)
+  except EmptyPage:
+    quotes = paginator.page(paginator.num_pages)
+  
+  return render_to_response('index.html', {'quotes': quotes})
   
 def detail(request, slug):
   q = get_object_or_404(Quote, slug=slug)

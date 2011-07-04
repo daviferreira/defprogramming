@@ -1,9 +1,27 @@
 {% extends "base.html" %}
+
 {% block content %}
-  {% if latest_quotes_list %}
-  	{% for quote in latest_quotes_list %}
+  {% if quotes %}
+    {% for quote in quotes.object_list %}
   		{% include "quote.html" %}
-  	{% endfor %}
+    {% endfor %}
+    
+    <div class="pagination">
+        <span class="step-links">
+            {% if quotes.has_previous %}
+                <a href="?page={{ quotes.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ quotes.number }} of {{ quotes.paginator.num_pages }}.
+            </span>
+
+            {% if quotes.has_next %}
+                <a href="?page={{ quotes.next_page_number }}">next</a>
+            {% endif %}
+        </span>
+    </div>
+    
   {% else %}
   	<p>No quotes are available.</p>
   {% endif %}
