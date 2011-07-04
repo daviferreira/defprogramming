@@ -10,6 +10,9 @@ urlpatterns = patterns('quotes.views',
     (r'^authors/$', 'authors'),
     (r'^author/(?P<slug>[\w_-]+)/$', 'author_detail'),
     (r'^author/(?P<author_id>\d+)/$', 'author_detail'),
+    (r'^tags/$', 'tags'),
+    (r'^tag/(?P<slug>[\w_-]+)/$', 'tag_detail'),
+    (r'^tag/(?P<tag_id>\d+)/$', 'tag_detail'),
     (r'^$', 'index'),
 )
 

@@ -1,6 +1,6 @@
 from django.template import Context, loader
 from django.shortcuts import render_to_response, get_object_or_404
-from quotes.models import Author, Quote
+from quotes.models import Author, Tag, Quote
 from django.http import HttpResponse
 
 def index(request):
@@ -16,3 +16,9 @@ def authors(request):
 
 def author_detail(request, slug):
   return HttpResponse("You're looking at author %s." % slug)
+
+def tags(request):
+  return HttpResponse("Tags page")
+
+def tag_detail(request, slug):
+  return HttpResponse("You're looking at tag %s." % slug)
