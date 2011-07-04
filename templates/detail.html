@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+  <article>
+  	<cite>
+  		<a href="/quote/{{ quote.id }}/">{{ quote.body}}</a>
+  	</cite>
+  	<p class="author">&dash; &dash; <a href="/author/{{ quote.author.id }}/">{{ quote.author.name }}</a></p>
+  </article>
+{% endblock %}
