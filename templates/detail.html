@@ -1,9 +1,14 @@
 {% extends "base.html" %}
 {% block content %}
-  <article>
-  	<cite>
-  		<a href="/quote/{{ quote.id }}/">{{ quote.body}}</a>
-  	</cite>
-  	<p class="author">&dash; &dash; <a href="/author/{{ quote.author.id }}/">{{ quote.author.name }}</a></p>
-  </article>
+<article>
+	<cite>
+		<a href="{{ quote.get_absolute_url }}">{{ quote.body}}</a>
+	</cite>
+  <p class="author">&dash; &dash; 
+  {% for author in quote.authors.all %}
+    <a href="{{ author.get_absolute_url }}">{{ author.name }}</a> 
+    {% if not forloop.last %} and {% endif %}
+  {% endfor %}
+  </p>
+</article>
 {% endblock %}

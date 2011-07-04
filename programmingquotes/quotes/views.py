@@ -7,12 +7,12 @@ def index(request):
   latest_quotes_list = Quote.objects.all().order_by('-id')[:20]
   return render_to_response('index.html', {'latest_quotes_list': latest_quotes_list})
   
-def detail(request, quote_id):
-  q = get_object_or_404(Quote, pk=quote_id)
+def detail(request, slug):
+  q = get_object_or_404(Quote, slug=slug)
   return render_to_response('detail.html', {'quote': q})
 
 def authors(request):
   return HttpResponse("Authors page")
 
-def author_detail(request, author_id):
-  return HttpResponse("You're looking at author %s." % author_id)
+def author_detail(request, slug):
+  return HttpResponse("You're looking at author %s." % slug)

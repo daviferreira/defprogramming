@@ -6,11 +6,11 @@
   	{% for quote in latest_quotes_list %}
   		<article>
   			<cite>
-  				<a href="/quote/{{ quote.id }}/">{{ quote.body}}</a>
+  				<a href="{{ quote.get_absolute_url }}">{{ quote.body}}</a>
   			</cite>
         <p class="author">&dash; &dash; 
         {% for author in quote.authors.all %}
-          <a href="/author/{{ author.id }}/">{{ author.name }}</a> 
+          <a href="{{ author.get_absolute_url }}">{{ author.name }}</a> 
           {% if not forloop.last %} and {% endif %}
         {% endfor %}
         </p>
