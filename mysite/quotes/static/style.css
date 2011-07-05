@@ -232,16 +232,17 @@ ul.share{
   margin:20px 0 0;
 }
 
-ul.share li.tags{
+ul.share li.tags, ul.share li.comments{
   margin:0 20px 0 0;
   font-size:12px;
   font-weight:300;
   color:#ccc;
 }
 
-ul.share li.tags a{
+ul.share li.tags a, ul.share li.comments a{
   color:#666;
-  text-decoration:none/
+  text-decoration:none;
+  text-transform:lowercase;
 }
 
 ul.share li{
