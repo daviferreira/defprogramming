@@ -1,13 +1,20 @@
-from django.contrib.syndication.feeds import Feed
+from django.contrib.syndication.views import Feed
+from quotes.models import Author, Quote
+import re
 
-from quotes.models import Quote
+class LatestEntriesFeed(Feed):
+    title = "Computers & Telescopes - latest quotes"
+    link = "/"
+    description = "Latest published quotes from ComputersAndTelescopes.com"
 
-class RecentQuotes(Feed):
-  title = 'Define programming: Recent quotes'
-  link = '/'
+    def items(self):
+        return Quote.objects.order_by('-publish_date')[:20]
 
-  def items(self):
-    return Quote.objects.all()
+    def item_title(self, item):
+      authors = ""
+      for author in item.authors.all():
+        authors += author.name + " and "
+      return re.sub(r' and $', '', authors)
 
-  def item_link(self, quote):
-    return quote.get_absolute_url()
+    def item_description(self, item):
+        return item.body

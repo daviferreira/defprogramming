@@ -3,6 +3,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 admin.autodiscover()
 
+from quotes.feeds import LatestEntriesFeed
+
 urlpatterns = patterns('quotes.views',
     (r'^quotes/$', 'index'),
     (r'^quote/(?P<slug>[\w_-]+)/$', 'detail'),
@@ -14,6 +16,10 @@ urlpatterns = patterns('quotes.views',
     (r'^tag/(?P<slug>[\w_-]+)/$', 'tag_detail'),
     (r'^tag/(?P<tag_id>\d+)/$', 'tag_detail'),
     (r'^$', 'index'),
+)
+
+urlpatterns += patterns('quotes.feeds',
+  (r'^feed/$', LatestEntriesFeed()),
 )
 
 urlpatterns += patterns('',

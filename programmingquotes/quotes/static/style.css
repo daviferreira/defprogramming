@@ -96,7 +96,6 @@ table {
 -------------------------------------------------------------- */
 
 body{
-  /*background:#eff8f9 url("../images/bg.jpg")  fixed repeat-x;*/
   background-color:#eff8f9;
   font-family: "Brawler", arial, serif;
 }
@@ -110,8 +109,31 @@ header{
 header h1{
   font-size:42px;
   text-shadow: rgba(0,0,0,0.5) -1px 0, rgba(0,0,0,0.3) 0 -1px, rgba(255,255,255,0.5) 0 1px, rgba(0,0,0,0.3) -1px -2px;
-  color:#000;
   font-weight:300;
+}
+
+header h1 a{
+  color:#000;
+  text-decoration:none;
+}
+
+p.back{
+  margin:20px 0 0;
+  text-align:center;
+}
+
+p.back a{
+  color:#df0d32;
+  text-decoration:none;
+  border-bottom:1px dotted #df0d32;
+}
+
+header h2{
+  font-size:20px;
+  margin:20px 0 0;
+  color:#a8cbcf;
+  font-weight:300;
+  letter-spacing:-0.4px;
 }
 
 section#main{
@@ -196,7 +218,7 @@ form div.actions{
 }
 
 div.pagination{
-  text-align:right;
+  text-align:center;
   font-size:16px;
   color:#666;
 }

@@ -1,6 +1,7 @@
 {% extends "base.html" %}
  
 {% block content %}
+  {% include "header.html" %}
   {% if quotes %}
     {% for quote in quotes.object_list %}
   		{% include "quote.html" %}
