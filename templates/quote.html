@@ -16,12 +16,16 @@
       {%endfor %}
       </li>
     {% endif %}
-    <li><g:plusone href="http://www.defprogramming.com{{ quote.get_absolute_url }}" size="medium">{{ quote.body }}</g:plusone></li>
+    <li><g:plusone href="http://www.defprogramming.com{{ quote.get_absolute_url }}" size="medium" action="like">{{ quote.body }}</g:plusone></li>
     <li>
       <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="http://www.defprogramming.com{{ quote.get_absolute_url }}" data-text='"{{ quote.body }}"'>Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     </li>
     <li>
-      <fb:like href="http://www.defprogramming.com{{ quote.get_absolute_url }}" send="true" width="250" show_faces="false" font="" layout="button_count"></fb:like>
+      <fb:like href="http://www.defprogramming.com{{ quote.get_absolute_url }}"
+									   layout="button_count"
+									   show_faces="false"
+									   action="like"
+									   colorscheme="light"></fb:like> 
     </li> 
   </ul>
 </article>
