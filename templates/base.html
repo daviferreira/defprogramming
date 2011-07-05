@@ -40,7 +40,21 @@
   </footer>
     
   <div id="fb-root"></div>
-  <script src="http://connect.facebook.net/en_US/all.js#appId=236133366405921&amp;xfbml=1"></script>
- 
+	<script type="text/javascript"> 
+		window.fbAsyncInit = function() {
+			FB.init({appId: '236133366405921', status: true, cookie: true,xfbml: true});
+			FB.Event.subscribe('edge.create', function(url) {
+			  _gaq.push(['_trackSocial', 'facebook', 'like', url]);
+			});
+			FB.Event.subscribe('edge.remove', function(url) {
+			  _gaq.push(['_trackSocial', 'facebook', 'unlike', url]);
+			});
+		};
+		(function() {
+			var e = document.createElement('script'); e.async = true;
+			e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+			document.getElementById('fb-root').appendChild(e);
+		}());
+	</script>  
   </body>
   </html>
