@@ -6,6 +6,7 @@ class Author(models.Model):
   name = models.CharField(max_length=200)
   short_bio = models.CharField(max_length=200, null=True, blank=True)
   slug = models.SlugField(max_length=100, blank=True)
+  ordering = ['name']
   
   def __unicode__(self):
     return self.name
@@ -16,6 +17,7 @@ class Author(models.Model):
 class Tag(models.Model):
   name = models.CharField(max_length=100)
   slug = models.SlugField(max_length=100, blank=True)
+  ordering = ['name']
 
   def __unicode__(self):
     return self.name
@@ -29,6 +31,7 @@ class Quote(models.Model):
     tags = models.ManyToManyField(Tag, blank=True, null=True)
     slug = models.SlugField(max_length=100, blank=True)
     publish_date = models.DateTimeField(default=datetime.now)
+    ordering = ['-publish_date']
     
     def __unicode__(self):
       return self.body
