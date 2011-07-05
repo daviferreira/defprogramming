@@ -8,14 +8,14 @@
     <link href="http://fonts.googleapis.com/css?family=Brawler&v1" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-    {% if quote %}
+    {% if quote %} 
     <meta property="og:title" content="Quote by {% for author in quote.authors.all %}{{ author.name }}{% if not forloop.last %} and {% endif %}{% endfor %}" />
-    <meta property="og:url" content="http://www.defprogramming.com{{ quote.get_absolute_url }}"/>
     <meta property="og:description" content="{{ quote.body }}"/>
-    <meta property="og:site_name" content="def programming: quotes about coding"/>
     <meta property="og:type" content="blog"/>
-    <meta property="og:image" content="/static/quote.gif"/>    
-    <meta property="fb:app_id" content="236133366405921"/>
+    <meta property="og:url" content="http://www.defprogramming.com{{ quote.get_absolute_url }}"/>
+    <meta property="og:image" content="http://defprogramming.com/static/quote.gif" />
+    <meta property="og:site_name" content="def programming: quotes about coding"/>
+    <meta property="fb:admins" content="100002463252759" />
     {% endif %}
     <script type="text/javascript">
     var _gaq = _gaq || [];
