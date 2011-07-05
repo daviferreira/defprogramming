@@ -262,3 +262,11 @@ ul.list-all li a{
   text-decoration:none;
   border-bottom:1px dotted #ccc;
 }
+
+div#disqus_thread a{
+  color:#df0d32;
+}
+
+div#dsq-subscribe a{
+  font-size:12px;
+}
