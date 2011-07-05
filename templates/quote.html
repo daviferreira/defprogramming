@@ -18,12 +18,26 @@
       </li>
     {% endif %}
     <li class="comments"><a href="{{ quote.get_absolute_url }}#disqus_thread" data-disqus-identifier="quote_{{ quote.id }}">{{ quote.id }}</a></li>
-    <li><g:plusone href="http://www.defprogramming.com{{ quote.get_absolute_url }}" size="medium" action="like">{{ quote.body }}</g:plusone></li>
+    <!--li><g:plusone href="http://www.defprogramming.com{{ quote.get_absolute_url }}" size="medium" action="like">{{ quote.body }}</g:plusone></li>
     <li>
       <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="http://www.defprogramming.com{{ quote.get_absolute_url }}" data-text='"{{ quote.body }}"'>Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
     </li>
     <li>
       <fb:like href="http://www.defprogramming.com{{ quote.get_absolute_url }}" width="250" show_faces="false" font="" layout="button_count" action="like"></fb:like>
+    </li-->
+    <li class="addthis">
+    <!-- AddThis Button BEGIN -->
+<div class="addthis_toolbox addthis_default_style " addthis:url="http://www.defprogramming.com{{ quote.get_absolute_url }}"
+       addthis:title="Quote by {% for author in quote.authors.all %}{{ author.name }}{% if not forloop.last %} and {% endif %}{% endfor %}"
+       addthis:description="{{ quote.body }}">
+<a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+<a class="addthis_button_tweet"></a>
+<a class="addthis_button_google_plusone"></a>
+<a class="addthis_counter addthis_pill_style"></a>
+</div>
+<script type="text/javascript">var addthis_config = {"data_track_clickback":true};</script>
+<script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=ra-4e136158471f1e47"></script>
+<!-- AddThis Button END -->
     </li> 
   </ul>
 </article>
