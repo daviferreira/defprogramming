@@ -158,14 +158,14 @@ article p.author{
 article p.author a{
   color:#999;
   text-decoration:none;
-  border-bottom:1px dotted #999;
 }
 
 footer{
   margin:20px auto;
+  padding:20px;
   width:960px;
   text-align:center;
-  font-size:12px;
+  font-size:14px;
   letter-spacing:-0.4px;
   color:#a8cbcf;
   font-weight:300;
@@ -197,7 +197,7 @@ form div.actions{
 
 div.pagination{
   text-align:right;
-  font-size:14px;
+  font-size:16px;
   color:#666;
 }
 

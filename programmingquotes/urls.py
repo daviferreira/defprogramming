@@ -1,10 +1,7 @@
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
-
 admin.autodiscover()
-
-from quotes.feeds import RecentQuotes
 
 urlpatterns = patterns('quotes.views',
     (r'^quotes/$', 'index'),
@@ -16,8 +13,6 @@ urlpatterns = patterns('quotes.views',
     (r'^tags/$', 'tags'),
     (r'^tag/(?P<slug>[\w_-]+)/$', 'tag_detail'),
     (r'^tag/(?P<tag_id>\d+)/$', 'tag_detail'),
-    #(r'^rss/$', 'django.contrib.syndication.views.feed',
-        #{'feed_dict': {'recent': RecentQuotes}}),
     (r'^$', 'index'),
 )
 
