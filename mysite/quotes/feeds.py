@@ -3,9 +3,9 @@ from quotes.models import Author, Quote
 import re
 
 class LatestEntriesFeed(Feed):
-    title = "Computers & Telescopes - latest quotes"
+    title = "def programming: latest quotes"
     link = "/"
-    description = "Latest published quotes from ComputersAndTelescopes.com"
+    description = "Latest published quotes from defprogramming.com"
 
     def items(self):
         return Quote.objects.order_by('-publish_date')[:20]
