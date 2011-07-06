@@ -1,0 +1,9 @@
+{% extends "quotes/base.html" %}
+
+{% block content %}
+<header><h1>Quotes by {{ author.name }}</h1></header>
+{% for quote in quotes.object_list %}
+  {% include "quotes/quote.html" %}
+{% endfor %}
+{% include "quotes/pagination.html" %}
+{% endblock %}
