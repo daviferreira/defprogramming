@@ -2,6 +2,7 @@
 
 DEBUG = False 
 TEMPLATE_DEBUG = DEBUG
+PREPEND_WWW = True
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -144,5 +145,3 @@ LOGGING = {
         },
     }
 }
-
-PREPEND_WWW = True

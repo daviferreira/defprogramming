@@ -149,7 +149,7 @@ hr.bottom_shadow{
   height:1px;
 }
 
-article{
+div.box{
   padding:40px;
   background-color:#fff;
   border-top:1px solid #e4eff0;
@@ -157,7 +157,7 @@ article{
   margin:0 0 20px 0;
 }
 
-article cite{
+div.box cite{
   font-style:normal;
   font-weight:300;
   color:#333;
@@ -165,19 +165,19 @@ article cite{
   line-height:34px;
 }
 
-article cite a{
+div.box cite a{
   color:#333;
   text-decoration:none;
 }
 
-article p.author{
+div.box p.author{
   font-size:20px;
   text-align:right;
   margin:20px 0 0;
   color:#ccc;
 }
 
-article p.author a{
+div.box p.author a{
   color:#999;
   text-decoration:none;
 }
