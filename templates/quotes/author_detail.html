@@ -2,6 +2,7 @@
 
 {% block content %}
 <header><h1>Quotes by {{ author.name }}</h1></header>
+<p class="back" style="margin:0 0 20px 0;"><a href="/">&larr; go back to the home page</a></p>
 {% for quote in quotes.object_list %}
   {% include "quotes/quote.html" %}
 {% endfor %}

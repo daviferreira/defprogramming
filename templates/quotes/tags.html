@@ -4,12 +4,13 @@
 <header>
   <h1>Listing all tags</h1>
 </header>
-<article>
+<div class="box">
+  <p class="back"><a href="/">&larr; go back to the home page</a></p>
   <ul id="tags-list" class="list-all clearfix">
     {% for tag in tags %}
       <li><a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a></li>
     {% endfor %}
   </ul>
   <p class="back"><a href="/">&larr; go back to the home page</a></p>
-</article>
+</div>
 {% endblock %}

@@ -2,7 +2,7 @@
 {% block content %}
   {% include "quotes/header.html" %}
   {% include "quotes/quote.html" %}
-  <article>
+  <div class="box">
     <p class="back"><a href="/">&larr; go back to the home page</a></p>
     <div id="disqus_thread"></div>
     <script type="text/javascript">
@@ -21,5 +21,5 @@
         })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </article>
+  </div>
 {% endblock %}
