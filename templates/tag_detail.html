@@ -1,9 +1,0 @@
-{% extends "base.html" %}
-
-{% block content %}
-<header><h1>Quotes tagged under {{ tag.name }}</h1></header>
-{% for quote in quotes.object_list %}
-  {% include "quote.html" %}
-{% endfor %}
-{% include "pagination.html" %}
-{% endblock %}
