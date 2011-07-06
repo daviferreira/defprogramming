@@ -144,3 +144,5 @@ LOGGING = {
         },
     }
 }
+
+PREPEND_WWW = True
