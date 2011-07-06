@@ -4,6 +4,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 from quotes.feeds import LatestEntriesFeed
+from site_sitemaps.models import QuotesSitemap
 
 urlpatterns = patterns('quotes.views',
     (r'^quotes/$', 'index'),
@@ -15,6 +16,7 @@ urlpatterns = patterns('quotes.views',
     (r'^tags/$', 'tags'),
     (r'^tag/(?P<slug>[\w_-]+)/$', 'tag_detail'),
     (r'^tag/(?P<tag_id>\d+)/$', 'tag_detail'),
+    #(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': QuotesSitemap}),
     (r'^$', 'index'),
 )
 
