@@ -1,6 +1,6 @@
 <article>
 	<cite>
-		<a href="{{ quote.get_absolute_url }}">{{ quote.body|safe }}</a>
+		<a href="{{ quote.get_absolute_url }}">{{ quote.body|linebreaks|safe }}</a>
 	</cite>
   <p class="author">&dash; &dash; 
   {% for author in quote.authors.all %}
