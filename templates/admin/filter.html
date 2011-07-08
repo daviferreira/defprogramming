@@ -1,7 +1,6 @@
 {% load i18n %}
 <h3>{% blocktrans with title as filter_title %} By {{ filter_title }} {% endblocktrans %}</h3>
 <ul>
-  <li><a href="?">All</a></li>
   {% for choice in choices|dictsort:"display" %}
     <li {% if choice.selected %}class="selected"{% endif %}><a href="{{ choice.query_string|iriencode }}">{{ choice.display }}</a></li>
   {% endfor %}
