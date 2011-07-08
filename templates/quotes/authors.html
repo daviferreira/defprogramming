@@ -5,7 +5,6 @@
   <h1>Listing all authors</h1>
 </header>
 <div class="box">
-  <p class="back"><a href="/">&larr; go back to the home page</a></p>
   <ul id="authors-list" class="list-all clearfix">
     {% for author in authors %}
       <li><a href="{{ author.get_absolute_url }}">{{ author.name }}</a></li>
