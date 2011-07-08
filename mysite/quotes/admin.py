@@ -15,6 +15,7 @@ class QuoteAdmin(admin.ModelAdmin):
   list_display = ('id', 'body') 
   list_filter = ('authors', 'tags')
   search_fields = ('id', 'body', 'authors', 'tags')
+  ordering = ('-publish_date')
   form = QuoteAdminForm
 
 admin.site.register(Author)
