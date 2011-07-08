@@ -1,8 +1,8 @@
 # Django settings for mysite project.
 
-DEBUG = True 
+DEBUG = False 
 TEMPLATE_DEBUG = DEBUG
-PREPEND_WWW = False 
+PREPEND_WWW = True 
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
