@@ -126,6 +126,7 @@ p.back a{
   color:#df0d32;
   text-decoration:none;
   border-bottom:1px dotted #df0d32;
+  font-size:13px;
 }
 
 header h2{
@@ -256,6 +257,7 @@ width:196px;
 text-align:center;
 padding:6px;
 margin:6px;
+font-size:14px;
 }
 
 ul.list-all li a{

@@ -16,6 +16,7 @@ urlpatterns = patterns('quotes.views',
     (r'^tags/$', 'tags'),
     (r'^tag/(?P<slug>[\w_-]+)/$', 'tag_detail'),
     (r'^tag/(?P<tag_id>\d+)/$', 'tag_detail'),
+    (r'^random/?$', 'random'),
     #(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': QuotesSitemap}),
     (r'^$', 'index'),
 )

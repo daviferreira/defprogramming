@@ -13,6 +13,10 @@ def detail(request, slug):
   q = get_object_or_404(Quote, slug=slug)
   return render_to_response('quotes/detail.html', {'quote': q})
 
+def random(request):
+  q = Quote.objects.order_by('?')[0]
+  return render_to_response('quotes/detail.html', {'quote': q})
+
 def authors(request):
   authors = Author.objects.all().order_by('name')
   return render_to_response('quotes/authors.html', {'authors': authors})
