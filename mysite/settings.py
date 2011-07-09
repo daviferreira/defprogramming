@@ -1,8 +1,8 @@
 # Django settings for mysite project.
 
-DEBUG = False 
+DEBUG = True 
 TEMPLATE_DEBUG = DEBUG
-PREPEND_WWW = True 
+PREPEND_WWW = False 
 
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
@@ -66,7 +66,7 @@ STATIC_URL = '/static/'
 # URL prefix for admin static files -- CSS, JavaScript and images.
 # Make sure to use a trailing slash.
 # Examples: "http://foo.com/static/admin/", "/static/admin/".
-ADMIN_MEDIA_PREFIX = '/admin/'
+ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Additional locations of static files
 STATICFILES_DIRS = (
