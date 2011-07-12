@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"> 
-<html>
+<html xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/">
   <head>
     <meta charset="utf-8" />
     <title>{% if quote %}Quote by {% for author in quote.authors.all %}{{ author.name }}{% if not forloop.last %} and {% endif %}{% endfor %}{% else %}def programming: quotes about coding{% endif %}</title>
