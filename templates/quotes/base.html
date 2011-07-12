@@ -8,6 +8,7 @@
     <link href="http://fonts.googleapis.com/css?family=Brawler&v1" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+    <script type="text/javascript" src="/static/modernizr.js"></script>
     {% if quote %} 
     <meta property="og:title" content="Quote by {% for author in quote.authors.all %}{{ author.name }}{% if not forloop.last %} and {% endif %}{% endfor %}" />
     <meta property="og:description" content="{{ quote.body }}"/>
