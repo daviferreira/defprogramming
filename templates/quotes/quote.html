@@ -3,7 +3,7 @@
 		<a href="{{ quote.get_absolute_url }}">{{ quote.body|safe|linebreaks }}</a>
 	</cite>
 	{% if not author %}
-    <p class="author">&dash; &dash; 
+    <p class="author">-- 
     {% for author in quote.authors.all %}
       <a href="{{ author.get_absolute_url }}">{{ author.name }}</a> 
       {% if not forloop.last %} and {% endif %}
