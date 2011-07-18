@@ -1,16 +1,16 @@
-"""
-This file demonstrates writing tests using the unittest module. These will pass
-when you run "manage.py test".
-
-Replace this with more appropriate tests for your application.
-"""
-
 from django.test import TestCase
+from splinter.browser import Browser
+from quotes.models import Author, Tag, Quote
 
+class TestQuote(TestCase):
+  browser = Browser()
 
-class SimpleTest(TestCase):
-    def test_basic_addition(self):
-        """
-        Tests that 1 + 1 always equals 2.
-        """
-        self.assertEqual(1 + 1, 2)
+  def setUp(self):
+    pass
+
+  def tearDown(self):
+    pass
+
+  def testIndexPage(self):
+    self.browser.visit("http://localhost:8000")
+    assert self.browser.is_element_present_by_css('div.box cite')
