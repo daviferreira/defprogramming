@@ -1,16 +1,24 @@
 from django.test import TestCase
-from splinter.browser import Browser
+from django.test.client import Client
 from quotes.models import Author, Tag, Quote
 
 class TestQuote(TestCase):
-  browser = Browser()
 
   def setUp(self):
+    self.client = Client()
     pass
 
   def tearDown(self):
     pass
 
   def testIndexPage(self):
-    self.browser.visit("http://localhost:8000")
-    assert self.browser.is_element_present_by_css('div.box cite')
+    response = self.client.get('/')
+    self.failUnlessEqual(response.status_code, 200)
+
+  def testAuthorsPage(self):
+    response = self.client.get('/authors/')
+    self.failUnlessEqual(response.status_code, 200)  
+    
+  def testTagsPage(self):
+    response = self.client.get('/tags/')
+    self.failUnlessEqual(response.status_code, 200)
