@@ -104,6 +104,7 @@ header{
   margin:40px auto;
   width:960px;
   text-align:center;
+  display:block;
 }
 
 header h1{
@@ -140,6 +141,7 @@ header h2{
 section#main{
   margin:20px auto 0 auto;
   width:960px;
+  display:block;
 }
 
 hr.bottom_shadow{
@@ -193,6 +195,7 @@ footer{
   color:#a8cbcf;
   font-weight:300;
   line-height:28px;
+  display:block;
 }
 
 footer a{
