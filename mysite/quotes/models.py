@@ -39,6 +39,18 @@ class Quote(models.Model):
     def get_absolute_url(self):
       return reverse('quotes.views.detail', kwargs={'slug': self.slug})
 
+    def get_html_title(self):
+      title = "Programming quote by "
+      authors = self.authors.all()
+      last = ""
+      for last in authors:
+        pass
+      for author in authors:
+        title += author.name 
+        if author != last:
+          title += ", "
+      return title
+
 # signals
 from django.db.models import signals
 from django.template.defaultfilters import slugify

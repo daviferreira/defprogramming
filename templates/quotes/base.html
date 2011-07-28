@@ -3,8 +3,8 @@
 <html xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/">
   <head>
     <meta charset="utf-8" />
-    <title>{% if quote %}Quote by {% for author in quote.authors.all %}{{ author.name }}{% if not forloop.last %} and {% endif %}{% endfor %}{% else %}def programming: quotes about coding{% endif %}</title>
-    <meta description="{% if quote %}{{ quote.body }}{% else %}Quotes about programming, coding, computer science, debugging.{% endif %}" />
+    <title>{{ title }}</title>
+    <meta description="{{ description }}" />
     <link type="text/css" href="/static/style.css" rel="stylesheet" /> 
     <link href="http://fonts.googleapis.com/css?family=Brawler&v1" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
