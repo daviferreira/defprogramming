@@ -1,10 +1,20 @@
 from django.conf.urls.defaults import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
+from django.contrib.sitemaps import FlatPageSitemap, GenericSitemap
+from quotes.models import Quote
 admin.autodiscover()
 
 from quotes.feeds import LatestEntriesFeed
-from site_sitemaps.models import QuotesSitemap
+
+info_dict = {
+  'queryset': Quote.objects.all(),
+  'date_field': 'publish_date'
+}
+
+sitemaps = {
+  'quotes': GenericSitemap(info_dict, changefreq = 'never', priority=0.6)    
+}
 
 urlpatterns = patterns('quotes.views',
     (r'^quotes/$', 'index'),
@@ -17,7 +27,6 @@ urlpatterns = patterns('quotes.views',
     (r'^tag/(?P<slug>[\w_-]+)/$', 'tag_detail'),
     (r'^tag/(?P<tag_id>\d+)/$', 'tag_detail'),
     (r'^random/?$', 'random'),
-    #(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': QuotesSitemap}),
     (r'^$', 'index'),
 )
 
@@ -27,6 +36,7 @@ urlpatterns += patterns('quotes.feeds',
 
 urlpatterns += patterns('',
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap', {'sitemaps': sitemaps})
 )
 
 urlpatterns += staticfiles_urlpatterns()
