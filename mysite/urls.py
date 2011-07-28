@@ -2,18 +2,28 @@ from django.conf.urls.defaults import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.contrib import admin
 from django.contrib.sitemaps import FlatPageSitemap, GenericSitemap
-from quotes.models import Quote
+from quotes.models import Quote, Author, Tag
 admin.autodiscover()
 
 from quotes.feeds import LatestEntriesFeed
 
-info_dict = {
+quotes = {
   'queryset': Quote.objects.all(),
   'date_field': 'publish_date'
 }
 
+authors = {
+  'queryset': Author.objects.all()    
+}
+
+tags = {
+  'queryset': Tag.objects.all()    
+}
+
 sitemaps = {
-  'quotes': GenericSitemap(info_dict, changefreq = 'never', priority=0.6)    
+  'quotes': GenericSitemap(quotes, changefreq = 'weekly', priority=0.6),
+  'authors': GenericSitemap(authors, changefreq = 'weekly', priority=0.6),
+  'tags': GenericSitemap(tags, changefreq = 'weekly', priority=0.6),
 }
 
 urlpatterns = patterns('quotes.views',
