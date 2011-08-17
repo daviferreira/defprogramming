@@ -25,17 +25,17 @@
 ## TEMPLATE FOR USE IN PRODUCTION ##
 ####################################
 
-DEBUG = False
-TEMPLATE_DEBUG = DEBUG
+#DEBUG = False
+#TEMPLATE_DEBUG = DEBUG
 
-ADMINS = (('root', 'root@localhost'),)
-MANAGERS = ADMINS
-SERVER_EMAIL = 'root@localhost'
-DEFAULT_FROM_EMAIL = 'noreply@localhost'
-SEND_BROKEN_LINK_EMAILS = False 
+#ADMINS = (('root', 'root@localhost'),)
+#MANAGERS = ADMINS
+#SERVER_EMAIL = 'root@localhost'
+#DEFAULT_FROM_EMAIL = 'noreply@localhost'
+#SEND_BROKEN_LINK_EMAILS = False 
 
-EMAIL_HOST = 'smtp.otherhost.net'
-INTERNAL_IPS = ('127.0.0.1',)
+#EMAIL_HOST = 'smtp.otherhost.net'
+#INTERNAL_IPS = ('127.0.0.1',)
 
 #DATABASE_ENGINE = 'mysql'          # 'postgresql_psycopg2', 'postgresql',
                                     # 'mysql', 'sqlite3' or 'ado_mssql'.
@@ -45,7 +45,7 @@ INTERNAL_IPS = ('127.0.0.1',)
 #DATABASE_HOST = 'localhost'        # not used with SQLite
 #DATABASE_PORT = ''                 # Empty for default. Not used with SQLite.
 
-SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+#SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 #CACHE_BACKEND = 'file:///var/tmp/djangobrasil_cache'
 
@@ -54,7 +54,7 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # Used to provide a seed in secret-key hashing algorithms. Set this to
 # a random string - the longer, the better.
-SECRET_KEY = 'secret'
+#SECRET_KEY = 'secret'
 
 #AKISMET_API_KEY = ''
 #GOOGLE_WEBTOOLS_CODE = ''
