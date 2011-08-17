@@ -54,9 +54,7 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 # Used to provide a seed in secret-key hashing algorithms. Set this to
 # a random string - the longer, the better.
-SECRET_KEY = '385994e81b044c7d553681dd8614515aae38eb983a3c34e9489cf89e40ad21a4c2ac37f0c7b62023'
-
-ADMIN_MEDIA_PREFIX = '/static/admin/'
+SECRET_KEY = 'secret'
 
 #AKISMET_API_KEY = ''
 #GOOGLE_WEBTOOLS_CODE = ''
