@@ -1,4 +1,4 @@
-# Django settings for mysite project.
+# Django settings for defprogramming project.
 import os
 BASEDIR = os.path.abspath(os.path.dirname(__file__) + '/../')
 ADMINS = () 
@@ -49,7 +49,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'mysite.urls'
+ROOT_URLCONF = 'defprogramming.urls'
 
 TEMPLATE_DIRS = (
     os.path.join(BASEDIR, 'templates/'),
