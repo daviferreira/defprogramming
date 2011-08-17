@@ -25,17 +25,17 @@
 ## TEMPLATE FOR USE IN PRODUCTION ##
 ####################################
 
-#DEBUG = False
-#TEMPLATE_DEBUG = DEBUG
+DEBUG = False
+TEMPLATE_DEBUG = DEBUG
 
-#ADMINS = (('root', 'root@localhost'),)
-#MANAGERS = ADMINS
-#SERVER_EMAIL = 'root@localhost'
-#DEFAULT_FROM_EMAIL = 'noreply@localhost'
-#SEND_BROKEN_LINK_EMAILS = True
+ADMINS = (('root', 'root@localhost'),)
+MANAGERS = ADMINS
+SERVER_EMAIL = 'root@localhost'
+DEFAULT_FROM_EMAIL = 'noreply@localhost'
+SEND_BROKEN_LINK_EMAILS = False 
 
-#EMAIL_HOST = 'smtp.otherhost.net'
-#INTERNAL_IPS = ('127.0.0.1',)
+EMAIL_HOST = 'smtp.otherhost.net'
+INTERNAL_IPS = ('127.0.0.1',)
 
 #DATABASE_ENGINE = 'mysql'          # 'postgresql_psycopg2', 'postgresql',
                                     # 'mysql', 'sqlite3' or 'ado_mssql'.
@@ -45,7 +45,7 @@
 #DATABASE_HOST = 'localhost'        # not used with SQLite
 #DATABASE_PORT = ''                 # Empty for default. Not used with SQLite.
 
-#SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 #CACHE_BACKEND = 'file:///var/tmp/djangobrasil_cache'
 
@@ -54,7 +54,9 @@
 
 # Used to provide a seed in secret-key hashing algorithms. Set this to
 # a random string - the longer, the better.
-#SECRET_KEY = 'random-ascii-string'
+SECRET_KEY = '385994e81b044c7d553681dd8614515aae38eb983a3c34e9489cf89e40ad21a4c2ac37f0c7b62023'
+
+ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 #AKISMET_API_KEY = ''
 #GOOGLE_WEBTOOLS_CODE = ''
