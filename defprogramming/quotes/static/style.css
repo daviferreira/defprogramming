@@ -96,7 +96,8 @@ table {
 -------------------------------------------------------------- */
 
 body{
-  background-color:#eff8f9;
+  /*background-color:#eff8f9;*/
+  background:#fff url("bg.png") 0 0 repeat;
   font-family: "Brawler", arial, serif;
 }
 
@@ -156,7 +157,7 @@ div.box{
   padding:40px;
   background-color:#fff;
   border-top:1px solid #e4eff0;
-  border-bottom:1px solid #a8cbcf;
+  border-bottom:1px solid #ccc;
   margin:0 0 20px 0;
 }
 
@@ -192,16 +193,16 @@ footer{
   text-align:center;
   font-size:14px;
   letter-spacing:-0.4px;
-  color:#a8cbcf;
+  color:#ccc;
   font-weight:300;
   line-height:28px;
   display:block;
 }
 
 footer a{
-  color:#a8cbcf;
+  color:#ccc;
   text-decoration:none;
-  border-bottom:1px dotted #a8cbcf;
+  border-bottom:1px dotted #ccc;
   margin:0 6px;
 }
 
