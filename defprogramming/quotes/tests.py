@@ -1,6 +1,7 @@
 from datetime import datetime
 from django.test import TestCase
 from django.test.client import Client
+from lxml import html
 from quotes.models import Author, Tag, Quote
 
 class TestQuote(TestCase):
@@ -33,3 +34,17 @@ class TestQuote(TestCase):
   def testTagsPage(self):
     response = self.client.get('/tags/')
     self.failUnlessEqual(response.status_code, 200)
+
+  def testIndexPageShouldHaveTheRightTitle(self):
+    response = self.client.get('/')
+    dom = html.fromstring(response.content)
+    assert dom.cssselect('h1 a')[0].text, "def programming:"
+
+  def testIndexPageShouldListQuotes(self):
+    pass
+
+  def testIndexPageShouldShowMenu(self):
+    pass
+
+  def testeIndexPageShouldShowPagination(self):
+    pass
