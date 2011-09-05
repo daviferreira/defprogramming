@@ -193,16 +193,16 @@ footer{
   text-align:center;
   font-size:14px;
   letter-spacing:-0.4px;
-  color:#ccc;
+  color:#999;
   font-weight:300;
   line-height:28px;
   display:block;
 }
 
 footer a{
-  color:#ccc;
+  color:#666;
   text-decoration:none;
-  border-bottom:1px dotted #ccc;
+  border-bottom:1px dotted #666;
   margin:0 6px;
 }
 
