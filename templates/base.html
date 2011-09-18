@@ -5,17 +5,17 @@
     <meta charset="utf-8" />
     <title>{{ title }}</title>
     <meta description="{{ description }}" />
-    <link type="text/css" href="/static/style.css" rel="stylesheet" /> 
+    <link type="text/css" href="{{ MEDIA_URL }}style.css" rel="stylesheet" /> 
     <link href="http://fonts.googleapis.com/css?family=Brawler&v1" rel="stylesheet" type="text/css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-    <script type="text/javascript" src="/static/modernizr.js"></script>
+    <script type="text/javascript" src="{{ MEDIA_URL }}modernizr.js"></script>
     {% if quote %} 
     <meta property="og:title" content="Quote by {% for author in quote.authors.all %}{{ author.name }}{% if not forloop.last %} and {% endif %}{% endfor %}" />
     <meta property="og:description" content="{{ quote.body }}"/>
     <meta property="og:type" content="blog"/>
     <meta property="og:url" content="http://www.defprogramming.com{{ quote.get_absolute_url }}"/>
-    <meta property="og:image" content="http://defprogramming.com/static/quote.gif" />
+    <meta property="og:image" content="http://defprogramming.com{{ MEDIA_URL }}quote.gif" />
     <meta property="og:site_name" content="def programming: quotes about coding"/>
     <meta property="fb:admins" content="100002463252759" />
     {% endif %}
@@ -30,7 +30,7 @@
       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
     </script>
-		<link rel="shortcut icon" href="/static/favicon.png" />
+		<link rel="shortcut icon" href="{{ MEDIA_URL }}favicon.png" />
   </head>
   <body>
     
@@ -39,8 +39,12 @@
   </section>
 
   <footer>
-    <p><a href="/">Home</a> | <a href="/random">Random Quote</a> | <a href="/authors/">Authors</a> | <a href="/tags/">Tags</a> | <a href="/feed/">Feed</a><br />
-    Developed with <a href="https://www.djangoproject.com">&hearts;</a> by <a href="http://about.me/daviferreira">Davi Ferreira</a>.</p>
+    <p>
+      <span class="menu">
+        <a href="/">Home</a> | <a href="/random">Random Quote</a> | <a href="/authors/">Authors</a> | <a href="/tags/">Tags</a> | <a href="/feed/">Feed</a>
+      </span>
+      Developed with <a href="https://www.djangoproject.com">&hearts;</a> by <a href="http://www.twitter.com/davitferreira">Davi Ferreira</a>.
+    </p>
   </footer>
     
   <div id="fb-root"></div>

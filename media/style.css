@@ -199,6 +199,10 @@ footer{
   display:block;
 }
 
+footer span.menu{
+  display:block;
+}
+
 footer a{
   color:#666;
   text-decoration:none;
