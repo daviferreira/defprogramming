@@ -10,6 +10,26 @@ def create_test_quote():
   quote.tags.create(name='Tag 1')
   quote.tags.create(name='Tag 2')
   return quote
+  
+def create_test_author():
+  name = 'Author'
+  author = Author.objects.create(name=name)
+  now = datetime.now()
+  for i in xrange(10):
+    body = 'Test quote %d' % i
+    quote = Quote.objects.create(body=body, publish_date=now)
+    quote.authors.add(author)
+  return author
+
+def create_test_tag():
+  name = 'Tag'
+  tag = Tag.objects.create(name=name)
+  now = datetime.now()
+  for i in xrange(10):
+    body = 'Test quote %d' % i
+    quote = Quote.objects.create(body=body, publish_date=now)
+    quote.tags.add(tag)
+  return tag
 
 def create_multiple_test_quotes(ammount=100):
   quotes = []

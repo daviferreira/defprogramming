@@ -3,7 +3,7 @@ from django.test.client import Client
 from lxml import html
 from utils import *
 
-class TestIndexPage(TestCase):
+class TestHomePage(TestCase):
 
   def setUp(self):
     self.client = Client()
@@ -20,15 +20,15 @@ class TestIndexPage(TestCase):
     response = self.client.get('/')
     self.dom = html.fromstring(response.content)
 
-  def testIndexPageResponse(self):
+  def testHomePageResponse(self):
     response = self.client.get('/')
     self.failUnlessEqual(response.status_code, 200)
 
-  def testIndexPageShouldHaveTheRightTitle(self):
+  def testHomePageShouldHaveTheRightTitle(self):
     self.__load_dom()
     assert self.dom.cssselect('h1 a')[0].text, 'def programming:'
 
-  def testIndexPageShouldListQuotes(self):
+  def testHomePageShouldListQuotes(self):
     self.__load_dom()
     assert len(self.dom.cssselect('div.box')), 1
     assert self.dom.cssselect('div.box cite')[0].text, 'Test quote'
@@ -36,7 +36,7 @@ class TestIndexPage(TestCase):
     assert self.dom.cssselect('div.box li.tags')[0].text, 'tagged under Tag 1, Tag 2'
     assert self.dom.cssselect('div.box cite a')[0].attrib['href'], '/quote/test-quote/'
 
-  def testIndexPageShouldShowMenu(self):
+  def testHomePageShouldShowMenu(self):
     self.__load_dom()
     menu_links = self.dom.cssselect('footer p span.menu a')
     assert len(menu_links), 6 
@@ -53,7 +53,7 @@ class TestIndexPage(TestCase):
     assert menu_links[5].text, 'Submit Quote'
     assert menu_links[5].attrib['href'], '/submit'
 
-  def testeIndexPageShouldShowPagination(self):
+  def testHomePageShouldShowPagination(self):
     self.quotes = create_multiple_test_quotes()
     self.__load_dom()
     assert len(self.dom.cssselect('div.pagination')), 1

@@ -26,11 +26,11 @@ def authors(request):
   return render_to_response('quotes/authors.html', locals(), context_instance=RequestContext(request))
 
 def author_detail(request, slug):
-  a = get_object_or_404(Author, slug=slug)
-  quotes = a.quote_set.all().order_by('-publish_date')
+  author = get_object_or_404(Author, slug=slug)
+  quotes = author.quote_set.all().order_by('-publish_date')
   quotes = validates_pagination(request, Paginator(quotes, 10))  
-  title = "Programming quotes by " + a.name + " | def programming"
-  description = "Listing all programming quotes by " + a.name + ". Quotes about programming, coding, software industry." 
+  title = "Programming quotes by " + author.name + " | def programming"
+  description = "Listing all programming quotes by " + author.name + ". Quotes about programming, coding, software industry." 
   return render_to_response('quotes/author_detail.html', locals(), context_instance=RequestContext(request))
 
 def tags(request):
@@ -40,11 +40,11 @@ def tags(request):
   return render_to_response('quotes/tags.html', locals(), context_instance=RequestContext(request))
 
 def tag_detail(request, slug):
-  t = get_object_or_404(Tag, slug=slug)
-  quotes = t.quote_set.all().order_by('-publish_date')
+  tag = get_object_or_404(Tag, slug=slug)
+  quotes = tag.quote_set.all().order_by('-publish_date')
   quotes = validates_pagination(request, Paginator(quotes, 10))  
-  title = "Programming quotes tagged under " + t.name + " | def programming"
-  description = "Listing all programming quotes tagged under " + t.name + ". Quotes about programming, coding, software industry." 
+  title = "Programming quotes tagged under " + tag.name + " | def programming"
+  description = "Listing all programming quotes tagged under " + tag.name + ". Quotes about programming, coding, software industry." 
 
   return render_to_response('quotes/tag_detail.html', locals(), context_instance=RequestContext(request))
   
