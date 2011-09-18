@@ -7,24 +7,27 @@ from quotes.models import Author, Tag, Quote
 class TestQuote(TestCase):
 
   def setUp(self):
+    self.quote = create_test_quote()
+
+  def tearDown(self):
+    self.quote = ''
+
+  def testModels(self):
+    self.assertEqual(self.quote.authors.all().count(), 2)
+    self.assertEqual(self.quote.tags.all().count(), 2)
+
+class TestIndexPage(TestCase):
+
+  def setUp(self):
     self.client = Client()
-    body = 'Test quote'
-    now = datetime.now()
-    self.quote = Quote.objects.create(body=body, publish_date=now)
-    self.quote.authors.create(name='Author 1')
-    self.quote.authors.create(name='Author 2')
-    self.quote.tags.create(name='Tag 1')
-    self.quote.tags.create(name='Tag 2')
+    self.quote = create_test_quote()
     self.dom = '' 
     self.quotes = []
 
   def tearDown(self):
+    self.quote = ''
     self.dom = ''
     self.quotes = []
-
-  def test_models(self):
-    self.assertEqual(self.quote.authors.all().count(), 2)
-    self.assertEqual(self.quote.tags.all().count(), 2)
 
   def testIndexPage(self):
     response = self.client.get('/')
@@ -66,9 +69,8 @@ class TestQuote(TestCase):
     assert menu_links[5].text, 'Submit Quote'
     assert menu_links[5].attrib['href'], '/submit'
 
-
   def testeIndexPageShouldShowPagination(self):
-    self.__mock_quotes()
+    self.quotes = create_multiple_test_quotes()
     self.__load_dom()
     assert len(self.dom.cssselect('div.pagination')), 1
 
@@ -76,14 +78,25 @@ class TestQuote(TestCase):
     response = self.client.get('/')
     self.dom = html.fromstring(response.content)
 
-  def __mock_quotes(self):
-    for i in xrange(100):
-      body = 'Test quote %d' % i
-      now = datetime.now()
-      quote = Quote.objects.create(body=body, publish_date=now)
-      quote.authors.create(name='Author 1')
-      quote.authors.create(name='Author 2')
-      quote.tags.create(name='Tag 1')
-      quote.tags.create(name='Tag 2')
-      self.quotes.append(quote)
- 
+def create_test_quote():
+  body = 'Test quote'
+  now = datetime.now()
+  quote = Quote.objects.create(body=body, publish_date=now)
+  quote.authors.create(name='Author 1')
+  quote.authors.create(name='Author 2')
+  quote.tags.create(name='Tag 1')
+  quote.tags.create(name='Tag 2')
+  return quote
+
+def create_multiple_test_quotes(ammount = 100):
+  quotes = []
+  for i in xrange(ammount):
+    body = 'Test quote %d' % i
+    now = datetime.now()
+    quote = Quote.objects.create(body=body, publish_date=now)
+    quote.authors.create(name='Author 1')
+    quote.authors.create(name='Author 2')
+    quote.tags.create(name='Tag 1')
+    quote.tags.create(name='Tag 2')
+    quotes.append(quote)
+  return quotes
