@@ -3,10 +3,11 @@ from django.shortcuts import render_to_response, get_object_or_404
 from quotes.models import Author, Tag, Quote
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django import forms
 
 def index(request):
   quotes = Quote.objects.all().order_by('-publish_date')
-  quotes = validates_pagination(request, Paginator(quotes, 10))
+  quotes = __validates_pagination(request, Paginator(quotes, 10))
   title = "def programming: quotes about coding"
   description = "Quotes about programming, coding, computer science, debugging, software industry, startups and motivation." 
   return render_to_response('quotes/index.html', locals(), context_instance=RequestContext(request))
@@ -28,7 +29,7 @@ def authors(request):
 def author_detail(request, slug):
   author = get_object_or_404(Author, slug=slug)
   quotes = author.quote_set.all().order_by('-publish_date')
-  quotes = validates_pagination(request, Paginator(quotes, 10))  
+  quotes = __validates_pagination(request, Paginator(quotes, 10))  
   title = "Programming quotes by " + author.name + " | def programming"
   description = "Listing all programming quotes by " + author.name + ". Quotes about programming, coding, software industry." 
   return render_to_response('quotes/author_detail.html', locals(), context_instance=RequestContext(request))
@@ -42,13 +43,37 @@ def tags(request):
 def tag_detail(request, slug):
   tag = get_object_or_404(Tag, slug=slug)
   quotes = tag.quote_set.all().order_by('-publish_date')
-  quotes = validates_pagination(request, Paginator(quotes, 10))  
+  quotes = __validates_pagination(request, Paginator(quotes, 10))  
   title = "Programming quotes tagged under " + tag.name + " | def programming"
   description = "Listing all programming quotes tagged under " + tag.name + ". Quotes about programming, coding, software industry." 
 
   return render_to_response('quotes/tag_detail.html', locals(), context_instance=RequestContext(request))
+
+class QuoteForm(forms.Form):
+  name = forms.CharField(label='Your name', max_length=50)
+  email = forms.EmailField(label='Your e-mail')
+  quote = forms.Field(label='Quote', widget=forms.Textarea)
+  authors = forms.CharField(label='Author(s)')
+  source = forms.CharField(label='Source (website, book etc.)')
+
+def submit_quote(request):
+  title = "Submit a quote | def programming"
+  description = "Use this form to submit a quote. Please send only quotes about programming, coding, software industry." 
+  sent = False
+
+  if request.method == 'POST':
+    form = QuoteForm(request.POST)
+
+    if form.is_valid():
+      #send mail
+      sent = True 
+
+  else:
+    form = QuoteForm()
+
+  return render_to_response('quotes/submit_quote.html', locals(), context_instance=RequestContext(request))
   
-def validates_pagination(request, paginator):
+def __validates_pagination(request, paginator):
   page = request.GET.get('page') or 1
   try:
     return paginator.page(page)

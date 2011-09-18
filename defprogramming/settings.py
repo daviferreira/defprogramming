@@ -66,6 +66,7 @@ INSTALLED_APPS = (
     'django.contrib.syndication',
     'django.contrib.flatpages',
     'django.contrib.sitemaps',
+    'south',
     'quotes',
 )
 

@@ -31,6 +31,7 @@ class Quote(models.Model):
     tags = models.ManyToManyField(Tag, blank=True, null=True)
     slug = models.SlugField(max_length=100, blank=True)
     publish_date = models.DateTimeField(default=datetime.now)
+    source = models.TextField(null=True, blank=True)
     ordering = ['-publish_date']
     
     def __unicode__(self):

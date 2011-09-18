@@ -38,6 +38,7 @@ urlpatterns = patterns('quotes.views',
     (r'^tag/(?P<slug>[\w_-]+)/$', 'tag_detail'),
     (r'^tag/(?P<tag_id>\d+)/$', 'tag_detail'),
     (r'^random/?$', 'random'),
+    (r'^submit/?$', 'submit_quote'),
     (r'^$', 'index'),
 )
 

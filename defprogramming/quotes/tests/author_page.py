@@ -3,7 +3,7 @@ from django.test.client import Client
 from lxml import html
 from utils import *
 
-class testAuthorPage(TestCase):
+class test_author_page(TestCase):
 
   def setUp(self):
     self.client = Client()
@@ -30,7 +30,7 @@ class testAuthorPage(TestCase):
     self.__load_dom()
     assert len(self.dom.cssselect('div.box')), 10
     
-  def testAuthorPageShouldHaveLinkToGoBackToTheHomePage(self):
+  def testAuthorPageShouldHaveALinkToGoBackToTheHomePage(self):
     self.__load_dom()
     home_link = self.dom.cssselect('p.back a')
     assert len(home_link), 1
