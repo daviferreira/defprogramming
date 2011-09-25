@@ -53,7 +53,8 @@ class QuoteForm(forms.Form):
   name = forms.CharField(label='Your name', max_length=50)
   email = forms.EmailField(label='Your e-mail')
   quote = forms.Field(label='Quote', widget=forms.Textarea)
-  authors = forms.CharField(label='Author(s)')
+  authors = forms.CharField(label='Authors, separated by commas')
+  tags = forms.CharField(label='Tags, separated by commas')
   source = forms.CharField(label='Source (website, book etc.)')
 
 def submit_quote(request):
@@ -65,7 +66,7 @@ def submit_quote(request):
     form = QuoteForm(request.POST)
 
     if form.is_valid():
-      #send mail
+      #form.save();
       sent = True 
 
   else:

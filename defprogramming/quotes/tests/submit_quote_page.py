@@ -20,7 +20,7 @@ class testSubmitQuotePage(TestCase):
   
   def testSubmitQuotePageResponse(self):
     response = self.client.get('/submit/')
-    self.failUnlessEqual(response.status_code, 200)
+    assert response.status_code, 200
     
   def testSubmitQuotePageShouldHaveTheRightTitle(self):
     self.__load_dom()
@@ -42,5 +42,41 @@ class testSubmitQuotePage(TestCase):
     assert len(self.dom.cssselect('div.box form input[type="text"][name="email"]')), 1
     assert len(self.dom.cssselect('div.box form input[type="text"][name="source"]')), 1
     assert len(self.dom.cssselect('div.box form input[type="text"][name="authors"]')), 1
+    assert len(self.dom.cssselect('div.box form input[type="text"][name="tags"]')), 1
     assert len(self.dom.cssselect('div.box form textarea[name="quote"]')), 1
     assert len(self.dom.cssselect('div.box form input[type="submit"]')), 1
+
+  def testUserShouldBeAbleToSubmitQuoteWithPOST(self):
+    self.__load_dom()
+    response = self.client.post('/submit/')
+    assert response.status_code, 200
+
+  def testFormSubmittedWithInvalidDataShouldDisplayErrors(self):
+    response = self.client.post('/submit/')
+    self.dom = html.fromstring(response.content)
+    assert len(self.dom.cssselect('ul.errorlist')), 6
+
+  def testFormSubmittedWithInvalidEmailShouldDisplayError(self):
+    response = self.client.post('/submit/', {'name': 'Foo Bar',
+                                             'email': 'invalid e-mail',
+                                             'quote': 'This is a test quote',
+                                             'authors': 'Author 1',
+                                             'tags': 'Tag 1',
+                                             'source': 'www.defprogramming.com', })
+    self.dom = html.fromstring(response.content)
+    errorlist = self.dom.cssselect('ul.errorlist li')
+    assert len(errorlist), 1
+    assert errorlist[0].text, 'Enter a valid e-mail address.'
+
+  def testFormSubmittedWithValidDataShouldDisplaySuccessMessage(self):
+    response = self.client.post('/submit/', {'name': 'Foo Bar',
+                                             'email': 'foo@bar.com',
+                                             'quote': 'This is a test quote',
+                                             'authors': 'Author 1',
+                                             'tags': 'Tag 1',
+                                             'source': 'www.defprogramming.com', })
+    self.dom = html.fromstring(response.content)
+    assert self.dom.cssselect('p.success')[0].text, 'Your quote was successfully submitted, thank you! :-)'
+
+  def testFormSubmittedWithValidDataShouldSaveQuoteAsPending(self):
+    pass
