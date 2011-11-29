@@ -8,8 +8,6 @@
     <link rel="alternate" type="application/atom+xml" title="def programming: recent quotes" href="/feed/" />
     <link type="text/css" href="{{ MEDIA_URL }}style.css" rel="stylesheet" /> 
     <link href="http://fonts.googleapis.com/css?family=Brawler&v1" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
     <script type="text/javascript" src="{{ MEDIA_URL }}modernizr.js"></script>
     {% if quote %} 
     <meta property="og:title" content="Quote by {% for author in quote.authors.all %}{{ author.name }}{% if not forloop.last %} and {% endif %}{% endfor %}" />
@@ -47,32 +45,5 @@
       Developed with <a href="https://www.djangoproject.com">&hearts;</a> by <a href="http://www.twitter.com/davitferreira">Davi Ferreira</a>.
     </p>
   </footer>
-    
-  <div id="fb-root"></div>
-	<script type="text/javascript"> 
-		window.fbAsyncInit = function() {
-			FB.init({appId: '236133366405921', status: true, cookie: true,xfbml: true});
-			FB.Event.subscribe('edge.create', function(url) {
-			  _gaq.push(['_trackSocial', 'facebook', 'like', url]);
-			});
-			FB.Event.subscribe('edge.remove', function(url) {
-			  _gaq.push(['_trackSocial', 'facebook', 'unlike', url]);
-			});
-		};
-		(function() {
-			var e = document.createElement('script'); e.async = true;
-			e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
-			document.getElementById('fb-root').appendChild(e);
-		}());
-	</script>  
-	<script type="text/javascript">
-  var disqus_shortname = 'defprogramming';
-  (function () {
-      var s = document.createElement('script'); s.async = true;
-      s.type = 'text/javascript';
-      s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-  }());
-  </script>
   </body>
   </html>
