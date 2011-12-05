@@ -51,6 +51,14 @@
         document.getElementById('fb-root').appendChild(e);
     }());
 
+  var disqus_shortname = 'defprogramming';
+  (function () {
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+  }());
+
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-24367248-1']);
     _gaq.push(['_trackPageview']);
