@@ -241,6 +241,7 @@ div.pagination a{
 ul.share{
   border-top:1px solid #f2f2f2;
   margin:20px 0 0;
+  display:none;
 }
 
 ul.share li.tags, ul.share li.comments{

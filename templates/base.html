@@ -34,40 +34,8 @@
     </p>
   </footer>
   <div id="fb-root"></div>
-  <script type="text/javascript" src="{{ MEDIA_URL }}modernizr.js"></script>
-  <script type="text/javascript">
-    window.fbAsyncInit = function() {
-        FB.init({appId: '236133366405921', status: true, cookie: true,xfbml: true});
-        FB.Event.subscribe('edge.create', function(url) {
-            _gaq.push(['_trackSocial', 'facebook', 'like', url]);
-        });
-        FB.Event.subscribe('edge.remove', function(url) {
-            _gaq.push(['_trackSocial', 'facebook', 'unlike', url]);
-        });
-    };
-    (function() {
-        var e = document.createElement('script'); e.async = true;
-        e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
-        document.getElementById('fb-root').appendChild(e);
-    }());
-
-  var disqus_shortname = 'defprogramming';
-  (function () {
-      var s = document.createElement('script'); s.async = true;
-      s.type = 'text/javascript';
-      s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-  }());
-
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-24367248-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
+  <script src="{{ MEDIA_URL }}modernizr.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <script>window.fbAsyncInit=function(){FB.init({appId:"236133366405921",status:true,cookie:true,xfbml:true});FB.Event.subscribe("edge.create",function(a){_gaq.push(["_trackSocial","facebook","like",a])});FB.Event.subscribe("edge.remove",function(a){_gaq.push(["_trackSocial","facebook","unlike",a])})};(function(){var a=document.createElement("script");a.async=true;a.src=document.location.protocol+"//connect.facebook.net/en_US/all.js";document.getElementById("fb-root").appendChild(a)})();var disqus_shortname="defprogramming";(function(){var a=document.createElement("script");a.async=true;a.type="text/javascript";a.src="http://"+disqus_shortname+".disqus.com/count.js";$('ul.share').fadeIn();(document.getElementsByTagName("HEAD")[0]||document.getElementsByTagName("BODY")[0]).appendChild(a)})();var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-24367248-1"]);_gaq.push(["_trackPageview"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=true;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})()</script>
   </body>
   </html>
