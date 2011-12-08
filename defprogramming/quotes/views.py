@@ -1,9 +1,9 @@
 from django.template import Context, loader, RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
 from quotes.models import Author, Tag, Quote
+from quotes.forms import QuoteForm
 from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django import forms
 
 def index(request):
   quotes = Quote.objects.all().order_by('-publish_date')
@@ -49,14 +49,6 @@ def tag_detail(request, slug):
 
   return render_to_response('quotes/tag_detail.html', locals(), context_instance=RequestContext(request))
 
-class QuoteForm(forms.Form):
-  name = forms.CharField(label='Your name', max_length=50)
-  email = forms.EmailField(label='Your e-mail')
-  quote = forms.Field(label='Quote', widget=forms.Textarea)
-  authors = forms.CharField(label='Authors, separated by commas')
-  tags = forms.CharField(label='Tags, separated by commas')
-  source = forms.CharField(label='Source (website, book etc.)')
-
 def submit_quote(request):
   title = "Submit a quote | def programming"
   description = "Use this form to submit a quote. Please send only quotes about programming, coding, software industry." 
@@ -66,7 +58,7 @@ def submit_quote(request):
     form = QuoteForm(request.POST)
 
     if form.is_valid():
-      #form.save();
+      form.save(request.POST);
       sent = True 
 
   else:

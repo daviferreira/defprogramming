@@ -78,5 +78,11 @@ class testSubmitQuotePage(TestCase):
     self.dom = html.fromstring(response.content)
     assert self.dom.cssselect('p.success')[0].text, 'Your quote was successfully submitted, thank you! :-)'
 
-  def testFormSubmittedWithValidDataShouldSaveQuoteAsPending(self):
+  def testFormSubmittedWithValidDataShouldSendQuoteByEmail(self):
+    response = self.client.post('/submit/', {'name': 'Foo Bar',
+          'email': 'foo@bar.com',
+          'quote': 'This is a test quote',
+          'authors': 'Author 1',
+          'tags': 'Tag 1',
+          'source': 'www.defprogramming.com', })
     pass
