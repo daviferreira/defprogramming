@@ -5,3 +5,4 @@ public_html/*
 *~
 .DS_Store
 settings_local.py
+build/*
