@@ -3,8 +3,13 @@
 <html xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/">
   <head>
     <meta charset="utf-8" />
+    {% if quote %}
+    <title>Quote by {% for author in quote.authors.all %}{{ author.name }}{% if not forloop.last %} and {% endif %}{% endfor %}</title>
+    <meta description="{{ quote.body }}" />
+    {% else %}
     <title>{{ title }}</title>
     <meta description="{{ description }}" />
+    {% end %}
     <link rel="alternate" type="application/atom+xml" title="def programming: recent quotes" href="/feed/" />
     <link type="text/css" href="{{ MEDIA_URL }}style.css" rel="stylesheet" /> 
     <link href="http://fonts.googleapis.com/css?family=Brawler&v1" rel="stylesheet" type="text/css" />
