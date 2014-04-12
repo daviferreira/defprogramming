@@ -1,13 +1,13 @@
 # Django settings for defprogramming project.
 import os
-BASEDIR = os.path.abspath(os.path.dirname(__file__) + '/../')
-ADMINS = () 
+BASE_DIR = os.path.abspath(os.path.dirname(__file__) + '/../')
+ADMINS = ()
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASEDIR, 'db/development.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db/development.sqlite3'),
     }
 }
 
@@ -18,16 +18,13 @@ SITE_ID = 1
 USE_I18N = True
 USE_L10N = True
 
-MEDIA_ROOT = os.path.join(BASEDIR, 'media')
-MEDIA_URL = '/media/'
-
-STATIC_ROOT = ''
 
 STATIC_URL = '/static/'
-
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
-STATICFILES_DIRS = ()
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static"),
+)
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
@@ -52,7 +49,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'urls'
 
 TEMPLATE_DIRS = (
-    os.path.join(BASEDIR, 'templates/'),
+    os.path.join(BASE_DIR, 'templates/'),
 )
 
 INSTALLED_APPS = (
