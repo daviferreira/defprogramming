@@ -1,31 +1,25 @@
-<div class="box">
-	<cite>
-		<a href="{{ quote.get_absolute_url }}">{{ quote.body|safe|linebreaks }}</a>
-	</cite>
-	{% if not author %}
-    <p class="author">-- 
-    {% for author in quote.authors.all %}
-      <a href="{{ author.get_absolute_url }}">{{ author.name }}</a> 
-      {% if not forloop.last %} and {% endif %}
-    {% endfor %}
-    </p>
-  {% endif %}
-  
-  <ul class="share clearfix">
-    {% if quote.tags.all and not tag %}
-      <li class="tags">tagged under 
-      {% for tag in quote.tags.all %}
-        <a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
-      {%endfor %}
-      </li>
-    {% endif %}
-    <li class="comments"><a href="{{ quote.get_absolute_url }}#disqus_thread" data-disqus-identifier="quote_{{ quote.id }}">{{ quote.id }}</a></li>
-    <li><g:plusone href="http://www.defprogramming.com{{ quote.get_absolute_url }}" size="medium" action="like"></g:plusone></li>
-    <li>
-      <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-url="http://www.defprogramming.com{{ quote.get_absolute_url }}" data-text='{{ quote.body }}'>Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-    </li>
-    <li>
-      <fb:like href="http://www.defprogramming.com{{ quote.get_absolute_url }}" width="250" show_faces="false" font="" layout="button_count" action="like"></fb:like>
-    </li> 
-  </ul>
+{% load staticfiles %}
+<div class="quote-card">
+    <q>{{ quote.body|safe|linebreaks }}</q>
+    <div class="quote-card-actions">
+        <a href="#" class="heart"><i class="icon icon-heart"></i></a>
+        <a href="#"><i class="icon icon-share"></i></a>
+        <a href="#"><i class="icon icon-comments"></i></a>
+    </div>
+    <div class="quote-card-author">
+        <a href="#">
+            {% for author in quote.authors.all %}
+              <a href="{{ author.get_absolute_url }}">
+                  <img src="{% static 'img/atwood.jpg' %}" class="author-avatar">
+                  <p>{{ author.name }}</p>
+              </a>
+            {% endfor %}
+        </a>
+    </div>
+    <div class="quote-card-tags">
+        on
+        {% for tag in quote.tags.all %}
+            <a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+        {%endfor %}
+    </div>
 </div>

@@ -1,0 +1,87 @@
+.quote-cards-container {
+    position: relative;
+    column-count: 3;
+    column-gap: 2em;
+}
+
+.quote-card {
+    position: relative;
+    display: inline-block; // we need that to avoid chrome bug with columns alignment
+    margin-bottom: 2em;
+    padding: 4em 2em 2em;
+    width: 100%;
+    border: 1px solid darken($grey, 1);
+    border-radius: 4px;
+    background-color: lighten($grey, 2);
+    box-shadow: inset 0 0 1px #fff;
+    text-align: center;
+    font-weight: 700;
+    break-inside: avoid;
+    q {
+        position: relative;
+        display: block;
+        font-size: 1.7em;
+        line-height: 1.3;
+        &:before {
+            position: absolute;
+            top: -70px;
+            left: 50%;
+            overflow: hidden;
+            margin-left: -24px;
+            height: 60px;
+            color: lighten($primary, 47);
+            font-size: 4em;
+        }
+    }
+}
+
+.quote-card-actions {
+    font-size: 1.5em;
+    a {
+        margin-right: .5em;
+        color: lighten($primary, 47);
+        &:last-child {
+            margin-right: 0;
+        }
+        &:hover:not(.heart) {
+            color: $secondary;
+        }
+    }
+}
+
+.quote-card-author {
+    margin-top: 2em;
+    color: lighten($black, 50);
+    text-transform: uppercase;
+    font-weight: 700;
+    a {
+        display: inline-block;
+        margin: 0 auto;
+        color: lighten($black, 50);
+        &:hover {
+            color: $secondary;
+            .author-avatar {
+                border-color: $secondary;
+            }
+        }
+        .author-avatar {
+            transition: border-color .2s ease-in;
+            &:hover {
+                border-color: $secondary;
+            }
+        }
+    }
+    p {
+        margin: 0;
+        padding: .6em 0 0;
+    }
+}
+
+.quote-card-tags {
+    font-weight: 300;
+    color: lighten($primary, 35);
+}
+
+.ie10 .quote-card { // IE 10 Fix
+    width: 367px;
+}

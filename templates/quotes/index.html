@@ -1,16 +1,45 @@
 {% extends "base.html" %}
+
+{% load staticfiles %}
  
 {% block content %}
-  {% include "quotes/header.html" %}
-  {% if quotes %}
-    {% for quote in quotes.object_list %}
-  		{% include "quotes/quote.html" %}
-    {% endfor %}
-    
-    {% include "quotes/pagination.html" %}
-    
-  {% else %}
-  	<p>No quotes are available.</p>
-  {% endif %}
-  
-{% endblock %}  
+    <section class="quote-highlight">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 clearfix">
+                    <div class="quote-highlight-content">
+                        <q>
+                            Most software today is very much like an Egyptian pyramid with millions of bricks piled on top of each other, with no structural integrity, but just done by brute force and thousands of slaves.
+                        </q>
+                        <div class="quote-highlight-meta clearfix">
+                            <div class="quote-highlight-actions">
+                                <a href="#" class="heart"><i class="icon icon-heart"></i></a>
+                                <a href="#"><i class="icon icon-share"></i></a>
+                                <a href="#"><i class="icon icon-comments"></i></a>
+                            </div>
+                            <div class="quote-highlight-author clearfix">
+                                <img src="{% static 'img/atwood.jpg' %}" class="author-avatar">
+                                <span class="quote-highlight-author-name">Jeff Atwood</span>
+                                <span class="quote-highlight-tags">
+                                    on
+                                    <a href="#">programming</a>
+                                    and
+                                    <a href="#">productivity</a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </blockquote>
+    </section>
+    <section class="quotes">
+        <div class="container quote-cards-container">
+            {% if quotes %}
+                {% for quote in quotes.object_list %}
+                    {% include "quotes/quote.html" %}
+                {% endfor %}
+            {% endif %}
+        </div>
+    </section>
+{% endblock content %}

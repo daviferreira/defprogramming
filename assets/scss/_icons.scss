@@ -1,0 +1,65 @@
+@font-face {
+	font-family: "defprogramming";
+	src: url('../fonts/defprogramming.eot');
+	src: url('../fonts/defprogramming.eot?#iefix') format('eot'),
+		url('../fonts/defprogramming.woff') format('woff'),
+		url('../fonts/defprogramming.ttf') format('truetype'),
+		url('../fonts/defprogramming.svg#defprogramming') format('svg');
+}
+
+.icon:before {
+	font-family: "defprogramming";
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: normal;
+	/* speak: none; only necessary if not using the private unicode range (firstGlyph option) */
+	text-decoration: none;
+	text-transform: none;
+}
+
+
+.icon-comments:before {
+	content: "\E001";
+}
+
+.icon-facebook:before {
+	content: "\E002";
+}
+
+.icon-google-plus:before {
+	content: "\E003";
+}
+
+.icon-heart:before {
+	content: "\E004";
+}
+
+.icon-megaphone:before {
+	content: "\E005";
+}
+
+.icon-menu:before {
+	content: "\E006";
+}
+
+.icon-pinterest:before {
+	content: "\E007";
+}
+
+.icon-rss:before {
+	content: "\E008";
+}
+
+.icon-share:before {
+	content: "\E009";
+}
+
+.icon-tags:before {
+	content: "\E00A";
+}
+
+.icon-twitter:before {
+	content: "\E00B";
+}

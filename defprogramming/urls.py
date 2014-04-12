@@ -28,23 +28,23 @@ sitemaps = {
 }
 
 urlpatterns = patterns('quotes.views',
-    (r'^quotes/$', 'index'),
-    (r'^quote/(?P<slug>[\w_-]+)/$', 'detail'),
-    (r'^quote/(?P<quote_id>\d+)/$', 'detail'),
-    (r'^authors/$', 'authors'),
-    (r'^author/(?P<slug>[\w_-]+)/$', 'author_detail'),
-    (r'^author/(?P<author_id>\d+)/$', 'author_detail'),
-    (r'^tags/$', 'tags'),
-    (r'^tag/(?P<slug>[\w_-]+)/$', 'tag_detail'),
-    (r'^tag/(?P<tag_id>\d+)/$', 'tag_detail'),
-    (r'^random/?$', 'random'),
-    (r'^submit/?$', 'submit_quote'),
-    (r'^$', 'index'),
+    url(r'^quote/(?P<slug>[\w_-]+)/$', 'detail', name='quote'),
+    url(r'^quote/(?P<quote_id>\d+)/$', 'detail'),
+    #TODO: (r'^quote/(?P<quote_uuid>\d+)/$', 'detail'),
+    url(r'^authors/$', 'authors', name='authors'),
+    url(r'^author/(?P<slug>[\w_-]+)/$', 'author_detail', name='author'),
+    url(r'^author/(?P<author_id>\d+)/$', 'author_detail'),
+    url(r'^tags/$', 'tags', name='tags'),
+    url(r'^tag/(?P<slug>[\w_-]+)/$', 'tag_detail', name='tag'),
+    url(r'^tag/(?P<tag_id>\d+)/$', 'tag_detail'),
+    url(r'^random/$', 'random', name='random'),
+    url(r'^submit/$', 'submit_quote', name='submit'),
+    url(r'^$', 'index', name='root'),
 )
 
-urlpatterns += patterns('quotes.feeds',
-  (r'^feed/$', LatestEntriesFeed()),
-)
+urlpatterns += [
+  url(r'^feed/$', LatestEntriesFeed(), name='feed'),
+]
 
 urlpatterns += patterns('',
     (r'^admin/', include(admin.site.urls)),

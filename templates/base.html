@@ -1,42 +1,63 @@
 {% load staticfiles %}
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/">
-  <head>
-    <meta charset="utf-8" />
-    <title>{{ title }}</title>
-    <meta description="{{ description }}" />
-    <link rel="alternate" type="application/atom+xml" title="def programming: recent quotes" href="/feed/" />
-    <link type="text/css" href="{% static 'style.css' %}" rel="stylesheet" />
-    <link href="http://fonts.googleapis.com/css?family=Brawler&v1" rel="stylesheet" type="text/css" />
-    {% if quote %}
-    <meta property="og:title" content="Quote by {% for author in quote.authors.all %}{{ author.name }}{% if not forloop.last %} and {% endif %}{% endfor %}" />
-    <meta property="og:description" content="{{ quote.body }}"/>
-    <meta property="og:type" content="blog"/>
-    <meta property="og:url" content="http://www.defprogramming.com{{ quote.get_absolute_url }}"/>
-    <meta property="og:image" content="{% static 'quote.gif' %}" />
-    <meta property="og:site_name" content="def programming: quotes about coding"/>
-    <meta property="fb:admins" content="100002463252759" />
-    {% endif %}
-    <link rel="shortcut icon" href="{% static 'favicon.png' %}" />
-  </head>
-  <body>
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway:400,300,700">
+        <link rel="stylesheet" href="{% static 'css/defprogramming.min.css' %}">
+        <script src="{% static 'js/vendor/modernizr-2.6.2.min.js' %}"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
 
-  <section id="main">
-  {% block content %}{% endblock %}
-  </section>
-
-  <footer>
-    <p>
-      <span class="menu">
-        <a href="/">Home</a> | <a href="/random">Random Quote</a> | <a href="/authors/">Authors</a> | <a href="/tags/">Tags</a> | <a href="/feed/">Feed</a> | <a href="/submit/">Submit Quote</a>
-      </span>
-      Developed with <a href="https://www.djangoproject.com">&hearts;</a> by <a href="http://www.twitter.com/davitferreira">Davi Ferreira</a>.
-    </p>
-  </footer>
-  <div id="fb-root"></div>
-  <script src="{% static 'modernizr.js' %}"></script>
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script>window.fbAsyncInit=function(){FB.init({appId:"236133366405921",status:true,cookie:true,xfbml:true});FB.Event.subscribe("edge.create",function(a){_gaq.push(["_trackSocial","facebook","like",a])});FB.Event.subscribe("edge.remove",function(a){_gaq.push(["_trackSocial","facebook","unlike",a])})};(function(){var a=document.createElement("script");a.async=true;a.src=document.location.protocol+"//connect.facebook.net/en_US/all.js";document.getElementById("fb-root").appendChild(a)})();var disqus_shortname="defprogramming";(function(){var a=document.createElement("script");a.async=true;a.type="text/javascript";a.src="http://"+disqus_shortname+".disqus.com/count.js";$('ul.share').fadeIn();(document.getElementsByTagName("HEAD")[0]||document.getElementsByTagName("BODY")[0]).appendChild(a)})();var _gaq=_gaq||[];_gaq.push(["_setAccount","UA-24367248-1"]);_gaq.push(["_trackPageview"]);(function(){var a=document.createElement("script");a.type="text/javascript";a.async=true;a.src=("https:"==document.location.protocol?"https://ssl":"http://www")+".google-analytics.com/ga.js";var b=document.getElementsByTagName("script")[0];b.parentNode.insertBefore(a,b)})()</script>
-  </body>
-  </html>
+        <!-- Add your site or application content here -->
+        <header class="masthead clearfix">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h1><a href="{% url 'root' %}">def <strong>programming</strong></a><small>quotes about coding</small></h1>
+                    </div>
+                    <div class="col-md-6">
+                        <nav>
+                            <a href="{% url 'root' %}">Home</a>
+                            <a href="{% url 'authors' %}">Authors</a>
+                            <a href="{% url 'tags' %}">Tags</a>
+                            <a href="#">Slide Show</a>
+                            <a href="{% url 'random' %}">Random</a>
+                            <a href="{% url 'submit' %}" class="btn">Submit</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+        {% block content %}{% endblock %}
+        <footer>
+            <div class="container">
+                <div class="col-md-12">
+                    <p class="clearfix">
+                        <span>
+                            <a href="{% url 'feed' %}"><i class="icon icon-rss"></i> Feed</a>
+                        </span>
+                        Developed & curated with
+                        <a href="#" class="heart"><i class="icon icon-heart"></i></a>
+                        by <a href="http://www.daviferreira.com/en" target="_blank">Davi Ferreira</a>.
+                    </p>
+                    <p class="follow-twitter">
+                        <a href="http://www.twitter.com/davitferreira" target="_blank">
+                            <i class="icon icon-twitter"></i> <strong>Follow me on Twitter</strong>
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

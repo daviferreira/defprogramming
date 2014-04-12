@@ -6,3 +6,6 @@ public_html/*
 .DS_Store
 settings_local.py
 build/*
+node_modules/
+.sass-cache/
+npm-debug.log

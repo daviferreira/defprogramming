@@ -1,0 +1,65 @@
+.quote-highlight {
+    padding: 8em 0;
+    color: $black;
+    a:hover {
+        text-decoration: none;
+    }
+    q {
+        position: relative;
+        display: block;
+        margin-bottom: 1.5em;
+        padding: 0;
+        letter-spacing: -.035em;
+        font-weight: 700;
+        font-size: 3.65em;
+        line-height: 1.1;
+        &:before {
+            position: absolute;
+            top: -35px;
+            left: -90px;
+        }
+    }
+}
+
+.quote-highlight-meta {
+    display: block;
+    margin-top: 4em;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.quote-highlight-tags {
+    margin-top: .3em;
+    font-weight: 300;
+    i {
+        font-weight: 400;
+    }
+}
+
+.quote-highlight-actions {
+    float: right;
+    margin-top: .5em;
+    font-size: 2em;
+    a {
+        margin-right: 1em;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+}
+
+.quote-highlight-author {
+    img {
+        float: left;
+        margin-right: 1.3em;
+    }
+    span {
+        display: block;
+    }
+}
+
+.quote-highlight-author-name {
+    margin-top: .5em;
+    text-transform: uppercase;
+    font-size: 1.5em;
+}

@@ -1,0 +1,61 @@
+body {
+    background-color: $white;
+    font-family: $sans-serif;
+}
+
+a {
+    color: $primary;
+    transition: color .15s linear;
+    &:hover {
+        color: $secondary;
+        text-decoration: none;
+    }
+    &.heart:hover {
+        color: $red;
+    }
+}
+
+.author-avatar {
+    position: relative;
+    width: 4em;
+    height: 4em;
+    border: 1px solid lighten($primary, 30);
+    border-radius: 50%;
+}
+
+q {
+    &:before {
+        color: $grey;
+        content: '\201C';
+        font-size: 3em;
+        font-family: serif;
+    }
+    &:after {
+        content: '';
+    }
+}
+
+footer {
+    margin: 6em 0 0;
+    padding: 4em;
+    background-color: $black;
+    color: darken($grey, 20);
+    font-weight: 700;
+    span {
+        float: right;
+    }
+    .follow-twitter {
+        margin-top: 1em;
+        padding-top: 1em;
+        border-top: 1px dotted $primary;
+        a {
+            color: $secondary;
+            &:hover {
+                color: lighten($secondary, 10);
+            }
+        }
+        strong {
+            border-bottom: 1px solid $secondary;
+        }
+    }
+}

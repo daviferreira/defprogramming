@@ -1,0 +1,53 @@
+.masthead {
+    z-index: 15;
+    padding: 1.5em;
+    width: 100%;
+    border-bottom: 1px solid $grey;
+    background-color: $white;
+    h1 {
+        margin: 0;
+        color: $black;
+        letter-spacing: -.08em;
+        font-size: 2em;
+        small {
+            margin-left: 1em;
+            letter-spacing: -.05em;
+            color: $secondary;
+        }
+        a {
+            color: $black;
+            &:hover {
+                text-decoration: none;
+            }
+        }
+    }
+    nav {
+        float: right;
+        a {
+            display: inline-block;
+            margin-right: 1.2em;
+            color: $black;
+            text-align: right;
+            font-weight: 700;
+            line-height: 2;
+            &:hover {
+                color: $secondary;
+            }
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+        .btn {
+            padding: 0 1em;
+            border: 2px solid $black;
+            border-radius: 4px;
+            transition: border-color .2s ease-in,
+                        color .2s ease-in;
+            &:hover {
+                border-color: $secondary;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
