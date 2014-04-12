@@ -187,8 +187,7 @@ footer {
   font-size: 1.5em; }
 
 .quote-cards-container {
-  position: relative;
-  column-count: 3;
+  column-count: 2;
   column-gap: 2em; }
 
 .quote-card {
@@ -215,7 +214,7 @@ footer {
       left: 50%;
       overflow: hidden;
       margin-left: -24px;
-      height: 60px;
+      height: 65px;
       color: #edebee;
       font-size: 4em; }
 
@@ -251,8 +250,8 @@ footer {
     padding: 0.6em 0 0; }
 
 .quote-card-tags {
-  font-weight: 300;
-  color: #d0c9d3; }
+  color: #d0c9d3;
+  font-weight: 300; }
 
 .ie10 .quote-card {
   width: 367px; }

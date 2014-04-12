@@ -1,6 +1,5 @@
 .quote-cards-container {
-    position: relative;
-    column-count: 3;
+    column-count: 2;
     column-gap: 2em;
 }
 
@@ -28,7 +27,7 @@
             left: 50%;
             overflow: hidden;
             margin-left: -24px;
-            height: 60px;
+            height: 65px;
             color: lighten($primary, 47);
             font-size: 4em;
         }
@@ -78,8 +77,8 @@
 }
 
 .quote-card-tags {
-    font-weight: 300;
     color: lighten($primary, 35);
+    font-weight: 300;
 }
 
 .ie10 .quote-card { // IE 10 Fix
