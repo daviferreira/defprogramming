@@ -36,6 +36,7 @@ class Quote(models.Model):
         slug = models.SlugField(max_length=100, blank=True)
         publish_date = models.DateTimeField(default=datetime.now)
         source = models.TextField(null=True, blank=True)
+        featured = models.BooleanField(default=False)
         ordering = ['-publish_date']
 
         def __unicode__(self):
