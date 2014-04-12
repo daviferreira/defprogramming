@@ -10,7 +10,7 @@ var gulp = require('gulp'),
     fontName = 'defprogramming';
 
 gulp.task('iconfont', function(){
-    gulp.src(['./assets/svgs/*.svg'])
+    gulp.src(['./assets/svgs/*.svg'], {base: 'assets'})
         .pipe(iconfontCss({
             fontName: fontName,
             targetPath: './../../assets/scss/_icons.scss',
