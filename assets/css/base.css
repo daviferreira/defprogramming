@@ -60,13 +60,6 @@ a {
   a.heart:hover {
     color: #cc2b2b; }
 
-.author-avatar {
-  position: relative;
-  width: 4em;
-  height: 4em;
-  border: 1px solid #c4bbc7;
-  border-radius: 50%; }
-
 q:before {
   color: #f2f2f2;
   content: '\201C';
@@ -75,24 +68,12 @@ q:before {
 q:after {
   content: ''; }
 
-footer {
-  margin: 6em 0 0;
-  padding: 4em;
-  background-color: #333;
-  color: #bfbfbf;
-  font-weight: 700; }
-  footer span {
-    float: right; }
-  footer .follow-twitter {
-    margin-top: 1em;
-    padding-top: 1em;
-    border-top: 1px dotted #7b6980; }
-    footer .follow-twitter a {
-      color: #60a079; }
-      footer .follow-twitter a:hover {
-        color: #80b394; }
-    footer .follow-twitter strong {
-      border-bottom: 1px solid #60a079; }
+.author-avatar {
+  position: relative;
+  width: 4em;
+  height: 4em;
+  border: 1px solid #c4bbc7;
+  border-radius: 50%; }
 
 .masthead {
   z-index: 15;
@@ -136,7 +117,7 @@ footer {
         text-decoration: none; }
 
 .quote-highlight {
-  padding: 8em 0;
+  padding: 8em 0 6em;
   color: #333; }
   .quote-highlight a:hover {
     text-decoration: none; }
@@ -187,6 +168,7 @@ footer {
   font-size: 1.5em; }
 
 .quote-cards-container {
+  margin-top: 2em;
   column-count: 2;
   column-gap: 2em; }
 
@@ -255,3 +237,22 @@ footer {
 
 .ie10 .quote-card {
   width: 367px; }
+
+footer {
+  margin: 6em 0 0;
+  padding: 4em;
+  background-color: #333;
+  color: #bfbfbf;
+  font-weight: 700; }
+  footer span {
+    float: right; }
+  footer .follow-twitter {
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: 1px dotted #7b6980; }
+    footer .follow-twitter a {
+      color: #60a079; }
+      footer .follow-twitter a:hover {
+        color: #80b394; }
+    footer .follow-twitter strong {
+      border-bottom: 1px solid #60a079; }
