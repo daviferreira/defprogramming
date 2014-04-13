@@ -41,17 +41,6 @@
                 margin-right: 0;
             }
         }
-        .btn {
-            padding: 0 1em;
-            border: 2px solid $black;
-            border-radius: 4px;
-            transition: border-color .2s ease-in,
-                        color .2s ease-in;
-            &:hover {
-                border-color: $secondary;
-                text-decoration: none;
-            }
-        }
     }
 }
 

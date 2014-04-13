@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    {% if featured_quote %}
+    {% if featured_quote and quotes.number == 1 %}
         {% include "quotes/highlight.html" with quote=featured_quote %}
     {% endif %}
     <section class="quotes">

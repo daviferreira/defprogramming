@@ -1,0 +1,13 @@
+.pagination {
+    margin-bottom: 5em;
+    text-align: center;
+    .current {
+        color: darken($grey, 50);
+    }
+    .previous {
+        margin-right: 1em;
+    }
+    .next {
+        margin-left: 1em;
+    }
+}

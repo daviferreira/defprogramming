@@ -68,6 +68,19 @@ q:before {
 q:after {
   content: ''; }
 
+.btn {
+  display: inline-block;
+  padding: 0 1em;
+  border: 2px solid #333;
+  border-radius: 4px;
+  color: #333;
+  font-weight: 700;
+  line-height: 2;
+  transition: border-color 0.2s ease-in, color 0.2s ease-in; }
+  .btn:hover {
+    border-color: #60a079;
+    text-decoration: none; }
+
 .masthead {
   z-index: 15;
   padding: 1.5em;
@@ -103,14 +116,6 @@ q:after {
         color: #60a079; }
       .masthead nav a:last-child {
         margin-right: 0; }
-    .masthead nav .btn {
-      padding: 0 1em;
-      border: 2px solid #333;
-      border-radius: 4px;
-      transition: border-color 0.2s ease-in, color 0.2s ease-in; }
-      .masthead nav .btn:hover {
-        border-color: #60a079;
-        text-decoration: none; }
 
 footer {
   margin: 2em 0 0;
@@ -130,6 +135,16 @@ footer {
         color: #80b394; }
     footer .follow-twitter strong {
       border-bottom: 1px solid #60a079; }
+
+.pagination {
+  margin-bottom: 5em;
+  text-align: center; }
+  .pagination .current {
+    color: #727272; }
+  .pagination .previous {
+    margin-right: 1em; }
+  .pagination .next {
+    margin-left: 1em; }
 
 .quote-highlight {
   padding: 8em 0 6em;

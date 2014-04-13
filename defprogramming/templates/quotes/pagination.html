@@ -1,17 +1,21 @@
 {% if quotes.paginator.num_pages > 1 %}
-<div class="pagination">
-    <span class="step-links">
-        {% if quotes.has_previous %}
-            <a href="?page={{ quotes.previous_page_number }}">&larr; previous</a>
-        {% endif %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 pagination">
+            <span class="step-links">
+                {% if quotes.has_previous %}
+                    <a href="?page={{ quotes.previous_page_number }}" class="btn previous">previous</a>
+                {% endif %}
 
-        <span class="current">
-            Page {{ quotes.number }} of {{ quotes.paginator.num_pages }}.
-        </span>
+                <span class="current">
+                    Page {{ quotes.number }} of {{ quotes.paginator.num_pages }}
+                </span>
 
-        {% if quotes.has_next %}
-            <a href="?page={{ quotes.next_page_number }}">next &rarr;</a>
-        {% endif %}
-    </span>
+                {% if quotes.has_next %}
+                    <a href="?page={{ quotes.next_page_number }}" class="btn next">next</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
 </div>
 {% endif %}

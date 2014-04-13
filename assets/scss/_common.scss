@@ -26,3 +26,19 @@ q {
         content: '';
     }
 }
+
+.btn {
+    display: inline-block;
+    padding: 0 1em;
+    border: 2px solid $black;
+    border-radius: 4px;
+    color: $black;
+    font-weight: 700;
+    line-height: 2;
+    transition: border-color .2s ease-in,
+                color .2s ease-in;
+    &:hover {
+        border-color: $secondary;
+        text-decoration: none;
+    }
+}
