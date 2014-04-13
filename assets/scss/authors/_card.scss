@@ -1,9 +1,5 @@
 .author-card {
     padding: 6em 0;
-    h1, p {
-        display: inline-block;
-        padding: .2em;
-    }
     h1 {
         margin: 0;
         letter-spacing: -.035em;
@@ -13,7 +9,6 @@
     }
     p {
         margin: 1em 0 0;
-        width: 80%;
     }
     .author-avatar {
         float: left;
