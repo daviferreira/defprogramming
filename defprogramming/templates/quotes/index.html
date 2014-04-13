@@ -1,41 +1,8 @@
 {% extends "base.html" %}
 
-{% load staticfiles %}
-
 {% block content %}
     {% if featured_quote %}
-    <section class="quote-highlight">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 clearfix">
-                    <div class="quote-highlight-content">
-                        <q>{{ featured_quote.body|safe|linebreaks }}</q>
-                        <div class="quote-highlight-meta clearfix">
-                            <div class="quote-highlight-actions">
-                                <a href="#" class="heart"><i class="icon icon-heart"></i></a>
-                                <a href="#"><i class="icon icon-share"></i></a>
-                                <a href="#"><i class="icon icon-comments"></i></a>
-                            </div>
-                            <div class="quote-highlight-author clearfix">
-                                {% for author in featured_quote.authors.all %}
-                                    <a href="{{ author.get_absolute_url }}">
-                                        <img src="{% static 'img/atwood.jpg' %}" class="author-avatar">
-                                        <span class="quote-highlight-author-name">{{ author.name }}</span>
-                                    </a>
-                                {% endfor %}
-                                <span class="quote-highlight-tags">
-                                    on
-                                    <a href="#">programming</a>
-                                    and
-                                    <a href="#">productivity</a>
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </blockquote>
-    </section>
+        {% include "quotes/highlight.html" with quote=featured_quote %}
     {% endif %}
     <section class="quotes">
         <div class="container quote-cards-container">
