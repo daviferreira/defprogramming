@@ -1,16 +1,15 @@
 {% extends "base.html" %}
 
 {% load staticfiles %}
- 
+
 {% block content %}
+    {% if featured_quote %}
     <section class="quote-highlight">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 clearfix">
                     <div class="quote-highlight-content">
-                        <q>
-                            Most software today is very much like an Egyptian pyramid with millions of bricks piled on top of each other, with no structural integrity, but just done by brute force and thousands of slaves.
-                        </q>
+                        <q>{{ featured_quote.body|safe|linebreaks }}</q>
                         <div class="quote-highlight-meta clearfix">
                             <div class="quote-highlight-actions">
                                 <a href="#" class="heart"><i class="icon icon-heart"></i></a>
@@ -18,8 +17,12 @@
                                 <a href="#"><i class="icon icon-comments"></i></a>
                             </div>
                             <div class="quote-highlight-author clearfix">
-                                <img src="{% static 'img/atwood.jpg' %}" class="author-avatar">
-                                <span class="quote-highlight-author-name">Jeff Atwood</span>
+                                {% for author in featured_quote.authors.all %}
+                                    <a href="{{ author.get_absolute_url }}">
+                                        <img src="{% static 'img/atwood.jpg' %}" class="author-avatar">
+                                        <span class="quote-highlight-author-name">{{ author.name }}</span>
+                                    </a>
+                                {% endfor %}
                                 <span class="quote-highlight-tags">
                                     on
                                     <a href="#">programming</a>
@@ -33,6 +36,7 @@
             </div>
         </blockquote>
     </section>
+    {% endif %}
     <section class="quotes">
         <div class="container quote-cards-container">
             {% if quotes %}

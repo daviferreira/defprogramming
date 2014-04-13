@@ -6,7 +6,8 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 def index(request):
-  quotes = Quote.objects.all().order_by('-publish_date')
+  featured_quote = Quote.objects.filter(featured=True).order_by('?')[:1][0]
+  quotes = Quote.objects.all().exclude(id=featured_quote.id).order_by('-publish_date')
   quotes = __validates_pagination(request, Paginator(quotes, 25))
   title = "def programming: quotes about coding"
   description = "Quotes about programming, coding, computer science, debugging, software industry, startups and motivation."
