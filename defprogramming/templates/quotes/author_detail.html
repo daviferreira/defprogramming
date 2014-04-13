@@ -9,7 +9,7 @@
                         <img src="{{ author.avatar.url }}" class="author-avatar">
                     {% endif %}
                     <div class="author-info">
-                        <h1>{{ author.name }}</h1>
+                        <h1 class="jumbotron">{{ author.name }}</h1>
                         {% if author.short_bio %}
                             <p>{{ author.short_bio|safe|linebreaks }}</p>
                         {% endif %}

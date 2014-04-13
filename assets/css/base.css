@@ -81,6 +81,12 @@ q:after {
     border-color: #60a079;
     text-decoration: none; }
 
+.jumbotron {
+  letter-spacing: -0.035em;
+  font-weight: 700;
+  font-size: 3.65em;
+  line-height: 1.1; }
+
 .masthead {
   z-index: 15;
   padding: 1.5em;
@@ -155,11 +161,7 @@ footer {
     position: relative;
     display: block;
     margin-bottom: 1.5em;
-    padding: 0;
-    letter-spacing: -0.035em;
-    font-weight: 700;
-    font-size: 3.65em;
-    line-height: 1.1; }
+    padding: 0; }
     .quote-highlight q:before {
       position: absolute;
       top: -35px;
@@ -283,9 +285,6 @@ a:hover .author-avatar {
   padding: 6em 0; }
   .author-card h1 {
     margin: 0;
-    letter-spacing: -0.035em;
-    font-weight: 700;
-    font-size: 3.65em;
     line-height: 1; }
   .author-card p {
     margin: 1em 0 0; }
