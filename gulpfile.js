@@ -7,6 +7,7 @@ var gulp = require('gulp'),
     prefix = require('gulp-autoprefixer'),
     minifyCss = require('gulp-minify-css'),
     concat = require('gulp-concat'),
+    livereload = require('gulp-livereload'),
     fontName = 'defprogramming';
 
 gulp.task('iconfont', function(){
@@ -38,7 +39,8 @@ gulp.task('css', ['sass'], function () {
         .pipe(prefix({cascade: true}))
         .pipe(concat('defprogramming.min.css'))
         .pipe(minifyCss())
-        .pipe(gulp.dest('./static/css/'));
+        .pipe(gulp.dest('./static/css/'))
+        .pipe(livereload());
 });
 
 gulp.task('watch', function() {
