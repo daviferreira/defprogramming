@@ -10,7 +10,7 @@ footer {
     .follow-twitter {
         margin-top: 1em;
         padding-top: 1em;
-        border-top: 1px dotted $primary;
+        border-top: 1px dotted darken($primary, 20);
         a {
             color: $secondary;
             &:hover {

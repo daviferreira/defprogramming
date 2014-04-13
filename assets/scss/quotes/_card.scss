@@ -60,15 +60,6 @@
         color: lighten($black, 50);
         &:hover {
             color: $secondary;
-            .author-avatar {
-                border-color: $secondary;
-            }
-        }
-        .author-avatar {
-            transition: border-color .2s ease-in;
-            &:hover {
-                border-color: $secondary;
-            }
         }
     }
     p {

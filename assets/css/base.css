@@ -57,6 +57,8 @@ a {
   a:hover {
     color: #60a079;
     text-decoration: none; }
+    a:hover .author-avatar {
+      border-color: #60a079; }
   a.heart:hover {
     color: #cc2b2b; }
 
@@ -73,7 +75,10 @@ q:after {
   width: 4em;
   height: 4em;
   border: 1px solid #c4bbc7;
-  border-radius: 50%; }
+  border-radius: 50%;
+  transition: border-color 0.2s ease-in; }
+  .author-avatar:hover {
+    border-color: #60a079; }
 
 .masthead {
   z-index: 15;
@@ -221,12 +226,6 @@ q:after {
     color: #b3b3b3; }
     .quote-card-author a:hover {
       color: #60a079; }
-      .quote-card-author a:hover .author-avatar {
-        border-color: #60a079; }
-    .quote-card-author a .author-avatar {
-      transition: border-color 0.2s ease-in; }
-      .quote-card-author a .author-avatar:hover {
-        border-color: #60a079; }
   .quote-card-author p {
     margin: 0;
     padding: 0.6em 0 0; }
@@ -249,7 +248,7 @@ footer {
   footer .follow-twitter {
     margin-top: 1em;
     padding-top: 1em;
-    border-top: 1px dotted #7b6980; }
+    border-top: 1px dotted #453b48; }
     footer .follow-twitter a {
       color: #60a079; }
       footer .follow-twitter a:hover {
