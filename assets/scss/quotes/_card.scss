@@ -1,7 +1,9 @@
 .quote-cards-container {
-    margin-top: 2em;
-    column-count: 2;
+    column-count: 3;
     column-gap: 2em;
+    &.single {
+        margin-top: 2em;
+    }
 }
 
 .quote-card {
@@ -10,7 +12,7 @@
     margin-bottom: 2em;
     padding: 4em 2em 2em;
     width: 100%;
-    border: 1px solid darken($grey, 1);
+    border-top: 3px solid $primary;
     background-color: lighten($grey, 2);
     text-align: center;
     font-weight: 700;

@@ -1,10 +1,31 @@
 {% extends "base.html" %}
 
 {% block content %}
-<header><h1>Quotes tagged under {{ tag.name }}</h1></header>
-<p class="back" style="margin:0 0 20px 0;"><a href="/">&larr; go back to the home page</a></p>
-{% for quote in quotes.object_list %}
-  {% include "quotes/quote.html" %}
-{% endfor %}
-{% include "quotes/pagination.html" %}
+    <section class="tag-card jumbotron-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10">
+                    <h1 class="jumbotron">#{{ tag.name }}</h1>
+                </div>
+                <div class="col-md-2">actions</div>
+            </div>
+        </div>
+    </section>
+    <section class="quotes">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <h3>Tags</h3>
+                </div>
+                <div class="col-md-10">
+                    <div class="quote-cards-container">
+                        {% for quote in quotes.object_list %}
+                            {% include "quotes/quote.html" with has_author=author %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% include "quotes/pagination.html" %}
+    </section>
 {% endblock %}

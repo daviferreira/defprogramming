@@ -5,7 +5,7 @@
         {% include "quotes/highlight.html" with quote=featured_quote %}
     {% endif %}
     <section class="quotes">
-        <div class="container quote-cards-container">
+        <div class="container quote-cards-container single">
             {% if quotes %}
                 {% for quote in quotes.object_list %}
                     {% include "quotes/quote.html" %}

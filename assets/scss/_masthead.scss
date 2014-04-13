@@ -2,7 +2,7 @@
     z-index: 15;
     padding: 1.5em;
     width: 100%;
-    border-bottom: 1px solid $grey;
+    border-bottom: 1px solid lighten($primary, 45);
     background-color: $white;
     h1, h2 {
         display: inline-block;
@@ -23,7 +23,7 @@
         margin: 0 0 0 .65em;
         font-size: 1.25em;
         letter-spacing: -.05em;
-        color: $secondary;
+        color: $primary;
     }
     nav {
         float: right;

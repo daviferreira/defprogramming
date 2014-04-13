@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <section class="author-card clearfix">
+    <section class="author-card clearfix jumbotron-header">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 author-meta-data">
@@ -20,10 +20,19 @@
         </div>
     </section>
     <section class="quotes">
-        <div class="container quote-cards-container">
-        {% for quote in quotes.object_list %}
-            {% include "quotes/quote.html" with has_author=author %}
-        {% endfor %}
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <h3>Authors</h3>
+                </div>
+                <div class="col-md-10">
+                    <div class="quote-cards-container">
+                        {% for quote in quotes.object_list %}
+                            {% include "quotes/quote.html" with has_author=author %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
         </div>
         {% include "quotes/pagination.html" %}
     </section>

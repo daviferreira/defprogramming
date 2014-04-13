@@ -87,11 +87,19 @@ q:after {
   font-size: 3.65em;
   line-height: 1.1; }
 
+.jumbotron-header {
+  padding: 6em 0; }
+  .jumbotron-header h1 {
+    margin: 0;
+    line-height: 1; }
+  .jumbotron-header p {
+    margin: 1em 0 0; }
+
 .masthead {
   z-index: 15;
   padding: 1.5em;
   width: 100%;
-  border-bottom: 1px solid #f2f2f2;
+  border-bottom: 1px solid #e9e5ea;
   background-color: #fafafa; }
   .masthead h1, .masthead h2 {
     display: inline-block; }
@@ -108,7 +116,7 @@ q:after {
     margin: 0 0 0 0.65em;
     font-size: 1.25em;
     letter-spacing: -0.05em;
-    color: #60a079; }
+    color: #7b6980; }
   .masthead nav {
     float: right; }
     .masthead nav a {
@@ -200,9 +208,10 @@ footer {
   font-size: 1.5em; }
 
 .quote-cards-container {
-  margin-top: 2em;
-  column-count: 2;
+  column-count: 3;
   column-gap: 2em; }
+  .quote-cards-container.single {
+    margin-top: 2em; }
 
 .quote-card {
   position: relative;
@@ -210,7 +219,7 @@ footer {
   margin-bottom: 2em;
   padding: 4em 2em 2em;
   width: 100%;
-  border: 1px solid #efefef;
+  border-top: 3px solid #7b6980;
   background-color: #f7f7f7;
   text-align: center;
   font-weight: 700;
@@ -281,18 +290,11 @@ footer {
 a:hover .author-avatar {
   border-color: #60a079; }
 
-.author-card {
-  padding: 6em 0; }
-  .author-card h1 {
-    margin: 0;
-    line-height: 1; }
-  .author-card p {
-    margin: 1em 0 0; }
-  .author-card .author-avatar {
-    float: left;
-    margin-right: 2em;
-    width: 120px;
-    height: 120px; }
+.author-card .author-avatar {
+  float: left;
+  margin-right: 2em;
+  width: 120px;
+  height: 120px; }
 
 .author-meta-data {
   height: 120px; }
