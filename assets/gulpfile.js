@@ -11,10 +11,10 @@ var gulp = require('gulp'),
     fontName = 'defprogramming';
 
 gulp.task('iconfont', function(){
-    gulp.src(['./assets/svgs/*.svg'], {base: 'assets'})
+    gulp.src(['svgs/*.svg'], {base: ''})
         .pipe(iconfontCss({
             fontName: fontName,
-            targetPath: './../../assets/scss/_icons.scss',
+            targetPath: '../../../assets/scss/_icons.scss',
             fontPath: '../fonts/'
         }))
         .pipe(iconfont({
@@ -25,26 +25,26 @@ gulp.task('iconfont', function(){
             // CSS templating, e.g.
             console.log(codepoints, options);
         })
-        .pipe(gulp.dest('./static/fonts/'));
+        .pipe(gulp.dest('../defprogramming/static/fonts/'));
 });
 
 gulp.task('sass', function () {
-    return gulp.src('./assets/scss/*.scss')
+    return gulp.src('scss/*.scss')
                .pipe(sass())
-               .pipe(gulp.dest('./assets/css'));
+               .pipe(gulp.dest('css'));
 });
 
 gulp.task('css', ['sass'], function () {
-    gulp.src(['./assets/css/bootstrap.css', './assets/css/base.css'])
+    gulp.src(['css/bootstrap.css', 'css/base.css'])
         .pipe(prefix({cascade: true}))
         .pipe(concat('defprogramming.min.css'))
         .pipe(minifyCss())
-        .pipe(gulp.dest('./static/css/'))
+        .pipe(gulp.dest('../defprogramming/static/css/'))
         .pipe(livereload());
 });
 
 gulp.task('watch', function() {
-    var watcher = gulp.watch('./assets/scss/**/*.scss', ['css']);
+    var watcher = gulp.watch('scss/**/*.scss', ['css']);
     watcher.on('changed', function(event){
         console.log('File '+event.path+' was '+event.type+', running tasks...');
     });

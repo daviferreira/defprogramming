@@ -1,6 +1,6 @@
 # Django settings for defprogramming project.
 import os
-BASE_DIR = os.path.abspath(os.path.dirname(__file__) + '/../')
+BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 ADMINS = ()
 MANAGERS = ADMINS
 
