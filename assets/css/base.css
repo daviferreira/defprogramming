@@ -189,6 +189,7 @@ footer {
 
 .quote-card {
   position: relative;
+  display: inline-block;
   margin-bottom: 2em;
   padding: 4em 2em 2em;
   width: 100%;
