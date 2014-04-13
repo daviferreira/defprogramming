@@ -8,12 +8,17 @@
     </div>
     <div class="quote-card-author">
         <a href="#">
-            {% for author in quote.authors.all %}
-              <a href="{{ author.get_absolute_url }}">
-                  <img src="{% static 'img/atwood.jpg' %}" class="author-avatar">
-                  <p>{{ author.name }}</p>
-              </a>
-            {% endfor %}
+            {% if quote.authors.all|length > 1 %}
+                {% for author in quote.authors.all %}
+                    <a href="{{ author.get_absolute_url }}">{{ author.name }}</a>
+                    {% if not forloop.last %} & {% endif %}
+                {% endfor %}
+            {% else %}
+                <a href="{{ quote.authors.all.0.get_absolute_url }}">
+                    <img src="{% static 'img/atwood.jpg' %}" class="author-avatar">
+                    <p>{{ quote.authors.all.0.name }}</p>
+                </a>
+            {% endif %}
         </a>
     </div>
     <div class="quote-card-tags">

@@ -219,11 +219,12 @@ q:after {
   margin-top: 2em;
   color: #b3b3b3;
   text-transform: uppercase;
-  font-weight: 700; }
+  font-weight: 300; }
   .quote-card-author a {
     display: inline-block;
     margin: 0 auto;
-    color: #b3b3b3; }
+    color: #b3b3b3;
+    font-weight: 700; }
     .quote-card-author a:hover {
       color: #60a079; }
   .quote-card-author p {
@@ -236,6 +237,14 @@ q:after {
 
 .ie10 .quote-card {
   width: 367px; }
+
+.author-card {
+  margin: 3.5em auto; }
+  .author-card h1 {
+    letter-spacing: -0.035em;
+    font-weight: 700;
+    font-size: 3.65em;
+    line-height: 1.1; }
 
 footer {
   margin: 2em 0 0;

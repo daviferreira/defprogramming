@@ -53,11 +53,12 @@
     margin-top: 2em;
     color: lighten($black, 50);
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 300;
     a {
         display: inline-block;
         margin: 0 auto;
         color: lighten($black, 50);
+        font-weight: 700;
         &:hover {
             color: $secondary;
         }
