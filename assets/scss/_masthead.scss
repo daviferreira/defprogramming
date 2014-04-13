@@ -4,22 +4,26 @@
     width: 100%;
     border-bottom: 1px solid $grey;
     background-color: $white;
+    h1, h2 {
+        display: inline-block;
+    }
     h1 {
         margin: 0;
         color: $black;
         letter-spacing: -.08em;
         font-size: 2em;
-        small {
-            margin-left: 1em;
-            letter-spacing: -.05em;
-            color: $secondary;
-        }
         a {
             color: $black;
             &:hover {
                 text-decoration: none;
             }
         }
+    }
+    h2 {
+        margin: 0 0 0 .65em;
+        font-size: 1.25em;
+        letter-spacing: -.05em;
+        color: $secondary;
     }
     nav {
         float: right;

@@ -74,19 +74,22 @@ q:after {
   width: 100%;
   border-bottom: 1px solid #f2f2f2;
   background-color: #fafafa; }
+  .masthead h1, .masthead h2 {
+    display: inline-block; }
   .masthead h1 {
     margin: 0;
     color: #333;
     letter-spacing: -0.08em;
     font-size: 2em; }
-    .masthead h1 small {
-      margin-left: 1em;
-      letter-spacing: -0.05em;
-      color: #60a079; }
     .masthead h1 a {
       color: #333; }
       .masthead h1 a:hover {
         text-decoration: none; }
+  .masthead h2 {
+    margin: 0 0 0 0.65em;
+    font-size: 1.25em;
+    letter-spacing: -0.05em;
+    color: #60a079; }
   .masthead nav {
     float: right; }
     .masthead nav a {
