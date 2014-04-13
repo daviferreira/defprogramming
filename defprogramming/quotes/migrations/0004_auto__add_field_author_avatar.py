@@ -14,10 +14,16 @@ class Migration(SchemaMigration):
                       keep_default=False)
 
 
+        # Changing field 'Author.short_bio'
+        db.alter_column(u'quotes_author', 'short_bio', self.gf('django.db.models.fields.TextField')(max_length=500, null=True))
+
     def backwards(self, orm):
         # Deleting field 'Author.avatar'
         db.delete_column(u'quotes_author', 'avatar')
 
+
+        # Changing field 'Author.short_bio'
+        db.alter_column(u'quotes_author', 'short_bio', self.gf('django.db.models.fields.CharField')(max_length=200, null=True))
 
     models = {
         u'quotes.author': {
@@ -25,7 +31,7 @@ class Migration(SchemaMigration):
             'avatar': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
-            'short_bio': ('django.db.models.fields.CharField', [], {'max_length': '200', 'null': 'True', 'blank': 'True'}),
+            'short_bio': ('django.db.models.fields.TextField', [], {'max_length': '500', 'null': 'True', 'blank': 'True'}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '100', 'blank': 'True'})
         },
         u'quotes.quote': {

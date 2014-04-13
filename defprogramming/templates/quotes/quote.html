@@ -5,27 +5,33 @@
         <a href="#"><i class="icon icon-share"></i></a>
         <a href="#"><i class="icon icon-comments"></i></a>
     </div>
-    <div class="quote-card-author">
-        <a href="#">
-            {% if quote.authors.all|length > 1 %}
-                {% for author in quote.authors.all %}
-                    <a href="{{ author.get_absolute_url }}">{{ author.name }}</a>
-                    {% if not forloop.last %} & {% endif %}
-                {% endfor %}
-            {% else %}
-                <a href="{{ quote.authors.all.0.get_absolute_url }}">
-                    {% if author.avatar %}
-                    <img src="{{ author.avatar.url }}" class="author-avatar">
-                    {% endif %}
-                    <p>{{ quote.authors.all.0.name }}</p>
-                </a>
-            {% endif %}
-        </a>
-    </div>
-    <div class="quote-card-tags">
-        on
-        {% for tag in quote.tags.all %}
-            <a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
-        {%endfor %}
-    </div>
+    {% if not has_author %}
+        <div class="quote-card-author">
+            <a href="#">
+                {% if quote.authors.all|length > 1 %}
+                    {% for author in quote.authors.all %}
+                        <a href="{{ author.get_absolute_url }}">{{ author.name }}</a>
+                        {% if not forloop.last %} & {% endif %}
+                    {% endfor %}
+                {% else %}
+                    {% with author=quote.authors.all.0 %}
+                        <a href="{{ author.get_absolute_url }}">
+                            {% if author.avatar %}
+                                <img src="{{ author.avatar.url }}" class="author-avatar">
+                            {% endif %}
+                            <p>{{ author.name }}</p>
+                        </a>
+                    {% endwith %}
+                {% endif %}
+            </a>
+        </div>
+    {% endif %}
+    {% if not has_tag %}
+        <div class="quote-card-tags">
+            on
+            {% for tag in quote.tags.all %}
+                <a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+            {%endfor %}
+        </div>
+    {% endif %}
 </div>

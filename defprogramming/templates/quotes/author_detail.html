@@ -22,7 +22,7 @@
     <section class="quotes">
         <div class="container quote-cards-container">
         {% for quote in quotes.object_list %}
-            {% include "quotes/quote.html" %}
+            {% include "quotes/quote.html" with has_author=author %}
         {% endfor %}
         </div>
         {% include "quotes/pagination.html" %}
