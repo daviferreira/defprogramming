@@ -112,6 +112,25 @@ q:after {
         border-color: #60a079;
         text-decoration: none; }
 
+footer {
+  margin: 2em 0 0;
+  padding: 4em;
+  background-color: #333;
+  color: #bfbfbf;
+  font-weight: 700; }
+  footer span {
+    float: right; }
+  footer .follow-twitter {
+    margin-top: 1em;
+    padding-top: 1em;
+    border-top: 1px dotted #453b48; }
+    footer .follow-twitter a {
+      color: #60a079; }
+      footer .follow-twitter a:hover {
+        color: #80b394; }
+    footer .follow-twitter strong {
+      border-bottom: 1px solid #60a079; }
+
 .quote-highlight {
   padding: 8em 0 6em;
   color: #333; }
@@ -256,21 +275,9 @@ a:hover .author-avatar {
     width: 120px;
     height: 120px; }
 
-footer {
-  margin: 2em 0 0;
-  padding: 4em;
-  background-color: #333;
-  color: #bfbfbf;
-  font-weight: 700; }
-  footer span {
-    float: right; }
-  footer .follow-twitter {
-    margin-top: 1em;
-    padding-top: 1em;
-    border-top: 1px dotted #453b48; }
-    footer .follow-twitter a {
-      color: #60a079; }
-      footer .follow-twitter a:hover {
-        color: #80b394; }
-    footer .follow-twitter strong {
-      border-bottom: 1px solid #60a079; }
+.author-meta-data {
+  height: 120px; }
+  .author-meta-data .author-info {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); }

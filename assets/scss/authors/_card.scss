@@ -17,3 +17,10 @@
         height: 120px;
     }
 }
+
+.author-meta-data {
+    height: 120px;
+    .author-info {
+        @include vertical-align;
+    }
+}

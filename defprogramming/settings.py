@@ -18,12 +18,14 @@ SITE_ID = 1
 USE_I18N = True
 USE_L10N = True
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 STATIC_URL = '/static/'
 ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(BASE_DIR, 'static'),
 )
 
 STATICFILES_FINDERS = (
@@ -69,7 +71,7 @@ INSTALLED_APPS = (
 
 
 try:
-    from settings_local import *
+    from settings_local import *  # NOQA
 except ImportError:
     from warnings import warn
     msg = "You don't have settings_local.py file, using defaults settings."

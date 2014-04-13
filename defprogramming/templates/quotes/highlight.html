@@ -1,5 +1,3 @@
-{% load staticfiles %}
-
 <section class="quote-highlight">
     <div class="container">
         <div class="row">
@@ -15,7 +13,9 @@
                         <div class="quote-highlight-author clearfix">
                             {% for author in quote.authors.all %}
                                 <a href="{{ author.get_absolute_url }}">
-                                    <img src="{% static 'img/atwood.jpg' %}" class="author-avatar">
+                                    {% if author.avatar %}
+                                    <img src="{{ author.avatar.url }}" class="author-avatar">
+                                    {% endif %}
                                     <span class="quote-highlight-author-name">{{ author.name }}</span>
                                 </a>
                             {% endfor %}

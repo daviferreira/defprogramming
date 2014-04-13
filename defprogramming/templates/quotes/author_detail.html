@@ -1,15 +1,19 @@
 {% extends "base.html" %}
 
-{% load staticfiles %}
-
 {% block content %}
     <section class="author-card clearfix">
         <div class="container">
             <div class="row">
-                <div class="col-md-10">
-                    <img src="{% static 'img/atwood.jpg' %}" class="author-avatar">
-                    <h1>{{ author.name }}</h1>
-                    <p>Douglas Crockford is an American computer programmer and entrepreneur who is best known for his ongoing involvement in the development of the JavaScript language, for having popularized the data format JSON (JavaScript Object Notation), and for developing various JavaScript related tools such as JSLint and JSMin.</p>
+                <div class="col-md-10 author-meta-data">
+                    {% if author.avatar %}
+                        <img src="{{ author.avatar.url }}" class="author-avatar">
+                    {% endif %}
+                    <div class="author-info">
+                        <h1>{{ author.name }}</h1>
+                        {% if author.short_bio %}
+                            <p>{{ author.short_bio|safe|linebreaks }}</p>
+                        {% endif %}
+                    </div>
                 </div>
                 <div class="col-md-2">actions</div>
             </div>

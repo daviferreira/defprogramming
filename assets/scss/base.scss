@@ -1,10 +1,14 @@
-@import "_icons.scss";
-@import "_variables.scss";
+@import "variables";
+@import "mixins";
 
+@import "icons";
 @import "common";
+
 @import "masthead";
+@import "footer";
+
 @import "quotes/highlight";
 @import "quotes/card";
+
 @import "authors/avatar";
 @import "authors/card";
-@import "footer";
