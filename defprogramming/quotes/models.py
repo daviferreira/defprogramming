@@ -8,6 +8,7 @@ class Author(models.Model):
     name = models.CharField(max_length=200)
     short_bio = models.CharField(max_length=200, null=True, blank=True)
     slug = models.SlugField(max_length=100, blank=True)
+
     ordering = ['name']
 
     def __unicode__(self):
