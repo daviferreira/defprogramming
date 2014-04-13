@@ -1,9 +1,20 @@
 {% extends "base.html" %}
+
 {% block content %}
-  {% include "quotes/highlight.html" %}
-  <div class="box">
-    <p class="back"><a href="/">&larr; go back to the home page</a></p>
-    <div id="disqus_thread"></div>
+    {% include "quotes/highlight.html" %}
+    <section class="comments" id="comments">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div id="disqus_thread"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}
+
+{% block scripts %}
+    {{ block.super }}
     <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
         var disqus_shortname = 'defprogramming'; // required: replace example with your forum shortname
@@ -20,5 +31,4 @@
         })();
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-{% endblock %}
+{% endblock scripts %}

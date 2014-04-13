@@ -21,9 +21,9 @@
                             {% endfor %}
                             <span class="quote-highlight-tags">
                                 on
-                                <a href="#">programming</a>
-                                and
-                                <a href="#">productivity</a>
+                                {% for tag in quote.tags.all %}
+                                    <a href="{{ tag.get_absolute_url }}">{{ tag.name }}</a>{% if not forloop.last %}, {% endif %}
+                                {%endfor %}
                             </span>
                         </div>
                     </div>

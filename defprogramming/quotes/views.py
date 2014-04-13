@@ -9,7 +9,7 @@ def index(request):
     featured_quote = Quote.objects.filter(featured=True).order_by('?')[:1][0]
     quotes = Quote.objects.all().exclude(id=featured_quote.id).order_by('-publish_date')
     quotes = __validates_pagination(request, Paginator(quotes, 25))
-    title = "def programming: quotes about coding"
+    title = "defprogramming: quotes about coding"
     description = "Quotes about programming, coding, computer science, debugging, software industry, startups and motivation."
     return render_to_response('quotes/index.html', locals(), context_instance=RequestContext(request))
 
@@ -26,7 +26,7 @@ def random(request):
 
 def authors(request):
     authors = Author.objects.all().order_by('name')
-    title = "Listing all authors | def programming"
+    title = "Listing all authors | defprogramming"
     description = "List of all the authors with quotes published. Quotes about programming, coding, software industry."
     return render_to_response('quotes/authors.html', locals(), context_instance=RequestContext(request))
 
@@ -35,14 +35,14 @@ def author_detail(request, slug):
     author = get_object_or_404(Author, slug=slug)
     quotes = author.quote_set.all().order_by('-publish_date')
     quotes = __validates_pagination(request, Paginator(quotes, 10))
-    title = "Programming quotes by " + author.name + " | def programming"
+    title = "Programming quotes by " + author.name + " | defprogramming"
     description = "Listing all programming quotes by " + author.name + ". Quotes about programming, coding, software industry."
     return render_to_response('quotes/author_detail.html', locals(), context_instance=RequestContext(request))
 
 
 def tags(request):
     tags = Tag.objects.all().order_by('name')
-    title = "Listing all tags | def programming"
+    title = "Listing all tags | defprogramming"
     description = "Tags list. Quotes about programming, coding, software industry."
     return render_to_response('quotes/tags.html', locals(), context_instance=RequestContext(request))
 
@@ -51,14 +51,14 @@ def tag_detail(request, slug):
     tag = get_object_or_404(Tag, slug=slug)
     quotes = tag.quote_set.all().order_by('-publish_date')
     quotes = __validates_pagination(request, Paginator(quotes, 10))
-    title = "Programming quotes tagged under " + tag.name + " | def programming"
+    title = "Programming quotes tagged under " + tag.name + " | defprogramming"
     description = "Listing all programming quotes tagged under " + tag.name + ". Quotes about programming, coding, software industry."
 
     return render_to_response('quotes/tag_detail.html', locals(), context_instance=RequestContext(request))
 
 
 def submit_quote(request):
-    title = "Submit a quote | def programming"
+    title = "Submit a quote | defprogramming"
     description = "Use this form to submit a quote. Please send only quotes about programming, coding, software industry."
     sent = False
 
