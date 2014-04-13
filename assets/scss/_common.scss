@@ -9,10 +9,6 @@ a {
     &:hover {
         color: $secondary;
         text-decoration: none;
-        .author-avatar {
-            border-color: $secondary;
-        }
-
     }
     &.heart:hover {
         color: $red;
@@ -28,17 +24,5 @@ q {
     }
     &:after {
         content: '';
-    }
-}
-
-.author-avatar {
-    position: relative;
-    width: 4em;
-    height: 4em;
-    border: 1px solid lighten($primary, 30);
-    border-radius: 50%;
-    transition: border-color .2s ease-in;
-    &:hover {
-        border-color: $secondary;
     }
 }

@@ -1,0 +1,17 @@
+.author-avatar {
+    position: relative;
+    width: 4em;
+    height: 4em;
+    border: 1px solid lighten($primary, 30);
+    border-radius: 50%;
+    transition: border-color .2s ease-in;
+    &:hover {
+        border-color: $secondary;
+    }
+}
+
+a:hover {
+    .author-avatar {
+        border-color: $secondary;
+    }
+}
