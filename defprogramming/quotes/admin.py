@@ -19,6 +19,10 @@ class QuoteAdmin(admin.ModelAdmin):
   ordering = ('-publish_date',)
   form = QuoteAdminForm
 
-admin.site.register(Author)
+
+class AuthorAdmin(admin.ModelAdmin):
+  ordering = ('name',)
+
+admin.site.register(Author, AuthorAdmin)
 admin.site.register(Tag)
 admin.site.register(Quote, QuoteAdmin)
