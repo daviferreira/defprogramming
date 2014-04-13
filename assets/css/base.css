@@ -245,6 +245,11 @@ footer {
 .ie10 .quote-card {
   width: 367px; }
 
+.comments {
+  margin: 4em 0 8em;
+  padding-top: 4em;
+  border-top: 1px dotted #f2f2f2; }
+
 .author-avatar {
   position: relative;
   width: 4em;
