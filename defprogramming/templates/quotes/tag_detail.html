@@ -14,10 +14,21 @@
     <section class="quotes">
         <div class="container">
             <div class="row">
-                <div class="col-md-2">
+                <aside class="col-md-3 sidebar">
                     <h3>Tags</h3>
-                </div>
-                <div class="col-md-10">
+                    <ul>
+                        {% for t in tags %}
+                            <li>
+                                <a href="{{ t.get_absolute_url }}"
+                                    {% if t.id == tag.id %}
+                                    class="active"{% endif %}>
+                                    {{ t.name }} ({{ t.quote_set.all.count }})
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </aside>
+                <div class="col-md-9">
                     <div class="quote-cards-container">
                         {% for quote in quotes.object_list %}
                             {% include "quotes/quote.html" with has_author=author %}

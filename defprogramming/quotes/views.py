@@ -5,12 +5,15 @@ from quotes.forms import QuoteForm
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
+PER_PAGE = 25
+
+
 def index(request):
     featured_quote = Quote.objects.filter(featured=True).order_by('?')[:1][0]
     quotes = Quote.objects.all() \
                           .exclude(id=featured_quote.id) \
                           .order_by('-publish_date')
-    quotes = __validates_pagination(request, Paginator(quotes, 25))
+    quotes = __validates_pagination(request, Paginator(quotes, PER_PAGE))
     title = "defprogramming: quotes about coding"
     description = "Quotes about programming, coding, computer science, " \
                   "debugging, software industry, startups and motivation."
@@ -46,7 +49,8 @@ def authors(request):
 def author_detail(request, slug):
     author = get_object_or_404(Author, slug=slug)
     quotes = author.quote_set.all().order_by('-publish_date')
-    quotes = __validates_pagination(request, Paginator(quotes, 10))
+    quotes = __validates_pagination(request, Paginator(quotes, PER_PAGE))
+    authors = Author.objects.all().order_by('name')
     title = "Programming quotes by " + author.name + " | defprogramming"
     description = "Listing all programming quotes by " + author.name + \
                   ". Quotes about programming, coding, software industry."
@@ -68,7 +72,8 @@ def tags(request):
 def tag_detail(request, slug):
     tag = get_object_or_404(Tag, slug=slug)
     quotes = tag.quote_set.all().order_by('-publish_date')
-    quotes = __validates_pagination(request, Paginator(quotes, 10))
+    quotes = __validates_pagination(request, Paginator(quotes, PER_PAGE))
+    tags = Tag.objects.all().order_by('name')
     title = "Programming quotes tagged under " + tag.name + " | defprogramming"
     description = "Listing all programming quotes tagged under " + tag.name + \
                   ". Quotes about programming, coding, software industry."

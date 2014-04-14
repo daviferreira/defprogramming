@@ -1,15 +1,16 @@
 {% extends "base.html" %}
 
 {% block content %}
-<header>
-  <h1>Listing all tags</h1>
-</header>
-<div class="box">
-  <ul id="tags-list" class="list-all clearfix">
-    {% for tag in tags %}
-      <li><a href="{{ tag.get_absolute_url }}">{{ tag.name }} ({{ tag.quote_set.all.count }})</a></li>
-    {% endfor %}
-  </ul>
-  <p class="back"><a href="/">&larr; go back to the home page</a></p>
+<div class="container">
+    <ul id="tags-list" class="list clearfix">
+        {% for tag in tags %}
+            <li>
+                <a href="{{ tag.get_absolute_url }}">
+                    <strong>{{ tag.name }}</strong>
+                    ({{ tag.quote_set.all.count }})
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
 </div>
 {% endblock %}

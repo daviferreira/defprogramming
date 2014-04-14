@@ -74,6 +74,7 @@ q:after {
 .btn {
   display: inline-block;
   padding: 0 1em;
+  background-color: transparent;
   border: 2px solid #333;
   border-radius: 4px;
   color: #333;
@@ -81,6 +82,7 @@ q:after {
   line-height: 2;
   transition: border-color 0.2s ease-in, color 0.2s ease-in; }
   .btn:hover {
+    color: #60a079;
     border-color: #60a079;
     text-decoration: none; }
 
@@ -97,6 +99,13 @@ q:after {
     line-height: 1; }
   .jumbotron-header p {
     margin: 1em 0 0; }
+
+.list {
+  margin: 6em 0;
+  column-count: 4;
+  column-gap: 2em; }
+  .list li {
+    margin-bottom: 1.5em; }
 
 .masthead {
   z-index: 15;
@@ -152,6 +161,30 @@ footer {
         color: #80b394; }
     footer .follow-twitter strong {
       border-bottom: 1px solid #60a079; }
+
+.sidebar h3 {
+  margin: 0 0 1em;
+  font-weight: 700; }
+.sidebar ul {
+  margin: 0;
+  padding: 0;
+  list-style: none; }
+.sidebar li {
+  position: relative;
+  display: block; }
+  .sidebar li a {
+    display: block;
+    padding: 0.4em 1.3em;
+    border-left: 3px solid #fafafa;
+    color: #333;
+    font-weight: 500; }
+    .sidebar li a:hover {
+      border-left: 3px solid #60a079;
+      color: #60a079; }
+    .sidebar li a.active {
+      border-left: 3px solid #7b6980;
+      color: #7b6980;
+      cursor: default; }
 
 .pagination {
   margin-bottom: 5em;
@@ -280,6 +313,25 @@ footer {
   margin: 4em 0 8em;
   padding-top: 4em;
   border-top: 1px dotted #f2f2f2; }
+
+.submit {
+  margin-top: 5em;
+  margin-bottom: 5em; }
+  .submit form {
+    margin: 5em 0; }
+    .submit form > div {
+      margin-bottom: 1em; }
+    .submit form label {
+      display: block;
+      text-transform: uppercase;
+      font-size: 0.8em;
+      font-weight: 700; }
+    .submit form [type="email"], .submit form [type="text"], .submit form textarea {
+      width: 50%; }
+    .submit form .actions {
+      margin-top: 2.5em;
+      padding-top: 2.5em;
+      border-top: 1px solid #f2f2f2; }
 
 .author-avatar {
   position: relative;

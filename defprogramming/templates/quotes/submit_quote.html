@@ -1,22 +1,28 @@
 {% extends "base.html" %}
 
 {% block content %}
-<header>
-  <h1>Submit Quote</h1>
-</header>
-<div class="box">
+    <section class="container submit">
+        <div class="row">
+            <div class="col-md-12">
+                {% if sent %}
+                    <p class="success">Your quote was successfully submitted, thank you! :-)</p>
+                {% else %}
+                    <p class="info">Fill in the form below to suggest/submit a quote.</p>
 
-  {% if sent %}
-    <p class="success">Your quote was successfully submitted, thank you! :-)</p>
-  {% else %}
-    <p class="info">Fill in the form below to suggest/submit a quote.</p>
-
-    <form method="post" action="/submit/">
-      {% csrf_token %} 
-      {{ form }}
-      <div class="actions"><input type="submit" value="Submit" class="btn primary" /></div>
-    </form>
-  {% endif %}
-</div>
-<p class="back"><a href="/">&larr; go back to the home page</a></p>
+                    <form method="post" action="/submit/" role="form">
+                    {% csrf_token %}
+                        {% for field in form %}
+                            <div>
+                                {{ field.errors }}
+                                {{ field.label_tag }} {{ field }}
+                            </div>
+                        {% endfor %}
+                    <div class="actions">
+                        <input type="submit" value="Submit" class="btn primary" />
+                    </div>
+                    </form>
+                {% endif %}
+            </div>
+        </div>
+    </section>
 {% endblock %}
