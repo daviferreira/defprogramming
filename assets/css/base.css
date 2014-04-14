@@ -26,26 +26,29 @@
 .icon-heart:before {
   content: "\E004"; }
 
-.icon-megaphone:before {
+.icon-link:before {
   content: "\E005"; }
 
-.icon-menu:before {
+.icon-megaphone:before {
   content: "\E006"; }
 
-.icon-pinterest:before {
+.icon-menu:before {
   content: "\E007"; }
 
-.icon-rss:before {
+.icon-pinterest:before {
   content: "\E008"; }
 
-.icon-share:before {
+.icon-rss:before {
   content: "\E009"; }
 
-.icon-tags:before {
+.icon-share:before {
   content: "\E00A"; }
 
-.icon-twitter:before {
+.icon-tags:before {
   content: "\E00B"; }
+
+.icon-twitter:before {
+  content: "\E00C"; }
 
 body {
   background-color: #fafafa;
@@ -88,7 +91,7 @@ q:after {
   line-height: 1.1; }
 
 .jumbotron-header {
-  padding: 6em 0; }
+  padding: 8em 0; }
   .jumbotron-header h1 {
     margin: 0;
     line-height: 1; }
@@ -208,9 +211,10 @@ footer {
   font-size: 1.5em; }
 
 .quote-cards-container {
-  column-count: 3;
+  column-count: 2;
   column-gap: 2em; }
   .quote-cards-container.single {
+    column-count: 3;
     margin-top: 2em; }
 
 .quote-card {

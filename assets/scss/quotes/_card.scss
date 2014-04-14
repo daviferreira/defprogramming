@@ -1,7 +1,8 @@
 .quote-cards-container {
-    column-count: 3;
+    column-count: 2;
     column-gap: 2em;
     &.single {
+        column-count: 3;
         margin-top: 2em;
     }
 }

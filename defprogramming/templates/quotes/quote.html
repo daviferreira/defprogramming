@@ -1,9 +1,10 @@
 <div class="quote-card">
     <q>{{ quote.body|safe|linebreaks }}</q>
     <div class="quote-card-actions">
-        <a href="#" class="heart"><i class="icon icon-heart"></i></a>
-        <a href="#"><i class="icon icon-share"></i></a>
+        <!-- a href="#" class="heart"><i class="icon icon-heart"></i></a -->
+        <a href="#"><i class="icon icon-megaphone"></i></a>
         <a href="{{ quote.get_absolute_url }}#comment"><i class="icon icon-comments"></i></a>
+        <a href="{{ quote.get_absolute_url }}"><i class="icon icon-link"></i></a>
     </div>
     {% if not has_author %}
         <div class="quote-card-author">

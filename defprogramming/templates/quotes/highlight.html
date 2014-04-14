@@ -6,9 +6,10 @@
                     <q class="jumbotron">{{ quote.body|safe|linebreaks }}</q>
                     <div class="quote-highlight-meta clearfix">
                         <div class="quote-highlight-actions">
-                            <a href="#" class="heart"><i class="icon icon-heart"></i></a>
-                            <a href="#"><i class="icon icon-share"></i></a>
+                            <!-- a href="#" class="heart"><i class="icon icon-heart"></i></a -->
+                            <a href="#"><i class="icon icon-megaphone"></i></a>
                             <a href="{% if not detail %}{{ quote.get_absolute_url }}{% endif %}#comments"><i class="icon icon-comments"></i></a>
+                            <a href="{{ quote.get_absolute_url }}"><i class="icon icon-link"></i></a>
                         </div>
                         <div class="quote-highlight-author clearfix">
                             {% for author in quote.authors.all %}
