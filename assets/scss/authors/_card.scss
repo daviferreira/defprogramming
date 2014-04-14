@@ -13,3 +13,12 @@
         @include vertical-align;
     }
 }
+
+.author-actions {
+    height: 120px;
+    a {
+        display: block;
+        line-height: 1;
+        @include vertical-align;
+    }
+}
