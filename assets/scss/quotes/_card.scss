@@ -44,7 +44,7 @@
         &:last-child {
             margin-right: 0;
         }
-        &:hover:not(.heart) {
+        &:not(.heart):not(.twitter):not(.google-plus):not(.facebook):hover {
             color: $secondary;
         }
     }

@@ -17,7 +17,7 @@
 .author-actions {
     height: 120px;
     a {
-        display: block;
+        display: inline-block;
         line-height: 1;
         @include vertical-align;
     }

@@ -9,7 +9,17 @@
                 </div>
                 <div class="col-md-2 actions">
                     <!-- a href="#" class="heart"><i class="icon icon-heart"></i></a -->
-                    <a href="#"><i class="icon icon-megaphone"></i></a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=http://defprogramming.com{{ tag.get_absolute_url }}"
+                    target="_blank" class="facebook">
+                        <i class="icon icon-facebook"></i>
+                    </a>
+                    <a href="https://twitter.com/home?status=Check it out! Quotes about {{ tag.name }} http://defprogramming.com{{ tag.get_absolute_url }}"
+                    target="_blank" class="twitter">
+                        <i class="icon icon-twitter"></i>
+                    </a>
+                    <a href="https://plus.google.com/share?url=http://defprogramming.com{{ tag.get_absolute_url }}" target="_blank" class="google-plus">
+                        <i class="icon icon-google-plus"></i>
+                    </a>
                 </div>
             </div>
         </div>
