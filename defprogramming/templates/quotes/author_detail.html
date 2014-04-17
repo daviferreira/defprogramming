@@ -1,17 +1,22 @@
 {% extends "base.html" %}
 
+{% load thumbnail %}
+
 {% block content %}
     <section class="author-card clearfix jumbotron-header">
         <div class="container">
             <div class="row">
                 <div class="col-md-10 author-meta-data">
                     {% if author.avatar %}
-                        <img src="{{ author.avatar.url }}" class="author-avatar">
+                        {% thumbnail author.avatar "120x120" crop="center" as im %}
+                            <img src="{{ im.url }}" class="author-avatar"
+                                width="{{ img.width }}" height="{{ img.height }}">
+                        {% endthumbnail %}
                     {% endif %}
                     <div class="author-info">
                         <h1 class="jumbotron">{{ author.name }}</h1>
                         {% if author.short_bio %}
-                            <p>{{ author.short_bio|safe|linebreaks }}</p>
+                            {{ author.short_bio|safe|linebreaks }}
                         {% endif %}
                     </div>
                 </div>

@@ -1,16 +1,19 @@
 # coding: utf-8
+from datetime import datetime
+
 from django.db import models
 from django.core.urlresolvers import reverse
-from datetime import datetime
+
+from sorl.thumbnail import ImageField
 
 
 class Author(models.Model):
     name = models.CharField(max_length=200)
     short_bio = models.TextField(max_length=500, null=True, blank=True)
     slug = models.SlugField(max_length=100, blank=True)
-    avatar = models.ImageField(upload_to='authors',
-                               blank=True,
-                               null=True)
+    avatar = ImageField(upload_to='authors',
+                        blank=True,
+                        null=True)
 
     ordering = ['name']
 

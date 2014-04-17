@@ -1,3 +1,5 @@
+{% load thumbnail %}
+
 <div class="quote-card">
     <q>{{ quote.body|safe|linebreaks }}</q>
     <div class="quote-card-actions">
@@ -26,7 +28,10 @@
                     {% with author=quote.authors.all.0 %}
                         <a href="{{ author.get_absolute_url }}">
                             {% if author.avatar %}
-                                <img src="{{ author.avatar.url }}" class="author-avatar">
+                                {% thumbnail author.avatar "60x60" crop="center" as im %}
+                                    <img src="{{ im.url }}" class="author-avatar"
+                                        width="{{ img.width }}" height="{{ img.height }}">
+                                {% endthumbnail %}
                             {% endif %}
                             <p>{{ author.name }}</p>
                         </a>

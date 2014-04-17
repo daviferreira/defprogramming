@@ -1,3 +1,4 @@
+{% load thumbnail %}
 <section class="quote-highlight">
     <div class="container">
         <div class="row">
@@ -23,7 +24,10 @@
                             {% for author in quote.authors.all %}
                                 <a href="{{ author.get_absolute_url }}">
                                     {% if author.avatar %}
-                                    <img src="{{ author.avatar.url }}" class="author-avatar">
+                                        {% thumbnail author.avatar "60x60" crop="center" as im %}
+                                            <img src="{{ im.url }}" class="author-avatar"
+                                                width="{{ img.width }}" height="{{ img.height }}">
+                                        {% endthumbnail %}
                                     {% endif %}
                                     <span class="quote-highlight-author-name">{{ author.name }}</span>
                                 </a>

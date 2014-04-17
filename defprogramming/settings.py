@@ -67,6 +67,7 @@ INSTALLED_APPS = (
     'django.contrib.sitemaps',
     'south',
     'quotes',
+    'sorl.thumbnail',
 )
 
 
