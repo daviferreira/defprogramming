@@ -20,9 +20,9 @@
                             </a>
                             <a href="{% if not detail %}{{ quote.get_absolute_url }}{% endif %}#comments"><i class="icon icon-comments"></i></a>
                         </div>
-                        <div class="quote-highlight-author">
+                        <div class="quote-highlight-author clearfix">
                             {% for author in quote.authors.all %}
-                                <a href="{{ author.get_absolute_url }}" class="clearfix">
+                                <a href="{{ author.get_absolute_url }}">
                                     {% if author.avatar %}
                                         {% thumbnail author.avatar "60x60" crop="center" as im %}
                                             <img src="{{ im.url }}" class="author-avatar"

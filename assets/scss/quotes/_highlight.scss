@@ -25,6 +25,7 @@
 }
 
 .quote-highlight-tags {
+    display: block;
     margin-top: .3em;
     font-weight: 300;
     i {
@@ -45,20 +46,18 @@
 }
 
 .quote-highlight-author {
-    display: inline-block;
+    display: block;
     img {
         float: left;
         margin-right: 1.3em;
     }
-    span {
-        display: inline-block;
-    }
 }
 
 .quote-highlight-author-name {
+    display: inline-block;
     margin-top: .5em;
     text-transform: uppercase;
-    font-size: 1.5em;
+    font-size: 1.3em;
 }
 
 @media (max-width:767px) {
