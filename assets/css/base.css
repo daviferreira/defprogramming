@@ -131,7 +131,7 @@ q:after {
   width: 100%;
   border-bottom: 1px solid #e9e5ea;
   background-color: #fafafa;
-  transition: all 0.3s cubic-bezier(0.895, 0.03, 0.685, 0.22); }
+  transition: all 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955); }
   .masthead h1, .masthead h2 {
     display: inline-block; }
   .masthead h1 {
@@ -166,7 +166,20 @@ q:after {
     opacity: 0; }
   .masthead[data-visible="true"] {
     top: 0;
+    padding: 1em;
+    border-bottom: 1px solid #333;
+    background-color: rgba(51, 51, 51, 0.95);
     opacity: 1; }
+    .masthead[data-visible="true"] h1 a, .masthead[data-visible="true"] nav a {
+      color: #fafafa; }
+      .masthead[data-visible="true"] h1 a:hover, .masthead[data-visible="true"] nav a:hover {
+        color: #e1e1e1; }
+    .masthead[data-visible="true"] h2 {
+      color: #80b394; }
+    .masthead[data-visible="true"] .btn {
+      border-color: #fafafa; }
+      .masthead[data-visible="true"] .btn:hover {
+        border-color: #e1e1e1; }
 
 footer {
   margin: 2em 0 0;

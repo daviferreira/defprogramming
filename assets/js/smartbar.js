@@ -43,9 +43,11 @@ var smartBar;
                         } else if (scrollDirection === 'down' && self.isVisible) {
                             self.hide();
                         }
+                    } else if (window.pageYOffset < self.root.offsetHeight) {
+                        self.unglue();
                     }
                     lastScrollTop = window.pageYOffset;
-                }, 50);
+                }, 100);
             });
         },
 
@@ -58,14 +60,17 @@ var smartBar;
 
         show: function show() {
             this.isVisible = true;
-            setTimeout(function () {
-                this.root.setAttribute('data-visible', true);
-            }.bind(this), 200);
+            this.root.setAttribute('data-visible', true);
         },
 
         hide: function hide() {
             this.isVisible = false;
             this.root.setAttribute('data-visible', false);
+        },
+
+        unglue: function unglue() {
+            this.isVisible = true;
+            this.root.setAttribute('data-visible', '');
         }
     };
 
