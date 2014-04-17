@@ -53,6 +53,7 @@
             .pipe(jshint())
             .pipe(jshint.reporter('default'))
             .pipe(uglify())
+            .pipe(concat('defprogramming.min.js'))
             .pipe(gulp.dest('../defprogramming/static/js/'));
     });
 
