@@ -42,11 +42,11 @@
         <header class="masthead clearfix" id="masthead">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-xs-10">
                         <h1><a href="{% url 'root' %}">def <strong>programming</strong></a></h1>
-                        <h2>quotes about coding</h2>
+                        <h2 class="hidden-xs">quotes about coding</h2>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 col-xs-2">
                         <nav>
                             <a href="{% url 'root' %}">Home</a>
                             <a href="{% url 'authors' %}">Authors</a>
@@ -55,6 +55,9 @@
                             <a href="{% url 'random' %}">Random</a>
                             <a href="{% url 'submit' %}" class="btn">Submit</a>
                         </nav>
+                        <a href="#" class="visible-xs menu-toggler" id="menu-toggler">
+                            <i class="icon icon-menu"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -83,6 +86,7 @@
         </footer>
         {% block scripts %}
         <script src="{% static 'js/smartbar.js' %}"></script>
+        <script src="{% static 'js/menu.js' %}"></script>
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
             function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
@@ -91,7 +95,11 @@
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-24367248-1');ga('send','pageview');
 
-            smartBar.init(document.getElementById('masthead'), 200);
+            if (!Modernizr.touch) {
+                smartBar.init(document.getElementById('masthead'), 200);
+            } else if (document.documentElement.offsetWidth < 768) {
+                mobileMenu.init();
+            }
         </script>
         {% endblock scripts %}
     </body>

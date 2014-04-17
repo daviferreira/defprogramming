@@ -23,4 +23,13 @@ footer {
     }
 }
 
-
+@media (max-width:767px) {
+    footer {
+        text-align: center;
+        span {
+            display: block;
+            float: none;
+            margin-bottom: 2em;
+        }
+    }
+}

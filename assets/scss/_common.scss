@@ -26,6 +26,21 @@ a {
     }
 }
 
+.touch {
+    a {
+        transition: none;
+        &.facebook {
+            color: $facebook-color;
+        }
+        &.twitter {
+            color: $twitter-color;
+        }
+        &.google-plus {
+            color: $google-plus-color;
+        }
+    }
+}
+
 q {
     &:before {
         color: $grey;
@@ -90,5 +105,20 @@ q {
     column-gap: 2em;
     li {
         margin-bottom: 1.5em;
+    }
+}
+
+@media (max-width:767px) {
+    body {
+        font-size: 13px;
+    }
+    .jumbotron {
+        letter-spacing: -.035em;
+        font-size: 2em;
+        line-height: 1.2;
+        text-align: center;
+    }
+    .list {
+        column-count: 1;
     }
 }

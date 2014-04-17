@@ -71,6 +71,15 @@ a {
   a.google-plus:hover {
     color: #dd4b39; }
 
+.touch a {
+  transition: none; }
+  .touch a.facebook {
+    color: #3b5998; }
+  .touch a.twitter {
+    color: #00aced; }
+  .touch a.google-plus {
+    color: #dd4b39; }
+
 q:before {
   color: #f2f2f2;
   content: '\201C';
@@ -122,6 +131,17 @@ q:after {
   .list li {
     margin-bottom: 1.5em; }
 
+@media (max-width: 767px) {
+  body {
+    font-size: 13px; }
+  .jumbotron {
+    letter-spacing: -0.035em;
+    font-size: 2em;
+    line-height: 1.2;
+    text-align: center; }
+  .list {
+    column-count: 1; } }
+
 .masthead {
   position: fixed;
   top: 0;
@@ -161,6 +181,8 @@ q:after {
         color: #60a079; }
       .masthead nav a:last-child {
         margin-right: 0; }
+  .masthead .menu-toggler {
+    display: none; }
   .masthead[data-visible="false"] {
     top: -6em;
     opacity: 0; }
@@ -181,6 +203,45 @@ q:after {
       .masthead[data-visible="true"] .btn:hover {
         border-color: #e1e1e1; }
 
+@media (max-width: 767px) {
+  .masthead {
+    transition: margin-top 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955); }
+    .masthead h1 {
+      display: block;
+      margin-bottom: 0.2em; }
+    .masthead nav {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #fafafa;
+      z-index: 10; }
+      .masthead nav a {
+        display: block;
+        text-align: center;
+        margin-right: 0;
+        border-bottom: 1px solid #f2f2f2; }
+      .masthead nav .btn {
+        border: none;
+        border-radius: 0;
+        border-bottom: 1px solid #f2f2f2; }
+    .masthead .menu-toggler {
+      display: block;
+      height: 33px;
+      color: #333; }
+    .masthead .icon-menu {
+      display: block;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2em;
+      line-height: 1; }
+    .masthead.menu-active {
+      margin-top: 135px; }
+      .masthead.menu-active nav {
+        display: block; } }
+
 footer {
   margin: 2em 0 0;
   padding: 4em;
@@ -199,6 +260,14 @@ footer {
         color: #80b394; }
     footer .follow-twitter strong {
       border-bottom: 1px solid #60a079; }
+
+@media (max-width: 767px) {
+  footer {
+    text-align: center; }
+    footer span {
+      display: block;
+      float: none;
+      margin-bottom: 2em; } }
 
 .sidebar h3 {
   margin: 0 0 1em;
@@ -281,6 +350,27 @@ footer {
   text-transform: uppercase;
   font-size: 1.5em; }
 
+.touch .quote-highlight-content {
+  text-align: center; }
+.touch .quote-highlight-author {
+  display: inline-block;
+  margin: 2em 0; }
+  .touch .quote-highlight-author > a {
+    display: block;
+    text-align: center; }
+    .touch .quote-highlight-author > a img {
+      float: none;
+      margin: 0; }
+.touch .quote-highlight-actions {
+  float: none;
+  text-align: center; }
+  .touch .quote-highlight-actions a:not(.heart):not(.twitter):not(.google-plus):not(.facebook) {
+    color: #60a079; }
+
+@media (max-width: 767px) {
+  .quote-highlight {
+    padding: 4em 0 3em; } }
+
 .quote-cards-container {
   column-count: 2;
   column-gap: 2em; }
@@ -347,10 +437,24 @@ footer {
 .ie10 .quote-card {
   width: 367px; }
 
+.touch .quote-card-actions a:not(.heart):not(.twitter):not(.google-plus):not(.facebook) {
+  color: #60a079; }
+
+@media (max-width: 767px) {
+  .quote-cards-container {
+    column-count: 1; }
+    .quote-cards-container.single {
+      column-count: 1; } }
+
 .comments {
   margin: 4em 0 8em;
   padding-top: 4em;
   border-top: 1px dotted #f2f2f2; }
+
+@media (max-width: 767px) {
+  .comments {
+    margin-top: 0;
+    padding-top: 0; } }
 
 .submit {
   margin-top: 5em;

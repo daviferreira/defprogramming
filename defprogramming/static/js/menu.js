@@ -1,0 +1,1 @@
+var mobileMenu;!function(t,e){"use strict";mobileMenu={init:function(){this.root=e.getElementById("masthead"),this.toggler=e.getElementById("menu-toggler"),this.isActive=!1,this.bind()},bind:function(){var t=this;this.toggler.addEventListener("click",function(e){e.preventDefault(),t.root.classList.toggle("menu-active"),t.isActive=!t.isActive})}}}(window,document);

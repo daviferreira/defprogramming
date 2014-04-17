@@ -3,3 +3,10 @@
     padding-top: 4em;
     border-top: 1px dotted $grey;
 }
+
+@media (max-width:767px) {
+    .comments {
+        margin-top: 0;
+        padding-top: 0;
+    }
+}

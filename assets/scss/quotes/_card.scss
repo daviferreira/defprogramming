@@ -78,3 +78,20 @@
 .ie10 .quote-card { // IE 10 Fix
     width: 367px;
 }
+
+.touch {
+    .quote-card-actions {
+        a:not(.heart):not(.twitter):not(.google-plus):not(.facebook) {
+            color: $secondary;
+        }
+    }
+}
+
+@media (max-width:767px) {
+    .quote-cards-container {
+        column-count: 1;
+        &.single {
+            column-count: 1;
+        }
+    }
+}
