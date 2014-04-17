@@ -42,5 +42,16 @@
             }
         }
     }
+    &[data-sticky="true"] {
+        position: fixed;
+        top: -6em;
+        left: 0;
+        width: 100%;
+        opacity: 0;
+        transition: all .3s ease-in;
+    }
+    &[data-visible="true"] {
+        top: 0;
+        opacity: 1;
+    }
 }
-
