@@ -51,7 +51,7 @@
   content: "\E00C"; }
 
 body {
-  background-color: #fafafa;
+  background-color: #f7f7f7;
   font-family: "Open Sans", sans-serif;
   font-size: 15px;
   padding-top: 4em; }
@@ -385,7 +385,7 @@ footer {
   padding: 4em 2em 2em;
   width: 100%;
   border-top: 3px solid #7b6980;
-  background-color: #f7f7f7;
+  background-color: #fafafa;
   text-align: center;
   font-weight: 700;
   break-inside: avoid; }
