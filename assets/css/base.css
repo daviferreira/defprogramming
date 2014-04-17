@@ -282,7 +282,7 @@ footer {
   .sidebar li a {
     display: block;
     padding: 0.4em 1.3em;
-    border-left: 3px solid #fafafa;
+    border-left: 3px solid transparent;
     color: #333;
     font-weight: 500; }
     .sidebar li a:hover {
