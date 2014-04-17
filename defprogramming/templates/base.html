@@ -39,7 +39,7 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
-        <header class="masthead clearfix">
+        <header class="masthead clearfix" id="masthead">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
@@ -82,6 +82,7 @@
             </div>
         </footer>
         {% block scripts %}
+        <script src="{% static 'js/smartbar.js' %}"></script>
         <script>
             (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
             function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
@@ -89,6 +90,8 @@
             e.src='//www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-24367248-1');ga('send','pageview');
+
+            smartBar.init(document.getElementById('masthead'), 200);
         </script>
         {% endblock scripts %}
     </body>

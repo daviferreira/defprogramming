@@ -11,6 +11,8 @@
         minifyCss = require('gulp-minify-css'),
         concat = require('gulp-concat'),
         livereload = require('gulp-livereload'),
+        jshint = require('gulp-jshint'),
+        uglify = require('gulp-uglify'),
         fontName = 'defprogramming';
 
     gulp.task('iconfont', function () {
@@ -46,9 +48,22 @@
             .pipe(livereload());
     });
 
+    gulp.task('js', function () {
+        gulp.src('js/**/*.js')
+            .pipe(jshint())
+            .pipe(jshint.reporter('default'))
+            .pipe(uglify())
+            .pipe(gulp.dest('../defprogramming/static/js/'));
+    });
+
     gulp.task('watch', function () {
-        var watcher = gulp.watch('scss/**/*.scss', ['css']);
-        watcher.on('changed', function (event) {
+        var watcherCSS = gulp.watch('scss/**/*.scss', ['css']),
+            watcherJS = gulp.watch('js/**/*.js', ['js']);
+        watcherCSS.on('changed', function (event) {
+            console.log('File ' + event.path + ' was ' + event.type +
+                        ', running tasks...');
+        });
+        watcherJS.on('changed', function (event) {
             console.log('File ' + event.path + ' was ' + event.type +
                         ', running tasks...');
         });
