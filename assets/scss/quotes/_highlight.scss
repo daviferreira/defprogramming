@@ -45,12 +45,13 @@
 }
 
 .quote-highlight-author {
+    display: inline-block;
     img {
         float: left;
         margin-right: 1.3em;
     }
     span {
-        display: block;
+        display: inline-block;
     }
 }
 
@@ -60,19 +61,22 @@
     font-size: 1.5em;
 }
 
-.touch {
+@media (max-width:767px) {
+    .quote-highlight {
+        padding: 4em 0 3em;
+    }
     .quote-highlight-content {
         text-align: center;
     }
     .quote-highlight-author {
-        display: inline-block;
         margin: 2em 0;
         > a {
             display: block;
             text-align: center;
             img {
+                display: block;
                 float: none;
-                margin: 0;
+                margin: 0 auto;
             }
         }
     }
@@ -83,10 +87,5 @@
             color: $secondary;
         }
     }
-}
 
-@media (max-width:767px) {
-    .quote-highlight {
-        padding: 4em 0 3em;
-    }
 }
