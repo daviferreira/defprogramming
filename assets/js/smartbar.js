@@ -7,8 +7,25 @@ var smartBar;
         init: function (el, limit) {
             this.root = el;
             this.limit = limit;
-            this.isVisible = false;
-            this.bindScroll();
+            this.isVisible = true;
+            this.isLocked = false;
+            this.bindEvents();
+        },
+
+        bindEvents: function bindEvents() {
+            this.bindOver()
+                .bindScroll();
+        },
+
+        bindOver: function bindOver() {
+            var self = this;
+            this.root.addEventListener('mouseover', function () {
+                self.isLocked = true;
+            });
+            this.root.addEventListener('mouseout', function () {
+                self.isLocked = false;
+            });
+            return this;
         },
 
         bindScroll: function bindScroll() {
@@ -20,18 +37,12 @@ var smartBar;
                 clearTimeout(timer);
                 timer = setTimeout(function () {
                     scrollDirection = self.getScrollDirection(lastScrollTop);
-                    // refactor plz
-                    if (window.pageYOffset > self.limit) {
-                        self.stick();
+                    if (window.pageYOffset > self.limit && !self.isLocked) {
                         if (scrollDirection === 'up' && !self.isVisible) {
                             self.show();
                         } else if (scrollDirection === 'down' && self.isVisible) {
                             self.hide();
                         }
-                    } else if (window.pageYOffset > self.root.offsetHeight) {
-                        self.stick();
-                    } else {
-                        self.unstick();
                     }
                     lastScrollTop = window.pageYOffset;
                 }, 50);
@@ -55,22 +66,7 @@ var smartBar;
         hide: function hide() {
             this.isVisible = false;
             this.root.setAttribute('data-visible', false);
-        },
-
-        stick: function stick() {
-            if (!this.isSticky) {
-                this.root.setAttribute('data-visible', false);
-                this.root.setAttribute('data-sticky', true);
-                document.body.style.paddingTop = this.root.offsetHeight + 'px';
-                this.isSticky = true;
-            }
-        },
-
-        unstick: function unstick() {
-            document.body.style.paddingTop = '';
-            this.isSticky = false;
-            this.root.setAttribute('data-sticky', false);
-            this.root.setAttribute('data-visible', false);
         }
     };
+
 }(window, document));

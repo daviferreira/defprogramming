@@ -1,9 +1,13 @@
 .masthead {
+    position: fixed;
+    top: 0;
+    left: 0;
     z-index: 15;
     padding: 1.5em;
     width: 100%;
     border-bottom: 1px solid lighten($primary, 45);
     background-color: $white;
+    transition: all .3s cubic-bezier(0.895, 0.030, 0.685, 0.220);
     h1, h2 {
         display: inline-block;
     }
@@ -21,9 +25,9 @@
     }
     h2 {
         margin: 0 0 0 .65em;
-        font-size: 1.25em;
-        letter-spacing: -.05em;
         color: $primary;
+        letter-spacing: -.05em;
+        font-size: 1.25em;
     }
     nav {
         float: right;
@@ -42,13 +46,9 @@
             }
         }
     }
-    &[data-sticky="true"] {
-        position: fixed;
+    &[data-visible="false"] {
         top: -6em;
-        left: 0;
-        width: 100%;
         opacity: 0;
-        transition: all .3s ease-in;
     }
     &[data-visible="true"] {
         top: 0;
