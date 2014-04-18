@@ -22,3 +22,13 @@
         }
     }
 }
+
+@media (max-width:767px) {
+    .submit {
+        form {
+            [type="email"], [type="text"], textarea {
+                width: 100%;
+            }
+        }
+    }
+}
