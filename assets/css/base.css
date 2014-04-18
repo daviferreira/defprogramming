@@ -139,6 +139,8 @@ q:after {
     font-size: 2em;
     line-height: 1.2;
     text-align: center; }
+  .jumbotron-header {
+    padding: 4em 0; }
   .list {
     column-count: 1; } }
 
@@ -290,6 +292,11 @@ footer {
       color: #7b6980;
       cursor: default;
       font-weight: 700; }
+
+@media (max-width: 767px) {
+  .sidebar li {
+    padding: 1em 0;
+    border-bottom: 1px solid #e6e6e6; } }
 
 .pagination {
   margin-bottom: 5em;
@@ -515,3 +522,15 @@ a:hover .author-avatar {
     position: relative;
     top: 50%;
     transform: translateY(-50%); }
+
+@media (max-width: 767px) {
+  .author-card .author-avatar {
+    float: none;
+    margin: 0 auto;
+    display: block; }
+  .author-meta-data {
+    height: auto; }
+    .author-meta-data .author-info {
+      top: 0;
+      transform: none;
+      margin-top: 1em; } }

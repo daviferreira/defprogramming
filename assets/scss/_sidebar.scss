@@ -30,3 +30,12 @@
         }
     }
 }
+
+@media (max-width:767px) {
+    .sidebar {
+        li {
+            padding: 1em 0;
+            border-bottom: 1px solid lighten($black, 70);
+        }
+    }
+}

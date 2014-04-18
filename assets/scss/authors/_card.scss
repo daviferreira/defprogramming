@@ -22,3 +22,21 @@
         @include vertical-align;
     }
 }
+
+@media (max-width:767px) {
+    .author-card {
+        .author-avatar {
+            float: none;
+            margin: 0 auto;
+            display: block;
+        }
+    }
+    .author-meta-data {
+        height: auto;
+        .author-info {
+            top: 0;
+            transform: none;
+            margin-top: 1em;
+        }
+    }
+}

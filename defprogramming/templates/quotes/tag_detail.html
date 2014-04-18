@@ -27,7 +27,7 @@
     <section class="quotes">
         <div class="container">
             <div class="row">
-                <aside class="col-md-3 sidebar">
+                <aside class="col-md-3 sidebar hidden-xs">
                     <h3>Tags</h3>
                     <ul>
                         {% for t in tags %}
@@ -41,7 +41,7 @@
                         {% endfor %}
                     </ul>
                 </aside>
-                <div class="col-md-9">
+                <div class="col-md-9 col-xs-12">
                     <div class="quote-cards-container">
                         {% for quote in quotes.object_list %}
                             {% include "quotes/quote.html" with has_author=author %}
