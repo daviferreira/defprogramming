@@ -24,6 +24,9 @@ var smartBar;
             });
             this.root.addEventListener('mouseout', function () {
                 self.isLocked = false;
+                if (window.pageYOffset > self.limit) {
+                    self.hide();
+                }
             });
             return this;
         },
