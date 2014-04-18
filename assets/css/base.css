@@ -288,7 +288,8 @@ footer {
     .sidebar li a.active {
       border-left: 3px solid #7b6980;
       color: #7b6980;
-      cursor: default; }
+      cursor: default;
+      font-weight: 700; }
 
 .pagination {
   margin-bottom: 5em;
