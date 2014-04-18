@@ -147,7 +147,7 @@ q:after {
   top: 0;
   left: 0;
   z-index: 15;
-  padding: 1.5em;
+  padding: 1em;
   width: 100%;
   border-bottom: 1px solid #e9e5ea;
   background-color: #fafafa;
@@ -188,59 +188,56 @@ q:after {
     opacity: 0; }
   .masthead[data-visible="true"] {
     top: 0;
-    padding: 1em;
     border-bottom: 1px solid #333;
-    background-color: rgba(51, 51, 51, 0.95);
+    background-color: rgba(123, 105, 128, 0.95);
     opacity: 1; }
     .masthead[data-visible="true"] h1 a, .masthead[data-visible="true"] nav a {
       color: #fafafa; }
       .masthead[data-visible="true"] h1 a:hover, .masthead[data-visible="true"] nav a:hover {
         color: #e1e1e1; }
     .masthead[data-visible="true"] h2 {
-      color: #80b394; }
+      color: #f2f2f2; }
     .masthead[data-visible="true"] .btn {
       border-color: #fafafa; }
       .masthead[data-visible="true"] .btn:hover {
         border-color: #e1e1e1; }
 
 @media (max-width: 767px) {
-  .masthead {
-    transition: margin-top 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955); }
-    .masthead h1 {
+  .masthead h1 {
+    display: block;
+    margin-bottom: 0.2em; }
+  .masthead nav {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #fafafa;
+    box-shadow: 0 0 6px #f2f2f2; }
+    .masthead nav a {
       display: block;
-      margin-bottom: 0.2em; }
-    .masthead nav {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: #fafafa;
-      z-index: 10; }
-      .masthead nav a {
-        display: block;
-        text-align: center;
-        margin-right: 0;
-        border-bottom: 1px solid #f2f2f2; }
-      .masthead nav .btn {
-        border: none;
-        border-radius: 0;
-        border-bottom: 1px solid #f2f2f2; }
-    .masthead .menu-toggler {
-      display: block;
-      height: 33px;
-      color: #333; }
-    .masthead .icon-menu {
-      display: block;
-      position: relative;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 2em;
-      line-height: 1; }
-    .masthead.menu-active {
-      margin-top: 135px; }
-      .masthead.menu-active nav {
-        display: block; } }
+      text-align: center;
+      margin-right: 0;
+      padding: 1em;
+      border-bottom: 1px solid #f2f2f2; }
+    .masthead nav .btn {
+      border: none;
+      border-radius: 0;
+      border-bottom: 1px solid #f2f2f2; }
+  .masthead .menu-toggler {
+    display: block;
+    height: 33px;
+    color: #333; }
+  .masthead .icon-menu {
+    display: block;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2em;
+    line-height: 1; }
+  .masthead.menu-active nav {
+    display: block;
+    margin-top: 0; } }
 
 footer {
   margin: 2em 0 0;
