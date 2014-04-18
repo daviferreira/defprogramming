@@ -140,7 +140,10 @@ q:after {
     line-height: 1.2;
     text-align: center; }
   .jumbotron-header {
-    padding: 4em 0; }
+    padding: 2em 0; }
+    .jumbotron-header .actions {
+      padding: 1em 0;
+      text-align: center; }
   .list {
     column-count: 1; } }
 
@@ -533,4 +536,9 @@ a:hover .author-avatar {
     .author-meta-data .author-info {
       top: 0;
       transform: none;
-      margin-top: 1em; } }
+      margin-top: 1em; }
+  .author-actions {
+    height: auto; }
+    .author-actions a {
+      top: 0;
+      transform: none; } }

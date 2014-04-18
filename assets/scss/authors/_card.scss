@@ -39,4 +39,11 @@
             margin-top: 1em;
         }
     }
+    .author-actions {
+        height: auto;
+        a {
+            top: 0;
+            transform: none;
+        }
+    }
 }

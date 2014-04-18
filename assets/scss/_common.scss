@@ -119,7 +119,11 @@ q {
         text-align: center;
     }
     .jumbotron-header {
-        padding: 4em 0;
+        padding: 2em 0;
+        .actions {
+            padding: 1em 0;
+            text-align: center;
+        }
     }
     .list {
         column-count: 1;
