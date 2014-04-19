@@ -18,26 +18,24 @@
     </div>
     {% if not has_author %}
         <div class="quote-card-author">
-            <a href="#">
-                {% if quote.authors.all|length > 1 %}
-                    {% for author in quote.authors.all %}
-                        <a href="{{ author.get_absolute_url }}">{{ author.name }}</a>
-                        {% if not forloop.last %} & {% endif %}
-                    {% endfor %}
-                {% else %}
-                    {% with author=quote.authors.all.0 %}
-                        <a href="{{ author.get_absolute_url }}">
-                            {% if author.avatar %}
-                                {% thumbnail author.avatar "60x60" crop="center" as im %}
-                                    <img src="{{ im.url }}" class="author-avatar"
-                                        width="{{ img.width }}" height="{{ img.height }}">
-                                {% endthumbnail %}
-                            {% endif %}
-                            <p>{{ author.name }}</p>
-                        </a>
-                    {% endwith %}
-                {% endif %}
-            </a>
+            {% if quote.authors.all|length > 1 %}
+                {% for author in quote.authors.all %}
+                    <a href="{{ author.get_absolute_url }}">{{ author.name }}</a>
+                    {% if not forloop.last %} & {% endif %}
+                {% endfor %}
+            {% else %}
+                {% with author=quote.authors.all.0 %}
+                    <a href="{{ author.get_absolute_url }}">
+                        {% if author.avatar %}
+                            {% thumbnail author.avatar "60x60" crop="center" as im %}
+                                <img src="{{ im.url }}" class="author-avatar"
+                                    width="{{ img.width }}" height="{{ img.height }}">
+                            {% endthumbnail %}
+                        {% endif %}
+                        <p>{{ author.name }}</p>
+                    </a>
+                {% endwith %}
+            {% endif %}
         </div>
     {% endif %}
     {% if not has_tag %}

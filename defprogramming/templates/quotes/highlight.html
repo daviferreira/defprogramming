@@ -21,17 +21,26 @@
                             <a href="{% if not detail %}{{ quote.get_absolute_url }}{% endif %}#comments"><i class="icon icon-comments"></i></a>
                         </div>
                         <div class="quote-highlight-author clearfix">
-                            {% for author in quote.authors.all %}
-                                <a href="{{ author.get_absolute_url }}">
-                                    {% if author.avatar %}
-                                        {% thumbnail author.avatar "60x60" crop="center" as im %}
-                                            <img src="{{ im.url }}" class="author-avatar"
-                                                width="{{ img.width }}" height="{{ img.height }}">
-                                        {% endthumbnail %}
-                                    {% endif %}
-                                    <span class="quote-highlight-author-name">{{ author.name }}</span>
-                                </a>
-                            {% endfor %}
+                            {% if quote.authors.all|length > 1 %}
+                                {% for author in quote.authors.all %}
+                                    <a href="{{ author.get_absolute_url }}">
+                                        <span class="quote-highlight-author-name">{{ author.name }}</span>
+                                        {% if not forloop.last %} & {% endif %}
+                                    </a>
+                                {% endfor %}
+                            {% else %}
+                                {% with author=quote.authors.all.0 %}
+                                    <a href="{{ author.get_absolute_url }}">
+                                        {% if author.avatar %}
+                                            {% thumbnail author.avatar "60x60" crop="center" as im %}
+                                                <img src="{{ im.url }}" class="author-avatar"
+                                                    width="{{ img.width }}" height="{{ img.height }}">
+                                            {% endthumbnail %}
+                                        {% endif %}
+                                        <span class="quote-highlight-author-name">{{ author.name }}</span>
+                                    </a>
+                                {% endwith %}
+                            {% endif %}
                             <span class="quote-highlight-tags">
                                 on
                                 {% for tag in quote.tags.all %}
