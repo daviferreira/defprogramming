@@ -19,10 +19,10 @@ var smartBar;
 
         bindOver: function bindOver() {
             var self = this;
-            this.root.addEventListener('mouseover', function () {
+            this.root.addEventListener('mouseenter', function () {
                 self.isLocked = true;
             });
-            this.root.addEventListener('mouseout', function () {
+            this.root.addEventListener('mouseleave', function () {
                 self.isLocked = false;
                 if (window.pageYOffset > self.limit) {
                     self.hide();
