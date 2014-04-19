@@ -28,7 +28,6 @@
         <meta property="fb:app_id" content="236133366405921">
         {% endif %}
         <link rel="alternate" type="application/atom+xml" title="defprogramming: recent quotes" href="{% url 'feed' %}">
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700">
         <link rel="stylesheet" href="{% static 'css/defprogramming.min.css' %}">
         <link rel="shortcut icon" href="{% static 'favicon.png' %}" />
         <script src="{% static 'js/vendor/modernizr-2.6.2.min.js' %}"></script>
@@ -86,20 +85,9 @@
         </footer>
         {% block scripts %}
         <script src="{% static 'js/defprogramming.min.js' %}"></script>
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-24367248-1');ga('send','pageview');
-
-            if (!Modernizr.touch) {
-                smartBar.init(document.getElementById('masthead'), 200);
-            } else if (document.documentElement.offsetWidth < 768) {
-                mobileMenu.init();
-            }
-        </script>
+        <script>!function(a,b,c,d,e,f){a.GoogleAnalyticsObject=d,a[d]||(a[d]=function(){(a[d].q=a[d].q||[]).push(arguments)}),a[d].l=+new Date,e=b.createElement(c),f=b.getElementsByTagName(c)[0],e.src="//www.google-analytics.com/analytics.js",f.parentNode.insertBefore(e,f)}(window,document,"script","ga"),ga("create","UA-24367248-1"),ga("send","pageview"),Modernizr.touch?document.documentElement.offsetWidth<768&&mobileMenu.init():smartBar.init(document.getElementById("masthead"),200);</script>
+        <script src="http://ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+        <script>WebFont.load({google:{families:["Open Sans:400,300,700"]}});</script>
         {% endblock scripts %}
     </body>
 </html>
