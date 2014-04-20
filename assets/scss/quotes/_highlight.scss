@@ -11,8 +11,12 @@
         padding: 0;
         &:before {
             position: absolute;
-            top: -35px;
+            font-size: 160px;
+            top: -20px;
             left: -90px;
+            height: 80px;
+            line-height: 1;
+            overflow: hidden;
         }
     }
 }
@@ -61,18 +65,12 @@
     letter-spacing: -.05em;
 }
 
-.quote-highlight {
-    .jumbotron-small {
-        &:before {
-            font-size: 5em;
-            top: -50px;
-        }
-    }
-}
-
 @media (max-width:767px) {
     .quote-highlight {
         padding: 4em 0 3em;
+        q:before {
+            display: none;
+        }
     }
     .quote-highlight-content {
         text-align: center;

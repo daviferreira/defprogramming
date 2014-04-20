@@ -396,8 +396,12 @@ footer {
     padding: 0; }
     .quote-highlight q:before {
       position: absolute;
-      top: -35px;
-      left: -90px; }
+      font-size: 160px;
+      top: -20px;
+      left: -90px;
+      height: 80px;
+      line-height: 1;
+      overflow: hidden; }
 
 .quote-highlight-meta {
   display: block;
@@ -434,13 +438,11 @@ footer {
   font-size: 1.3em;
   letter-spacing: -0.05em; }
 
-.quote-highlight .jumbotron-small:before {
-  font-size: 5em;
-  top: -50px; }
-
 @media (max-width: 767px) {
   .quote-highlight {
     padding: 4em 0 3em; }
+    .quote-highlight q:before {
+      display: none; }
   .quote-highlight-content {
     text-align: center; }
   .quote-highlight-author {
