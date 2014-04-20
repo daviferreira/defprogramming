@@ -72,7 +72,7 @@
                                 <a href="{% url 'feed' %}"><i class="icon icon-rss"></i> Feed</a>
                             </span>
                             Developed & curated with
-                            <a href="#" class="heart"><i class="icon icon-heart"></i></a>
+                            <a href="#" class="heart" id="lnk-love"><i class="icon icon-heart"></i></a>
                             by <a href="http://www.daviferreira.com/en" target="_blank">Davi Ferreira</a>.
                         </p>
                         <p class="follow-twitter">
@@ -84,6 +84,24 @@
                 </div>
             </div>
         </footer>
+        <div class="overlay" id="overlay">
+            <section id="credits" class="credits">
+                <header>
+                    <h1>Built with <i class="icon icon-heart"></i> using</h1>
+                </header>
+                <ul>
+                    <li><a href="https://www.djangoproject.com/" target="_blank">Django</a></li>
+                    <li><a href="http://gulpjs.com/" target="_blank">Gulp</a></li>
+                    <li><a href="http://html5boilerplate.com/" target="_blank">HTML5 Boilerplate</a></li>
+                    <li><a href="http://modernizr.com/" target="_blank">Modernizr</a></li>
+                    <li><a href="http://getbootstrap.com/" target="_blank">Bootstrap</a></li>
+                    <li><a href="http://www.google.com/fonts/specimen/Open+Sans" target="_blank">Open Sans</a></li>
+                    <li><a href="http://zurb.com/playground/foundation-icons" target="_blank">Foundation Icon Fonts</a></li>
+                    <li><a href="http://www.colourlovers.com/palette/2289364/Emerald_eyes" target="_blank">Colour Lovers</a></li>
+                </ul>
+                <p>Source code available @ <a href="https://github.com/daviferreira/defprogramming" target="_blank">github</a><small>pull requests more than welcome ;-)</small></p>
+            </section>
+        </div>
         {% block scripts %}
         <script src="{% static 'js/defprogramming.min.js' %}"></script>
         <script>
@@ -99,6 +117,19 @@
             } else if (document.documentElement.offsetWidth < 768) {
                 mobileMenu.init();
             }
+
+        var credits = document.getElementById('credits'),
+            overlay = document.getElementById('overlay');
+        document.getElementById('lnk-love').addEventListener('click', function (e) {
+            e.preventDefault();
+            overlay.style.display = credits.style.display = 'block';
+        });
+
+        overlay.addEventListener('click', function (e) {
+            if (e.target.id === 'overlay') {
+                overlay.style.display = credits.style.display = 'none';
+            }
+        });
         </script>
         {% endblock scripts %}
     </body>
