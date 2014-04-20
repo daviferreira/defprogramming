@@ -435,9 +435,8 @@ footer {
   letter-spacing: -0.05em; }
 
 .quote-highlight .jumbotron-small:before {
-  font-size: 6em;
-  top: -55px;
-  left: -120px; }
+  font-size: 5em;
+  top: -50px; }
 
 @media (max-width: 767px) {
   .quote-highlight {
