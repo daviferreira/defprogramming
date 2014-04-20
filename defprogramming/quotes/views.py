@@ -20,7 +20,7 @@ def index(request, page):
     title = "defprogramming: quotes about coding"
     description = "Quotes about programming, coding, computer science, " \
                   "debugging, software industry, startups and motivation."
-    url = reverse('root')
+    base_url_pagination = reverse('root')
     return render_to_response('quotes/index.html',
                               locals(),
                               context_instance=RequestContext(request))
@@ -58,7 +58,7 @@ def author_detail(request, slug, page=1):
     title = "Programming quotes by " + author.name + " | defprogramming"
     description = "Listing all programming quotes by " + author.name + \
                   ". Quotes about programming, coding, software industry."
-    url = reverse('author', kwargs={'slug': slug})
+    base_url_pagination = reverse('author', kwargs={'slug': slug})
     return render_to_response('quotes/author_detail.html',
                               locals(),
                               context_instance=RequestContext(request))
@@ -82,7 +82,7 @@ def tag_detail(request, slug, page=1):
     title = "Programming quotes tagged under " + tag.name + " | defprogramming"
     description = "Listing all programming quotes tagged under " + tag.name + \
                   ". Quotes about programming, coding, software industry."
-    url = reverse('tag', kwargs={'slug': slug})
+    base_url_pagination = reverse('tag', kwargs={'slug': slug})
     return render_to_response('quotes/tag_detail.html',
                               locals(),
                               context_instance=RequestContext(request))
