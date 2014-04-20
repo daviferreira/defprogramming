@@ -3,7 +3,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
 from django.contrib import admin
-from django.contrib.sitemaps import FlatPageSitemap, GenericSitemap
+from django.contrib.sitemaps import GenericSitemap
 from quotes.models import Quote, Author, Tag
 from quotes.feeds import LatestEntriesFeed
 
@@ -36,11 +36,13 @@ urlpatterns = patterns(
     # url(r'^quote/(?P<quote_id>\d+)/$', 'detail'),
     # TODO: (r'^quote/(?P<quote_uuid>\d+)/$', 'detail'),
     url(r'^authors/$', 'authors', name='authors'),
-    url(r'^quotes-by/(?P<slug>[\w_-]+)/(page/(?P<page>\d+)/)?$', 'author_detail', name='author'),
+    url(r'^quotes-by/(?P<slug>[\w_-]+)/(page/(?P<page>\d+)/)?$',
+        'author_detail', name='author'),
     # url(r'^author/(?P<slug>[\w_-]+)/$', 'author_detail'),
     # url(r'^author/(?P<author_id>\d+)/$', 'author_detail'),
     url(r'^tags/$', 'tags', name='tags'),
-    url(r'^quotes-tagged-with/(?P<slug>[\w_-]+)/(page/(?P<page>\d+)/)?$', 'tag_detail', name='tag'),
+    url(r'^quotes-tagged-with/(?P<slug>[\w_-]+)/(page/(?P<page>\d+)/)?$',
+        'tag_detail', name='tag'),
     # url(r'^tag/(?P<slug>[\w_-]+)/$', 'tag_detail'),
     # url(r'^tag/(?P<tag_id>\d+)/$', 'tag_detail'),
     url(r'^random/$', 'random', name='random'),
