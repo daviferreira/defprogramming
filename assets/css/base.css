@@ -262,6 +262,8 @@ footer {
         color: #80b394; }
     footer .follow-twitter strong {
       border-bottom: 1px solid #60a079; }
+    footer .follow-twitter i {
+      margin-right: 0.3em; }
   footer .heart:hover {
     animation: pop 300ms forwards cubic-bezier(0.8, 0.02, 0.45, 0.91); }
 

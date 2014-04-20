@@ -20,6 +20,9 @@ footer {
         strong {
             border-bottom: 1px solid $secondary;
         }
+        i {
+            margin-right: .3em;
+        }
     }
     .heart:hover {
         animation: pop 300ms forwards cubic-bezier(0.8,0.02,0.45,0.91);
