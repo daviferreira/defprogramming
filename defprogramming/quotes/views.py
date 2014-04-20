@@ -1,22 +1,26 @@
+# coding: utf-8
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
-from quotes.models import Author, Tag, Quote
-from quotes.forms import QuoteForm
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+from .models import Author, Tag, Quote
+from .forms import QuoteForm
 
 
 PER_PAGE = 25
 
 
-def index(request):
+def index(request, page):
     featured_quote = Quote.objects.filter(featured=True).order_by('?')[:1][0]
     quotes = Quote.objects.all() \
                           .exclude(id=featured_quote.id) \
                           .order_by('-publish_date')
-    quotes = __validates_pagination(request, Paginator(quotes, PER_PAGE))
+    quotes = __validates_pagination(page, Paginator(quotes, PER_PAGE))
     title = "defprogramming: quotes about coding"
     description = "Quotes about programming, coding, computer science, " \
                   "debugging, software industry, startups and motivation."
+    url = reverse('root')
     return render_to_response('quotes/index.html',
                               locals(),
                               context_instance=RequestContext(request))
@@ -46,14 +50,15 @@ def authors(request):
                               context_instance=RequestContext(request))
 
 
-def author_detail(request, slug):
+def author_detail(request, slug, page=1):
     author = get_object_or_404(Author, slug=slug)
     quotes = author.quote_set.all().order_by('-publish_date')
-    quotes = __validates_pagination(request, Paginator(quotes, PER_PAGE))
+    quotes = __validates_pagination(page, Paginator(quotes, PER_PAGE))
     authors = Author.objects.all().order_by('name')
     title = "Programming quotes by " + author.name + " | defprogramming"
     description = "Listing all programming quotes by " + author.name + \
                   ". Quotes about programming, coding, software industry."
+    url = reverse('author', kwargs={'slug': slug})
     return render_to_response('quotes/author_detail.html',
                               locals(),
                               context_instance=RequestContext(request))
@@ -69,15 +74,15 @@ def tags(request):
                               context_instance=RequestContext(request))
 
 
-def tag_detail(request, slug):
+def tag_detail(request, slug, page=1):
     tag = get_object_or_404(Tag, slug=slug)
     quotes = tag.quote_set.all().order_by('-publish_date')
-    quotes = __validates_pagination(request, Paginator(quotes, PER_PAGE))
+    quotes = __validates_pagination(page, Paginator(quotes, PER_PAGE))
     tags = Tag.objects.all().order_by('name')
     title = "Programming quotes tagged under " + tag.name + " | defprogramming"
     description = "Listing all programming quotes tagged under " + tag.name + \
                   ". Quotes about programming, coding, software industry."
-
+    url = reverse('tag', kwargs={'slug': slug})
     return render_to_response('quotes/tag_detail.html',
                               locals(),
                               context_instance=RequestContext(request))
@@ -104,8 +109,8 @@ def submit_quote(request):
                               context_instance=RequestContext(request))
 
 
-def __validates_pagination(request, paginator):
-    page = request.GET.get('page') or 1
+def __validates_pagination(page, paginator):
+    page = page or 1
     try:
         return paginator.page(page)
     except PageNotAnInteger:
