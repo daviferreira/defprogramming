@@ -476,14 +476,13 @@ footer {
   border-top: 3px solid #7b6980;
   background-color: #fafafa;
   text-align: center;
-  font-weight: 300;
   break-inside: avoid; }
   .quote-card q {
     position: relative;
     display: block;
     font-size: 1.7em;
     letter-spacing: -0.035em;
-    line-height: 1.3; }
+    line-height: 1.25; }
     .quote-card q:before {
       position: absolute;
       top: -70px;
