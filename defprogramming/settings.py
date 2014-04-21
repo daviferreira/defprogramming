@@ -68,12 +68,8 @@ INSTALLED_APPS = (
     'south',
     'quotes',
     'sorl.thumbnail',
-    'django_medusa',
 )
 
-MEDUSA_RENDERER_CLASS = "django_medusa.renderers.DiskStaticSiteRenderer"
-MEDUSA_MULTITHREAD = True
-MEDUSA_DEPLOY_DIR = os.path.join(BASE_DIR, 'cache', 'html')
 
 try:
     from settings_local import *  # NOQA
