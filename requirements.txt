@@ -2,3 +2,6 @@ Django==1.6.2
 south==0.8.4
 Pillow==2.4.0
 sorl-thumbnail==11.12
+
+# static generator
+django-medusa==0.2.0
