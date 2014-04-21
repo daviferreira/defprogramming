@@ -1,7 +1,7 @@
 @font-face {
   font-family: "defprogramming";
   src: url('../fonts/defprogramming.eot');
-  src: url('../fonts/defprogramming.eot?#iefix') format('eot'), url('../fonts/defprogramming.woff') format('woff'), url('../fonts/defprogramming.ttf') format('truetype'), url('../fonts/defprogramming.svg#defprogramming') format('svg'); }
+  src: url('../fonts/defprogramming.eot?#iefix') format('embedded-opentype'), url('../fonts/defprogramming.woff') format('woff'), url('../fonts/defprogramming.ttf') format('truetype'), url('../fonts/defprogramming.svg#defprogramming') format('svg'); }
 
 .icon:before {
   font-family: "defprogramming";
