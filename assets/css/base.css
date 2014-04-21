@@ -572,10 +572,9 @@ footer {
 .author-avatar {
   display: inline-block;
   position: relative;
-  width: 4em;
-  height: 4em;
   border: 1px solid #c4bbc7;
   border-radius: 50%;
+  box-sizing: content-box;
   transition: border-color 0.2s ease-in; }
   .author-avatar:hover {
     border-color: #60a079; }

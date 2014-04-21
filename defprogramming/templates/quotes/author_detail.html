@@ -10,7 +10,7 @@
                     {% if author.avatar %}
                         {% thumbnail author.avatar "120x120" crop="center" as im %}
                             <img src="{{ im.url }}" class="author-avatar"
-                                width="{{ img.width }}" height="{{ img.height }}">
+                                width="120" height="120">
                         {% endthumbnail %}
                     {% endif %}
                     <div class="author-info">

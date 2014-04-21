@@ -29,7 +29,7 @@
                         {% if author.avatar %}
                             {% thumbnail author.avatar "60x60" crop="center" as im %}
                                 <img src="{{ im.url }}" class="author-avatar"
-                                    width="{{ img.width }}" height="{{ img.height }}">
+                                    width="60" height="60">
                             {% endthumbnail %}
                         {% endif %}
                         <p>{{ author.name }}</p>
