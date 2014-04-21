@@ -49,7 +49,7 @@
     });
 
     gulp.task('js', function () {
-        gulp.src('js/**/*.js')
+        gulp.src(['js/smartbar.js', 'js/menu.js', 'js/main.js'])
             .pipe(jshint())
             .pipe(jshint.reporter('default'))
             .pipe(uglify())
@@ -70,5 +70,5 @@
         });
     });
 
-    gulp.task('default', ['css', 'watch']);
+    gulp.task('default', ['js', 'css', 'watch']);
 }());

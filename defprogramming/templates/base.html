@@ -111,25 +111,6 @@
             e.src='//www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
             ga('create','UA-24367248-1');ga('send','pageview');
-
-            if (!Modernizr.touch) {
-                smartBar.init(document.getElementById('masthead'), 200);
-            } else if (document.documentElement.offsetWidth < 768) {
-                mobileMenu.init();
-            }
-
-        var credits = document.getElementById('credits'),
-            overlay = document.getElementById('overlay');
-        document.getElementById('lnk-love').addEventListener('click', function (e) {
-            e.preventDefault();
-            overlay.style.display = credits.style.display = 'block';
-        });
-
-        overlay.addEventListener('click', function (e) {
-            if (e.target.id === 'overlay') {
-                overlay.style.display = credits.style.display = 'none';
-            }
-        });
         </script>
         {% endblock scripts %}
     </body>
