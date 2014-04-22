@@ -1,12 +1,12 @@
-**/db/*.sqlite3
+db/
 public_html/*
 *.swp
 *.pyc
 *~
 .DS_Store
 settings_local.py
-build/*
+build/
 node_modules/
 .sass-cache/
 npm-debug.log
-**/media/*
+media/

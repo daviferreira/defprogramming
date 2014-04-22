@@ -26,8 +26,8 @@ def index(request, page):
                               context_instance=RequestContext(request))
 
 
-def detail(request, slug):
-    quote = get_object_or_404(Quote, slug=slug)
+def detail(request, uuid):
+    quote = get_object_or_404(Quote, uuid=uuid)
     return render_to_response('quotes/detail.html',
                               locals(),
                               context_instance=RequestContext(request))
