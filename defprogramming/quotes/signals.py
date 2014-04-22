@@ -9,19 +9,19 @@ from .models import Author, Quote, Tag
 
 def author_pre_save(signal, instance, sender, **kwargs):
     if not instance.uuid:
-        instance.uuid = uuid.uuid4().hex
+        instance.uuid = uuid.uuid4().hex[:12]
     instance.slug = slugify(instance.name[:99])
 
 
 def quote_pre_save(signal, instance, sender, **kwargs):
     if not instance.uuid:
-        instance.uuid = uuid.uuid4().hex
+        instance.uuid = uuid.uuid4().hex[:12]
     instance.slug = slugify(instance.body[:99])
 
 
 def tag_pre_save(signal, instance, sender, **kwargs):
     if not instance.uuid:
-        instance.uuid = uuid.uuid4().hex
+        instance.uuid = uuid.uuid4().hex[:12]
     instance.slug = slugify(instance.name[:99])
 
 

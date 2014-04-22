@@ -16,7 +16,7 @@ class Command(BaseCommand):
             for item in items:
                 self.stdout.write('Generating hashes for %s, item %d' %
                                   (model, item.id))
-                item.uuid = uuid.uuid4().hex
+                item.uuid = uuid.uuid4().hex[:12]
                 item.save()
 
         self.stdout.write('Successfully generated hashes for quotes models')
