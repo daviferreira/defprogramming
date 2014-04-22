@@ -6,14 +6,17 @@ from django.core.urlresolvers import reverse
 from django.http import HttpResponsePermanentRedirect, HttpResponse
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
+from django.views.decorators.cache import cache_page
 
 from .models import Author, Tag, Quote
 from .forms import QuoteForm
 
 
+DEFAULT_CACHE_TIME = 60 * 15
 PER_PAGE = 25
 
 
+@cache_page(DEFAULT_CACHE_TIME)
 def index(request, page=1, format=None):
     featured_quote = Quote.objects.filter(featured=True).order_by('?')[:1][0]
     quotes = Quote.objects.all() \
@@ -39,6 +42,7 @@ def index(request, page=1, format=None):
                                   context_instance=RequestContext(request))
 
 
+@cache_page(DEFAULT_CACHE_TIME)
 def detail(request, uuid):
     quote = get_object_or_404(Quote, uuid=uuid)
     return render_to_response('quotes/detail.html',
@@ -46,6 +50,7 @@ def detail(request, uuid):
                               context_instance=RequestContext(request))
 
 
+@cache_page(60 * 60)
 def quote_redirect(request, slug):
     quote = get_object_or_404(Quote, slug=slug)
     return HttpResponsePermanentRedirect(quote.get_absolute_url())
@@ -58,6 +63,7 @@ def random(request):
                               context_instance=RequestContext(request))
 
 
+@cache_page(DEFAULT_CACHE_TIME)
 def authors(request):
     authors = Author.objects.all().order_by('name')
     title = "Listing all authors | defprogramming"
@@ -68,6 +74,7 @@ def authors(request):
                               context_instance=RequestContext(request))
 
 
+@cache_page(DEFAULT_CACHE_TIME)
 def author_detail(request, slug, page=1):
     author = get_object_or_404(Author, slug=slug)
     quotes = author.quote_set.all().order_by('-publish_date')
@@ -82,6 +89,7 @@ def author_detail(request, slug, page=1):
                               context_instance=RequestContext(request))
 
 
+@cache_page(DEFAULT_CACHE_TIME)
 def tags(request):
     tags = Tag.objects.all().order_by('name')
     title = "Listing all tags | defprogramming"
@@ -92,6 +100,7 @@ def tags(request):
                               context_instance=RequestContext(request))
 
 
+@cache_page(DEFAULT_CACHE_TIME)
 def tag_detail(request, slug, page=1):
     tag = get_object_or_404(Tag, slug=slug)
     quotes = tag.quote_set.all().order_by('-publish_date')
