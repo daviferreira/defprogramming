@@ -1,8 +1,9 @@
 # coding: utf-8
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.urlresolvers import reverse
-from django.template import RequestContext
+from django.http import HttpResponsePermanentRedirect
 from django.shortcuts import render_to_response, get_object_or_404
+from django.template import RequestContext
 
 from .models import Author, Tag, Quote
 from .forms import QuoteForm
@@ -31,6 +32,11 @@ def detail(request, uuid):
     return render_to_response('quotes/detail.html',
                               locals(),
                               context_instance=RequestContext(request))
+
+
+def quote_redirect(request, slug):
+    quote = get_object_or_404(Quote, slug=slug)
+    return HttpResponsePermanentRedirect(quote.get_absolute_url())
 
 
 def random(request):

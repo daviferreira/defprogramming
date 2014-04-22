@@ -33,6 +33,7 @@ sitemaps = {
 urlpatterns = patterns(
     'quotes.views',
     url(r'^q/(?P<uuid>[\w_-]+)/$', 'detail', name='quote'),
+    url(r'^quote/(?P<slug>[\w_-]+)/$', 'quote_redirect'),
 
     url(r'^authors/$', 'authors', name='authors'),
     url(r'^quotes-by/(?P<slug>[\w_-]+)/(page/(?P<page>\d+)/)?$',
