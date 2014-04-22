@@ -2,6 +2,7 @@ var paginator;
 
 (function (window, document, undefined) {
     'use strict';
+
     function elementInViewport(el) {
         var top = el.offsetTop,
             left = el.offsetLeft,
@@ -149,6 +150,8 @@ var paginator;
                         setTimeout(function () {
                             self.resetNewCards();
                         }, 300);
+                    } else {
+                        self.currentPage -= 1;
                     }
                     self.unlock();
                 }
