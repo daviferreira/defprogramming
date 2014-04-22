@@ -239,10 +239,10 @@ q:after {
     border-color: #7b6980 rgba(123, 105, 128, 0.25) rgba(123, 105, 128, 0.5) rgba(123, 105, 128, 0.75); } }
 
 .border-loading-indicator {
-  width: 0px;
-  height: 0px;
-  border: 0px solid #7b6980;
-  border-width: 15px 15px;
+  width: 0;
+  height: 0;
+  border: 0 solid #7b6980;
+  border-width: 1em 1em;
   border-radius: 50%; }
 
 .border-loading-indicator.row-1 {
@@ -252,14 +252,14 @@ q:after {
   animation: border-loading-indicator-row-2 750ms linear infinite; }
 
 .border-loading-indicator.col-1 {
-  width: 15px;
-  height: 15px;
-  border-width: 7.5px 7.5px; }
+  width: 1em;
+  height: 1em;
+  border-width: 0.5em 0.5em; }
 
 .border-loading-indicator.col-3 {
-  width: 0px;
-  height: 0px;
-  border-radius: 15px 15px 15px 15px; }
+  width: 0;
+  height: 0;
+  border-radius: 1em 1em 1em 1em; }
 
 .pagination-loading {
   display: none;
