@@ -121,7 +121,7 @@ var paginator;
             this.isPaginating = true;
             this.loader.style.display = 'block';
             if (this.btn) {
-                this.btn.style.visibility = 'hidden';
+                this.btn.style.display = 'none';
             }
         },
 
@@ -129,7 +129,7 @@ var paginator;
             this.isPaginating = false;
             this.loader.style.display = 'none';
             if (this.btn) {
-                this.btn.style.visibility = 'visible';
+                this.btn.style.display = 'block';
             }
         },
 
