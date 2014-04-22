@@ -1,0 +1,120 @@
+/*** Config ***/
+
+/* Colors */
+$baseColor: rgba(170, 84, 237, 1);
+$borderColor1: rgba($baseColor, 0.25); /* used for row 1 & 2 */
+$borderColor2: rgba($baseColor, 0.50);
+$borderColor3: rgba($baseColor, 0.75);
+$borderColor4: rgba($baseColor, 1.0);  /* used for row 1 & 2 */
+
+/* Dimensions */
+$borderWidthX: 15px;
+$borderWidthY: 15px;
+
+
+/*** Animations / styles ***/
+
+@-webkit-keyframes border-loading-indicator-row-1 {
+  0% {
+    border-color: $borderColor1;
+    border-top-color: $borderColor4;
+  }
+  25% {
+    border-color: $borderColor1;
+    border-right-color: $borderColor4;
+  }
+  50% {
+    border-color: $borderColor1;
+    border-bottom-color: $borderColor4;
+  }
+  75% {
+    border-color: $borderColor1;
+    border-left-color: $borderColor4;
+  }
+  100% {
+    border-color: $borderColor1;
+    border-top-color: $borderColor4;
+  }
+}
+
+@-webkit-keyframes border-loading-indicator-row-2 {
+  0% {
+    border-color: $borderColor4 $borderColor1 $borderColor2 $borderColor3;
+  }
+  25% {
+    border-color: $borderColor3 $borderColor4 $borderColor1 $borderColor2;
+  }
+  50% {
+    border-color: $borderColor2 $borderColor3 $borderColor4 $borderColor1;
+  }
+  75% {
+    border-color: $borderColor1 $borderColor2 $borderColor3 $borderColor3;
+  }
+  100% {
+    border-color: $borderColor4 $borderColor1 $borderColor2 $borderColor3;
+  }
+}
+
+.border-loading-indicator {
+  width: 0px;
+  height: 0px;
+  border: 0px solid $borderColor4;
+  border-width: $borderWidthY $borderWidthX;
+}
+
+.border-loading-indicator.row-1 {
+  -webkit-animation: border-loading-indicator-row-1 750ms linear infinite;
+}
+
+.border-loading-indicator.row-2 {
+  -webkit-animation: border-loading-indicator-row-2 750ms linear infinite;
+}
+
+.border-loading-indicator.col-1 {
+  width: $borderWidthX;
+  height: $borderWidthY;
+  border-width: ($borderWidthY / 2) ($borderWidthX / 2);
+}
+
+.border-loading-indicator.col-3 {
+  width: 0px;
+  height: 0px;
+  border-radius: $borderWidthY $borderWidthX $borderWidthY $borderWidthX // $borderWidthX $borderWidthY $borderWidthX $borderWidthY;
+}
+
+.loading {
+  position: absolute;
+  bottom: -21px;
+  left: 50%;
+  margin-left: -10px;
+  display: none;
+  height: 40px;
+  width: 160px;
+  margin-left: -80px;
+  padding: 10px;
+  background-color: #02e991;
+  box-shadow :0 2px 2px rgba(#000, .3);
+  .loading-content {
+    position: relative;
+  }
+  .border-loading-indicator {
+    float: left;
+    border-width: 10px 10px;
+  }
+  span {
+    display: block;
+    float: left;
+    padding: 3px 6px 6px 15px;
+    color: #8e3be1;
+    font-size: 16px;
+    font-weight: normal;
+    text-transform: uppercase;
+  }
+}
+
+.pagination-loading {
+  display: none;
+  .border-loading-indicator {
+    margin: 20px auto 0;
+  }
+}

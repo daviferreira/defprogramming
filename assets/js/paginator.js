@@ -28,6 +28,7 @@ var paginator;
             this.isPaginating = false;
             this.maxAutoLoad = 3;
             this.root = document.getElementById('quotes');
+            this.loader = document.getElementById('pagination-loader');
             this.bind();
         },
 
@@ -48,8 +49,8 @@ var paginator;
                    '    <a href="https://twitter.com/home?status=%22' + encodeURI(data.body) + '%22 http://defprogramming.com' + data.url + '" target="_blank" class="twitter">' +
                    '        <i class="icon icon-twitter"></i>' +
                    '    </a>' +
-                   '    <a href="https://plus.google.com/share?url=http://defprogramming.com' + data.url + '" target="_blank" class="google-plus">
-                            <i class="icon icon-google-plus"></i>' +
+                   '    <a href="https://plus.google.com/share?url=http://defprogramming.com' + data.url + '" target="_blank" class="google-plus">' +
+                   '        <i class="icon icon-google-plus"></i>' +
                    '    </a>' +
                    '    <a href="' + data.url + '#comments"><i class="icon icon-comments"></i></a>' +
                    '</div>';
@@ -67,8 +68,7 @@ var paginator;
                 author = authors[0];
                 html += '<a href="' + author.url + '">';
                 if (author.avatar) {
-                    html += '<img src="' + author.avatar + '" class="author-avatar"
-                                width="60" height="60">';
+                    html += '<img src="' + author.avatar + '" class="author-avatar" width="60" height="60">';
                 }
                 html += '<p>' + author.name + '</p>';
                 html += '</a>';
@@ -106,7 +106,7 @@ var paginator;
             if (this.isPaginating) {
                 return;
             }
-            this.isPaginating = true;
+            this.lock();
             this.currentPage += 1;
             if (!this.httpRequest) {
                 this.createHttpRequest();
@@ -115,6 +115,22 @@ var paginator;
                                   '/page/' + this.currentPage + '/format/json/',
                                   true);
             this.httpRequest.send(null);
+        },
+
+        lock: function lock() {
+            this.isPaginating = true;
+            this.loader.style.display = 'block';
+            if (this.btn) {
+                this.btn.style.display = 'none';
+            }
+        },
+
+        unlock: function unlock() {
+            this.isPaginating = false;
+            this.loader.style.display = 'none';
+            if (this.btn) {
+                this.btn.style.display = 'block';
+            }
         },
 
         createHttpRequest: function createHttpRequest() {
@@ -131,7 +147,7 @@ var paginator;
                         self.resetNewCards();
                     }, 300);
                 }
-                self.isPaginating = false;
+                self.unlock();
             };
         },
 

@@ -189,6 +189,102 @@ q:after {
   .btn-load-more {
     width: 100%; } }
 
+/*** Config ***/
+/* Colors */
+/* used for row 1 & 2 */
+/* used for row 1 & 2 */
+/* Dimensions */
+/*** Animations / styles ***/
+@-webkit-keyframes border-loading-indicator-row-1 {
+  0% {
+    border-color: rgba(170, 84, 237, 0.25);
+    border-top-color: #aa54ed; }
+
+  25% {
+    border-color: rgba(170, 84, 237, 0.25);
+    border-right-color: #aa54ed; }
+
+  50% {
+    border-color: rgba(170, 84, 237, 0.25);
+    border-bottom-color: #aa54ed; }
+
+  75% {
+    border-color: rgba(170, 84, 237, 0.25);
+    border-left-color: #aa54ed; }
+
+  100% {
+    border-color: rgba(170, 84, 237, 0.25);
+    border-top-color: #aa54ed; } }
+
+@-webkit-keyframes border-loading-indicator-row-2 {
+  0% {
+    border-color: #aa54ed rgba(170, 84, 237, 0.25) rgba(170, 84, 237, 0.5) rgba(170, 84, 237, 0.75); }
+
+  25% {
+    border-color: rgba(170, 84, 237, 0.75) #aa54ed rgba(170, 84, 237, 0.25) rgba(170, 84, 237, 0.5); }
+
+  50% {
+    border-color: rgba(170, 84, 237, 0.5) rgba(170, 84, 237, 0.75) #aa54ed rgba(170, 84, 237, 0.25); }
+
+  75% {
+    border-color: rgba(170, 84, 237, 0.25) rgba(170, 84, 237, 0.5) rgba(170, 84, 237, 0.75) rgba(170, 84, 237, 0.75); }
+
+  100% {
+    border-color: #aa54ed rgba(170, 84, 237, 0.25) rgba(170, 84, 237, 0.5) rgba(170, 84, 237, 0.75); } }
+
+.border-loading-indicator {
+  width: 0px;
+  height: 0px;
+  border: 0px solid #aa54ed;
+  border-width: 15px 15px; }
+
+.border-loading-indicator.row-1 {
+  -webkit-animation: border-loading-indicator-row-1 750ms linear infinite; }
+
+.border-loading-indicator.row-2 {
+  -webkit-animation: border-loading-indicator-row-2 750ms linear infinite; }
+
+.border-loading-indicator.col-1 {
+  width: 15px;
+  height: 15px;
+  border-width: 7.5px 7.5px; }
+
+.border-loading-indicator.col-3 {
+  width: 0px;
+  height: 0px;
+  border-radius: 15px 15px 15px 15px; }
+
+.loading {
+  position: absolute;
+  bottom: -21px;
+  left: 50%;
+  margin-left: -10px;
+  display: none;
+  height: 40px;
+  width: 160px;
+  margin-left: -80px;
+  padding: 10px;
+  background-color: #02e991;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3); }
+  .loading .loading-content {
+    position: relative; }
+  .loading .border-loading-indicator {
+    float: left;
+    border-width: 10px 10px; }
+  .loading span {
+    display: block;
+    float: left;
+    padding: 3px 6px 6px 15px;
+    color: #8e3be1;
+    font-size: 16px;
+    font-weight: normal;
+    text-transform: uppercase; }
+
+.pagination-loading {
+  display: none; }
+  .pagination-loading .border-loading-indicator {
+    margin: 20px auto 0; }
+
 .masthead {
   position: fixed;
   top: 0;
