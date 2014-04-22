@@ -90,13 +90,16 @@ var paginator;
         bind: function bind() {
             var footer = document.getElementsByTagName('footer')[0],
                 timer,
+                lastScrollTop = 0,
                 self = this;
             this.scrollHandler = function () {
                 clearTimeout(timer);
                 timer = setTimeout(function () {
-                    if (elementInViewport(footer)) {
+                    if (elementInViewport(footer)
+                            && window.pageYOffset > lastScrollTop) {
                         self.paginate();
                     }
+                    lastScrollTop = window.pageYOffset;
                 }, 50);
             };
             window.addEventListener('scroll', this.scrollHandler);
