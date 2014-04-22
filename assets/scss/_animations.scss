@@ -21,15 +21,17 @@
 
 @keyframes load-page {
     0% {
-        transform: translateY(10%)
+        opacity: 0;
+        transform: translateY(10%);
     }
 
 
     55% {
-        transform: translateY(5%)
+        opacity: 1;
+        transform: translateY(5%);
     }
 
     100% {
-        transform: translateY(0)
+        transform: translateY(0);
     }
 }

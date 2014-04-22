@@ -16,9 +16,11 @@
 
 @keyframes load-page {
   0% {
+    opacity: 0;
     transform: translateY(10%); }
 
   55% {
+    opacity: 1;
     transform: translateY(5%); }
 
   100% {
@@ -253,32 +255,6 @@ q:after {
   width: 0px;
   height: 0px;
   border-radius: 15px 15px 15px 15px; }
-
-.loading {
-  position: absolute;
-  bottom: -21px;
-  left: 50%;
-  margin-left: -10px;
-  display: none;
-  height: 40px;
-  width: 160px;
-  margin-left: -80px;
-  padding: 10px;
-  background-color: #02e991;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3); }
-  .loading .loading-content {
-    position: relative; }
-  .loading .border-loading-indicator {
-    float: left;
-    border-width: 10px 10px; }
-  .loading span {
-    display: block;
-    float: left;
-    padding: 3px 6px 6px 15px;
-    color: #8e3be1;
-    font-size: 16px;
-    font-weight: normal;
-    text-transform: uppercase; }
 
 .pagination-loading {
   display: none; }
