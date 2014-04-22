@@ -1,0 +1,35 @@
+@keyframes pop {
+    0% {
+        opacity: 0;
+        filter: alpha(opacity=0);
+        transform: scale(0.9) rotateX(-40deg);
+    }
+
+    50% {
+        opacity: 1;
+        filter: alpha(opacity=100);
+    }
+
+    70% {
+        transform: scale(1.25) rotateX(0);
+    }
+
+    100% {
+        transform: scale(1) rotateX(0);
+    }
+}
+
+@keyframes load-page {
+    0% {
+        transform: translateY(10%)
+    }
+
+
+    55% {
+        transform: translateY(5%)
+    }
+
+    100% {
+        transform: translateY(0)
+    }
+}

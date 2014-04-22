@@ -66,3 +66,24 @@ class Quote(models.Model):
 
         def get_absolute_url(self):
             return reverse('quote', kwargs={'uuid': self.uuid})
+
+        def serialize(self):
+            return {
+                'body': self.body,
+                'url': self.get_absolute_url(),
+                'authors': [
+                    {
+                        'name': author.name,
+                        'url': author.get_absolute_url(),
+                        'avatar': author.get_avatar(),
+                    }
+                    for author in self.authors.all()
+                ],
+                'tags': [
+                    {
+                        'name': tag.name,
+                        'url': tag.get_absolute_url(),
+                    }
+                    for tag in self.tags.all()
+                ]
+            }

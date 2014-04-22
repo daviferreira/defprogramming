@@ -1,3 +1,14 @@
+.quotes {
+    h3 {
+        padding: 0 0 1em;
+        text-transform: uppercase;
+        font-size: .8em;
+        color: lighten($black, 50);
+        border-bottom: 1px dashed lighten($black, 70);
+        text-align: center;
+    }
+}
+
 .quote-cards-container {
     column-count: 2;
     column-gap: 2em;
@@ -17,6 +28,8 @@
     background-color: $white;
     text-align: center;
     break-inside: avoid;
+    overflow: hidden;
+    max-height: 4000px;
     q {
         position: relative;
         display: block;
@@ -69,6 +82,11 @@
         margin: 0;
         padding: .6em 0 0;
     }
+}
+
+.quote-cards-container-new {
+    transform: translateZ(0);
+    animation: load-page 300ms;
 }
 
 .quote-card-tags {

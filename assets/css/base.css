@@ -1,3 +1,29 @@
+@keyframes pop {
+  0% {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    transform: scale(0.9) rotateX(-40deg); }
+
+  50% {
+    opacity: 1;
+    filter: alpha(opacity=100); }
+
+  70% {
+    transform: scale(1.25) rotateX(0); }
+
+  100% {
+    transform: scale(1) rotateX(0); } }
+
+@keyframes load-page {
+  0% {
+    transform: translateY(10%); }
+
+  55% {
+    transform: translateY(5%); }
+
+  100% {
+    transform: translateY(0); } }
+
 @font-face {
   font-family: "defprogramming";
   src: url('../fonts/defprogramming.eot');
@@ -103,6 +129,15 @@ q:after {
     border-color: #60a079;
     text-decoration: none; }
 
+.btn-load-more {
+  display: block;
+  margin: 3em auto;
+  text-align: center;
+  width: 50%;
+  border: 1px solid #bfbfbf;
+  background-color: #f2f2f2;
+  padding: 0.75em; }
+
 .jumbotron {
   letter-spacing: -0.035em;
   font-weight: 700;
@@ -150,7 +185,9 @@ q:after {
       padding: 1em 0;
       text-align: center; }
   .list {
-    column-count: 1; } }
+    column-count: 1; }
+  .btn-load-more {
+    width: 100%; } }
 
 .masthead {
   position: fixed;
@@ -320,22 +357,6 @@ footer {
     .credits p small {
       display: block; }
 
-@keyframes pop {
-  0% {
-    opacity: 0;
-    filter: alpha(opacity=0);
-    transform: scale(0.9) rotateX(-40deg); }
-
-  50% {
-    opacity: 1;
-    filter: alpha(opacity=100); }
-
-  70% {
-    transform: scale(1.25) rotateX(0); }
-
-  100% {
-    transform: scale(1) rotateX(0); } }
-
 @media (max-width: 767px) {
   footer {
     text-align: center; }
@@ -460,6 +481,14 @@ footer {
     .quote-highlight-actions a:not(.heart):not(.twitter):not(.google-plus):not(.facebook) {
       color: #60a079; } }
 
+.quotes h3 {
+  padding: 0 0 1em;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  color: #b3b3b3;
+  border-bottom: 1px dashed #e6e6e6;
+  text-align: center; }
+
 .quote-cards-container {
   column-count: 2;
   column-gap: 2em; }
@@ -476,7 +505,9 @@ footer {
   border-top: 3px solid #7b6980;
   background-color: #fafafa;
   text-align: center;
-  break-inside: avoid; }
+  break-inside: avoid;
+  overflow: hidden;
+  max-height: 4000px; }
   .quote-card q {
     position: relative;
     display: block;
@@ -519,6 +550,10 @@ footer {
   .quote-card-author p {
     margin: 0;
     padding: 0.6em 0 0; }
+
+.quote-cards-container-new {
+  transform: translateZ(0);
+  animation: load-page 300ms; }
 
 .quote-card-tags {
   color: #d0c9d3;

@@ -49,7 +49,10 @@
     });
 
     gulp.task('js', function () {
-        gulp.src(['js/smartbar.js', 'js/menu.js', 'js/main.js'])
+        gulp.src(['js/smartbar.js',
+                  'js/menu.js',
+                  'js/paginator.js',
+                  'js/main.js'])
             .pipe(jshint())
             .pipe(jshint.reporter('default'))
             .pipe(uglify())

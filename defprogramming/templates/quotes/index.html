@@ -4,14 +4,23 @@
     {% if featured_quote and quotes.number == 1 %}
         {% include "quotes/highlight.html" with quote=featured_quote %}
     {% endif %}
-    <section class="quotes">
-        <div class="container quote-cards-container single">
-            {% if quotes %}
-                {% for quote in quotes.object_list %}
-                    {% include "quotes/quote.html" %}
-                {% endfor %}
-            {% endif %}
-        </div>
-        {% include "quotes/pagination.html" %}
-    </section>
+    <div class="quotes-wrapper">
+        <section class="quotes" id="quotes">
+            <div class="quote-cards-container single container">
+                {% if quotes %}
+                    {% for quote in quotes.object_list %}
+                        {% include "quotes/quote.html" %}
+                    {% endfor %}
+                {% endif %}
+            </div>
+            <noscript>
+                {% include "quotes/pagination.html" %}
+            </noscript>
+        </section>
+    </div>
 {% endblock content %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script>paginator.init();</script>
+{% endblock scripts %}

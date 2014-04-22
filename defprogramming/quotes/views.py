@@ -22,27 +22,12 @@ def index(request, page=1, format=None):
     quotes = __validates_pagination(page, Paginator(quotes, PER_PAGE))
 
     if format == 'json':
-        data = []
+        data = {
+            'hasNext': quotes.has_next(),
+            'quotes': []
+        }
         for quote in quotes:
-            data.append({
-                'body': quote.body,
-                'url': quote.get_absolute_url(),
-                'authors': [
-                    {
-                        'name': author.name,
-                        'url': author.get_absolute_url(),
-                        'avatar': author.get_avatar(),
-                    }
-                    for author in quote.authors.all()
-                ],
-                'tags': [
-                    {
-                        'name': tag.name,
-                        'url': tag.get_absolute_url(),
-                    }
-                    for tag in quote.tags.all()
-                ]
-            })
+            data['quotes'].append(quote.serialize())
         return HttpResponse(json.dumps(data), mimetype='application/json')
     else:
         title = "defprogramming: quotes about coding"
