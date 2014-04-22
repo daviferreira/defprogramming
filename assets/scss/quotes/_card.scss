@@ -58,7 +58,7 @@
         &:last-child {
             margin-right: 0;
         }
-        &:not(.heart):not(.twitter):not(.google-plus):not(.facebook):hover {
+        &:not(.special):hover {
             color: $secondary;
         }
     }
@@ -100,7 +100,7 @@
 
 .touch {
     .quote-card-actions {
-        a:not(.heart):not(.twitter):not(.google-plus):not(.facebook) {
+        a:not(.special) {
             color: $secondary;
         }
     }

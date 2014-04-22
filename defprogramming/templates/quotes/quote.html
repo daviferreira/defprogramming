@@ -3,15 +3,15 @@
 <div class="quote-card">
     <q>{{ quote.body|safe|linebreaks }}</q>
     <div class="quote-card-actions">
-        <!-- a href="#" class="heart"><i class="icon icon-heart"></i></a -->
+        <!-- a href="#" class="heart special"><i class="icon icon-heart"></i></a -->
         <!-- a href="#"><i class="icon icon-megaphone"></i></a -->
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http://defprogramming.com{{ quote.get_absolute_url }}" target="_blank" class="facebook">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http://defprogramming.com{{ quote.get_absolute_url }}" target="_blank" class="facebook special">
             <i class="icon icon-facebook"></i>
         </a>
-        <a href="https://twitter.com/home?status=%22{{ quote.body|urlencode|truncatechars:140 }}%22 http://defprogramming.com{{ quote.get_absolute_url }}" target="_blank" class="twitter">
+        <a href="https://twitter.com/home?status=%22{{ quote.body|urlencode|truncatechars:140 }}%22 http://defprogramming.com{{ quote.get_absolute_url }}" target="_blank" class="twitter special">
             <i class="icon icon-twitter"></i>
         </a>
-        <a href="https://plus.google.com/share?url=http://defprogramming.com{{ quote.get_absolute_url }}" target="_blank" class="google-plus">
+        <a href="https://plus.google.com/share?url=http://defprogramming.com{{ quote.get_absolute_url }}" target="_blank" class="google-plus special">
             <i class="icon icon-google-plus"></i>
         </a>
         <a href="{{ quote.get_absolute_url }}#comments"><i class="icon icon-comments"></i></a>

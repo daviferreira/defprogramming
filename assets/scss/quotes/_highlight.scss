@@ -90,7 +90,7 @@
     .quote-highlight-actions {
         float: none;
         text-align: center;
-        a:not(.heart):not(.twitter):not(.google-plus):not(.facebook) {
+        a:not(.special) {
             color: $secondary;
         }
     }

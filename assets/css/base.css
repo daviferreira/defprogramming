@@ -552,7 +552,7 @@ footer {
   .quote-highlight-actions {
     float: none;
     text-align: center; }
-    .quote-highlight-actions a:not(.heart):not(.twitter):not(.google-plus):not(.facebook) {
+    .quote-highlight-actions a:not(.special) {
       color: #60a079; } }
 
 .quotes h3 {
@@ -606,7 +606,7 @@ footer {
     color: #edebee; }
     .quote-card-actions a:last-child {
       margin-right: 0; }
-    .quote-card-actions a:not(.heart):not(.twitter):not(.google-plus):not(.facebook):hover {
+    .quote-card-actions a:not(.special):hover {
       color: #60a079; }
 
 .quote-card-author {
@@ -636,7 +636,7 @@ footer {
 .ie10 .quote-card {
   width: 367px; }
 
-.touch .quote-card-actions a:not(.heart):not(.twitter):not(.google-plus):not(.facebook) {
+.touch .quote-card-actions a:not(.special) {
   color: #60a079; }
 
 @media (max-width: 767px) {

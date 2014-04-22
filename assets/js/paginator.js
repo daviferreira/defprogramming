@@ -43,13 +43,13 @@ var paginator;
 
         tplActions: function tplActions(data) {
             return '<div class="quote-card-actions">' +
-                   '    <a href="https://www.facebook.com/sharer/sharer.php?u=http://defprogramming.com' + data.url + '" target="_blank" class="facebook">' +
+                   '    <a href="https://www.facebook.com/sharer/sharer.php?u=http://defprogramming.com' + data.url + '" target="_blank" class="facebook special">' +
                    '        <i class="icon icon-facebook"></i>' +
                    '    </a>' +
-                   '    <a href="https://twitter.com/home?status=%22' + encodeURI(data.body) + '%22 http://defprogramming.com' + data.url + '" target="_blank" class="twitter">' +
+                   '    <a href="https://twitter.com/home?status=%22' + encodeURI(data.body) + '%22 http://defprogramming.com' + data.url + '" target="_blank" class="twitter special">' +
                    '        <i class="icon icon-twitter"></i>' +
                    '    </a>' +
-                   '    <a href="https://plus.google.com/share?url=http://defprogramming.com' + data.url + '" target="_blank" class="google-plus">' +
+                   '    <a href="https://plus.google.com/share?url=http://defprogramming.com' + data.url + '" target="_blank" class="google-plus special">' +
                    '        <i class="icon icon-google-plus"></i>' +
                    '    </a>' +
                    '    <a href="' + data.url + '#comments"><i class="icon icon-comments"></i></a>' +
