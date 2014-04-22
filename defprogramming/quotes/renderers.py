@@ -12,6 +12,7 @@ class QuotesRenderer(StaticSiteRenderer):
             '/tags/',
             '/random/',
             '/submit/',
+            '/feed/',
             '/sitemap.xml',
         ])
 
