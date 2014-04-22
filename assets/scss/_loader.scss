@@ -1,7 +1,7 @@
 /*** Config ***/
 
 /* Colors */
-$baseColor: rgba(170, 84, 237, 1);
+$baseColor: $primary;
 $borderColor1: rgba($baseColor, 0.25); /* used for row 1 & 2 */
 $borderColor2: rgba($baseColor, 0.50);
 $borderColor3: rgba($baseColor, 0.75);
@@ -14,7 +14,7 @@ $borderWidthY: 15px;
 
 /*** Animations / styles ***/
 
-@-webkit-keyframes border-loading-indicator-row-1 {
+@keyframes border-loading-indicator-row-1 {
   0% {
     border-color: $borderColor1;
     border-top-color: $borderColor4;
@@ -37,7 +37,7 @@ $borderWidthY: 15px;
   }
 }
 
-@-webkit-keyframes border-loading-indicator-row-2 {
+@keyframes border-loading-indicator-row-2 {
   0% {
     border-color: $borderColor4 $borderColor1 $borderColor2 $borderColor3;
   }
@@ -63,11 +63,11 @@ $borderWidthY: 15px;
 }
 
 .border-loading-indicator.row-1 {
-  -webkit-animation: border-loading-indicator-row-1 750ms linear infinite;
+  animation: border-loading-indicator-row-1 750ms linear infinite;
 }
 
 .border-loading-indicator.row-2 {
-  -webkit-animation: border-loading-indicator-row-2 750ms linear infinite;
+  animation: border-loading-indicator-row-2 750ms linear infinite;
 }
 
 .border-loading-indicator.col-1 {

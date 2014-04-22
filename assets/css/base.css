@@ -195,54 +195,54 @@ q:after {
 /* used for row 1 & 2 */
 /* Dimensions */
 /*** Animations / styles ***/
-@-webkit-keyframes border-loading-indicator-row-1 {
+@keyframes border-loading-indicator-row-1 {
   0% {
-    border-color: rgba(170, 84, 237, 0.25);
-    border-top-color: #aa54ed; }
+    border-color: rgba(123, 105, 128, 0.25);
+    border-top-color: #7b6980; }
 
   25% {
-    border-color: rgba(170, 84, 237, 0.25);
-    border-right-color: #aa54ed; }
+    border-color: rgba(123, 105, 128, 0.25);
+    border-right-color: #7b6980; }
 
   50% {
-    border-color: rgba(170, 84, 237, 0.25);
-    border-bottom-color: #aa54ed; }
+    border-color: rgba(123, 105, 128, 0.25);
+    border-bottom-color: #7b6980; }
 
   75% {
-    border-color: rgba(170, 84, 237, 0.25);
-    border-left-color: #aa54ed; }
+    border-color: rgba(123, 105, 128, 0.25);
+    border-left-color: #7b6980; }
 
   100% {
-    border-color: rgba(170, 84, 237, 0.25);
-    border-top-color: #aa54ed; } }
+    border-color: rgba(123, 105, 128, 0.25);
+    border-top-color: #7b6980; } }
 
-@-webkit-keyframes border-loading-indicator-row-2 {
+@keyframes border-loading-indicator-row-2 {
   0% {
-    border-color: #aa54ed rgba(170, 84, 237, 0.25) rgba(170, 84, 237, 0.5) rgba(170, 84, 237, 0.75); }
+    border-color: #7b6980 rgba(123, 105, 128, 0.25) rgba(123, 105, 128, 0.5) rgba(123, 105, 128, 0.75); }
 
   25% {
-    border-color: rgba(170, 84, 237, 0.75) #aa54ed rgba(170, 84, 237, 0.25) rgba(170, 84, 237, 0.5); }
+    border-color: rgba(123, 105, 128, 0.75) #7b6980 rgba(123, 105, 128, 0.25) rgba(123, 105, 128, 0.5); }
 
   50% {
-    border-color: rgba(170, 84, 237, 0.5) rgba(170, 84, 237, 0.75) #aa54ed rgba(170, 84, 237, 0.25); }
+    border-color: rgba(123, 105, 128, 0.5) rgba(123, 105, 128, 0.75) #7b6980 rgba(123, 105, 128, 0.25); }
 
   75% {
-    border-color: rgba(170, 84, 237, 0.25) rgba(170, 84, 237, 0.5) rgba(170, 84, 237, 0.75) rgba(170, 84, 237, 0.75); }
+    border-color: rgba(123, 105, 128, 0.25) rgba(123, 105, 128, 0.5) rgba(123, 105, 128, 0.75) rgba(123, 105, 128, 0.75); }
 
   100% {
-    border-color: #aa54ed rgba(170, 84, 237, 0.25) rgba(170, 84, 237, 0.5) rgba(170, 84, 237, 0.75); } }
+    border-color: #7b6980 rgba(123, 105, 128, 0.25) rgba(123, 105, 128, 0.5) rgba(123, 105, 128, 0.75); } }
 
 .border-loading-indicator {
   width: 0px;
   height: 0px;
-  border: 0px solid #aa54ed;
+  border: 0px solid #7b6980;
   border-width: 15px 15px; }
 
 .border-loading-indicator.row-1 {
-  -webkit-animation: border-loading-indicator-row-1 750ms linear infinite; }
+  animation: border-loading-indicator-row-1 750ms linear infinite; }
 
 .border-loading-indicator.row-2 {
-  -webkit-animation: border-loading-indicator-row-2 750ms linear infinite; }
+  animation: border-loading-indicator-row-2 750ms linear infinite; }
 
 .border-loading-indicator.col-1 {
   width: 15px;
