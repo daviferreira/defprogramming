@@ -2,13 +2,9 @@
 
 {% spaceless %}
 <!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html class="no-js">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         {% if quote %}
             <title>Quote by {% for author in quote.authors.all %}{{ author.name }}{% if not forloop.last %} and {% endif %}{% endfor %} | defprogramming</title>
             <meta description="{{ quote.body }}" />
@@ -16,16 +12,17 @@
             <title>{{ title }}</title>
             <meta description="{{ description }}" />
         {% endif %}
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {% if quote %}
-        <meta property="og:title" content="Quote by {% for author in quote.authors.all %}{{ author.name }}{% if not forloop.last %} and {% endif %}{% endfor %}">
-        <meta property="og:description" content="{{ quote.body }}">
-        <meta property="og:url" content="http://www.defprogramming.com{{ quote.get_absolute_url }}">
-        <meta property="og:type" content="blog">
-        <meta property="og:image" content="{% static 'quote.gif' %}">
-        <meta property="og:site_name" content="defprogramming: quotes about coding">
-        <meta property="fb:admins" content="100002463252759">
-        <meta property="fb:app_id" content="236133366405921">
+            <meta property="og:title" content="Quote by {% for author in quote.authors.all %}{{ author.name }}{% if not forloop.last %} and {% endif %}{% endfor %}">
+            <meta property="og:description" content="{{ quote.body }}">
+            <meta property="og:url" content="http://www.defprogramming.com{{ quote.get_absolute_url }}">
+            <meta property="og:type" content="blog">
+            <meta property="og:image" content="{% static 'quote.gif' %}">
+            <meta property="og:site_name" content="defprogramming: quotes about coding">
+            <meta property="fb:admins" content="100002463252759">
+            <meta property="fb:app_id" content="236133366405921">
         {% endif %}
         <link rel="alternate" type="application/atom+xml" title="defprogramming: recent quotes" href="{% url 'feed' %}">
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700">
@@ -34,9 +31,6 @@
         <script src="{% static 'js/vendor/modernizr-2.6.2.min.js' %}"></script>
     </head>
     <body>
-        <!--[if lte IE 9]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
         <header class="masthead clearfix" id="masthead">
             <div class="row">
                 <div class="col-md-6 col-xs-10">
