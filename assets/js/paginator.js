@@ -186,7 +186,7 @@ var paginator;
             }
             this.btn = document.createElement('button');
             this.btn.className = 'btn btn-load-more';
-            this.btn.innerText = 'load more';
+            this.btn.innerHTML = 'load more';
             this.root.parentNode.appendChild(this.btn);
             this.btn.addEventListener('click', function (e) {
                 e.preventDefault();
