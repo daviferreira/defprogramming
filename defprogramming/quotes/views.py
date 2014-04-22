@@ -50,7 +50,6 @@ def detail(request, uuid):
                               context_instance=RequestContext(request))
 
 
-@cache_page(60 * 60)
 def quote_redirect(request, slug):
     quote = get_object_or_404(Quote, slug=slug)
     return HttpResponsePermanentRedirect(quote.get_absolute_url())
@@ -58,7 +57,7 @@ def quote_redirect(request, slug):
 
 def random(request):
     quote = Quote.objects.order_by('?')[0]
-    return render_to_response('quotes/detail.html',
+    return render_to_response('quotes/random.html',
                               locals(),
                               context_instance=RequestContext(request))
 
