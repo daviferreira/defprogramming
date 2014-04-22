@@ -32,21 +32,19 @@ sitemaps = {
 
 urlpatterns = patterns(
     'quotes.views',
-    url(r'^quote/(?P<slug>[\w_-]+)/$', 'detail', name='quote'),
-    # url(r'^quote/(?P<quote_id>\d+)/$', 'detail'),
-    # TODO: (r'^quote/(?P<quote_uuid>\d+)/$', 'detail'),
+    url(r'^quote/(?P<uuid>\d+)/$', 'detail', name='quote'),
+
     url(r'^authors/$', 'authors', name='authors'),
     url(r'^quotes-by/(?P<slug>[\w_-]+)/(page/(?P<page>\d+)/)?$',
         'author_detail', name='author'),
-    # url(r'^author/(?P<slug>[\w_-]+)/$', 'author_detail'),
-    # url(r'^author/(?P<author_id>\d+)/$', 'author_detail'),
+
     url(r'^tags/$', 'tags', name='tags'),
     url(r'^quotes-tagged-with/(?P<slug>[\w_-]+)/(page/(?P<page>\d+)/)?$',
         'tag_detail', name='tag'),
-    # url(r'^tag/(?P<slug>[\w_-]+)/$', 'tag_detail'),
-    # url(r'^tag/(?P<tag_id>\d+)/$', 'tag_detail'),
+
     url(r'^random/$', 'random', name='random'),
     url(r'^submit/$', 'submit_quote', name='submit'),
+
     url(r'^(page/(?P<page>\d+)/)?$', 'index', name='root'),
 )
 

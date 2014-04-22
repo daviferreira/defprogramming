@@ -11,6 +11,7 @@ class Author(models.Model):
     name = models.CharField(max_length=200)
     short_bio = models.TextField(max_length=500, null=True, blank=True)
     slug = models.SlugField(max_length=100, blank=True)
+    uuid = models.CharField(max_length=100, blank=True, null=True)
     avatar = ImageField(upload_to='authors',
                         blank=True,
                         null=True)
@@ -27,6 +28,8 @@ class Author(models.Model):
 class Tag(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, blank=True)
+    uuid = models.CharField(max_length=100, blank=True, null=True)
+
     ordering = ['name']
 
     def __unicode__(self):
@@ -44,44 +47,12 @@ class Quote(models.Model):
         publish_date = models.DateTimeField(default=datetime.now)
         source = models.TextField(null=True, blank=True)
         featured = models.BooleanField(default=False)
+        uuid = models.CharField(max_length=100, blank=True, null=True)
+
         ordering = ['-publish_date']
 
         def __unicode__(self):
             return self.body
 
         def get_absolute_url(self):
-            return reverse('quote', kwargs={'slug': self.slug})
-
-        def get_html_title(self):
-            title = "Programming quote by "
-            authors = self.authors.all()
-            last = ""
-            for last in authors:
-                pass
-            for author in authors:
-                title += author.name
-                if author != last:
-                    title += ", "
-            return title
-
-
-# signals
-from django.db.models import signals
-from django.template.defaultfilters import slugify
-
-
-def author_pre_save(signal, instance, sender, **kwargs):
-    instance.slug = slugify(instance.name[0:99])
-
-
-def quote_pre_save(signal, instance, sender, **kwargs):
-    instance.slug = slugify(instance.body[0:99])
-
-
-def tag_pre_save(signal, instance, sender, **kwargs):
-    instance.slug = slugify(instance.name[0:99])
-
-
-signals.pre_save.connect(author_pre_save, sender=Author)
-signals.pre_save.connect(quote_pre_save, sender=Quote)
-signals.pre_save.connect(tag_pre_save, sender=Tag)
+            return reverse('quote', kwargs={'uuid': self.uuid})

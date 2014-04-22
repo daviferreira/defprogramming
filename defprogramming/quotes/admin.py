@@ -5,6 +5,8 @@ from django.contrib import admin
 
 
 class QuoteAdminForm(forms.ModelForm):
+    readonly_fields = ('uuid',)
+
     class Meta:
         model = Quote
 
@@ -18,6 +20,7 @@ class QuoteAdmin(admin.ModelAdmin):
     list_display = ('id', 'body')
     list_filter = ('authors', 'tags')
     search_fields = ('id', 'body')
+    readonly_fields = ('uuid',)
     date_hierarchy = 'publish_date'
     ordering = ('-publish_date',)
     form = QuoteAdminForm
@@ -25,6 +28,7 @@ class QuoteAdmin(admin.ModelAdmin):
 
 class AuthorAdmin(admin.ModelAdmin):
     ordering = ('name',)
+    readonly_fields = ('uuid',)
 
 
 admin.site.register(Author, AuthorAdmin)
