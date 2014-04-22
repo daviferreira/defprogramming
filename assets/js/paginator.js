@@ -138,16 +138,17 @@ var paginator;
                 data;
             this.httpRequest = new window.XMLHttpRequest();
             this.httpRequest.onreadystatechange = function () {
-                if (self.httpRequest.readyState === 4
-                        && self.httpRequest.status === 200) {
-                    data = JSON.parse(self.httpRequest.responseText);
-                    self.root.innerHTML += self.parseQuotes(data.quotes);
-                    self.setupNextPage(data.hasNext);
-                    setTimeout(function () {
-                        self.resetNewCards();
-                    }, 300);
+                if (self.httpRequest.readyState === 4) {
+                    if (self.httpRequest.status === 200) {
+                        data = JSON.parse(self.httpRequest.responseText);
+                        self.root.innerHTML += self.parseQuotes(data.quotes);
+                        self.setupNextPage(data.hasNext);
+                        setTimeout(function () {
+                            self.resetNewCards();
+                        }, 300);
+                    }
+                    self.unlock();
                 }
-                self.unlock();
             };
         },
 
