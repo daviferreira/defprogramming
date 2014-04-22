@@ -87,26 +87,6 @@ body {
 a {
   color: #7b6980;
   transition: color 0.15s linear; }
-  a:hover {
-    color: #60a079;
-    text-decoration: none; }
-  a.heart:hover {
-    color: #cc2b2b; }
-  a.facebook:hover {
-    color: #3b5998; }
-  a.twitter:hover {
-    color: #00aced; }
-  a.google-plus:hover {
-    color: #dd4b39; }
-
-.touch a {
-  transition: none; }
-  .touch a.facebook {
-    color: #3b5998; }
-  .touch a.twitter {
-    color: #00aced; }
-  .touch a.google-plus {
-    color: #dd4b39; }
 
 q:before {
   color: #f2f2f2;
@@ -126,10 +106,6 @@ q:after {
   font-weight: 700;
   line-height: 2;
   transition: border-color 0.2s ease-in, color 0.2s ease-in; }
-  .btn:hover {
-    color: #60a079;
-    border-color: #60a079;
-    text-decoration: none; }
 
 .btn-load-more {
   display: block;
@@ -172,6 +148,31 @@ q:after {
   column-gap: 2em; }
   .list li {
     margin-bottom: 1.5em; }
+
+.no-touch a:hover {
+  color: #60a079;
+  text-decoration: none; }
+.no-touch a.heart:hover {
+  color: #cc2b2b; }
+.no-touch a.facebook:hover {
+  color: #3b5998; }
+.no-touch a.twitter:hover {
+  color: #00aced; }
+.no-touch a.google-plus:hover {
+  color: #dd4b39; }
+.no-touch .btn:hover {
+  color: #60a079;
+  border-color: #60a079;
+  text-decoration: none; }
+
+.touch a {
+  transition: none; }
+  .touch a.facebook {
+    color: #3b5998; }
+  .touch a.twitter {
+    color: #00aced; }
+  .touch a.google-plus {
+    color: #dd4b39; }
 
 @media (max-width: 767px) {
   body {
@@ -282,8 +283,6 @@ q:after {
     font-size: 2em; }
     .masthead h1 a {
       color: #333; }
-      .masthead h1 a:hover {
-        text-decoration: none; }
   .masthead h2 {
     margin: 0 0 0 0.65em;
     color: #7b6980;
@@ -298,8 +297,6 @@ q:after {
       text-align: right;
       font-weight: 700;
       line-height: 2; }
-      .masthead nav a:hover {
-        color: #60a079; }
       .masthead nav a:last-child {
         margin-right: 0; }
   .masthead .menu-toggler {
@@ -320,8 +317,13 @@ q:after {
       color: #f2f2f2; }
     .masthead[data-visible="true"] .btn {
       border-color: #fafafa; }
-      .masthead[data-visible="true"] .btn:hover {
-        border-color: #e1e1e1; }
+
+.no-touch .masthead h1 a:hover {
+  text-decoration: none; }
+.no-touch .masthead nav a:hover {
+  color: #60a079; }
+.no-touch .masthead[data-visible="true"] .btn:hover {
+  border-color: #e1e1e1; }
 
 @media (max-width: 767px) {
   .masthead h1 {
@@ -374,14 +376,15 @@ footer {
     border-top: 1px dotted #453b48; }
     footer .follow-twitter a {
       color: #60a079; }
-      footer .follow-twitter a:hover {
-        color: #80b394; }
     footer .follow-twitter strong {
       border-bottom: 1px solid #60a079; }
     footer .follow-twitter i {
       margin-right: 0.3em; }
-  footer .heart:hover {
-    animation: pop 300ms forwards cubic-bezier(0.8, 0.02, 0.45, 0.91); }
+
+.no-touch footer .follow-twitter a:hover {
+  color: #80b394; }
+.no-touch .heart:hover {
+  animation: pop 300ms forwards cubic-bezier(0.8, 0.02, 0.45, 0.91); }
 
 .overlay {
   display: none;
@@ -455,14 +458,15 @@ footer {
     border-left: 3px solid transparent;
     color: #333;
     font-weight: 500; }
-    .sidebar li a:hover {
-      border-left: 3px solid #60a079;
-      color: #60a079; }
     .sidebar li a.active {
       border-left: 3px solid #7b6980;
       color: #7b6980;
       cursor: default;
       font-weight: 700; }
+
+.no-touch .sidebar li a:hover {
+  border-left: 3px solid #60a079;
+  color: #60a079; }
 
 @media (max-width: 767px) {
   .sidebar li {
@@ -482,8 +486,6 @@ footer {
 .quote-highlight {
   padding: 8em 0 6em;
   color: #333; }
-  .quote-highlight a:hover {
-    text-decoration: none; }
   .quote-highlight q {
     position: relative;
     display: block;
@@ -532,6 +534,9 @@ footer {
   text-transform: uppercase;
   font-size: 1.3em;
   letter-spacing: -0.05em; }
+
+.no-touch .quote-highlight a:hover {
+  text-decoration: none; }
 
 @media (max-width: 767px) {
   .quote-highlight {
@@ -606,8 +611,6 @@ footer {
     color: #edebee; }
     .quote-card-actions a:last-child {
       margin-right: 0; }
-    .quote-card-actions a:not(.special):hover {
-      color: #60a079; }
 
 .quote-card-author {
   margin-top: 2em;
@@ -619,8 +622,6 @@ footer {
     margin: 0 auto;
     color: #b3b3b3;
     font-weight: 700; }
-    .quote-card-author a:hover {
-      color: #60a079; }
   .quote-card-author p {
     margin: 0;
     padding: 0.6em 0 0; }
@@ -637,6 +638,11 @@ footer {
   width: 367px; }
 
 .touch .quote-card-actions a:not(.special) {
+  color: #60a079; }
+
+.no-touch .quote-card-actions a:not(.special):hover {
+  color: #60a079; }
+.no-touch .quote-card-author a:hover {
   color: #60a079; }
 
 @media (max-width: 767px) {
@@ -685,10 +691,10 @@ footer {
   border-radius: 50%;
   box-sizing: content-box;
   transition: border-color 0.2s ease-in; }
-  .author-avatar:hover {
-    border-color: #60a079; }
 
-a:hover .author-avatar {
+.no-touch a:hover .author-avatar {
+  border-color: #60a079; }
+.no-touch .author-avatar:hover {
   border-color: #60a079; }
 
 .author-card .author-avatar {

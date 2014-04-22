@@ -58,9 +58,6 @@
         &:last-child {
             margin-right: 0;
         }
-        &:not(.special):hover {
-            color: $secondary;
-        }
     }
 }
 
@@ -74,9 +71,6 @@
         margin: 0 auto;
         color: lighten($black, 50);
         font-weight: 700;
-        &:hover {
-            color: $secondary;
-        }
     }
     p {
         margin: 0;
@@ -101,6 +95,19 @@
 .touch {
     .quote-card-actions {
         a:not(.special) {
+            color: $secondary;
+        }
+    }
+}
+
+.no-touch {
+    .quote-card-actions {
+        a:not(.special):hover {
+            color: $secondary;
+        }
+    }
+    .quote-card-author {
+        a:hover {
             color: $secondary;
         }
     }

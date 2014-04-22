@@ -18,9 +18,6 @@
         font-size: 2em;
         a {
             color: $black;
-            &:hover {
-                text-decoration: none;
-            }
         }
     }
     h2 {
@@ -38,9 +35,6 @@
             text-align: right;
             font-weight: 700;
             line-height: 2;
-            &:hover {
-                color: $secondary;
-            }
             &:last-child {
                 margin-right: 0;
             }
@@ -69,7 +63,24 @@
         }
         .btn {
             border-color: $white;
-            &:hover {
+        }
+    }
+}
+
+.no-touch {
+    .masthead {
+        h1 {
+            a:hover {
+                text-decoration: none;
+            }
+        }
+        nav {
+            a:hover {
+                color: $secondary;
+            }
+        }
+        &[data-visible="true"] {
+            .btn:hover {
                 border-color: darken($white, 10);
             }
         }

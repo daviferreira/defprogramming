@@ -5,13 +5,15 @@
     border-radius: 50%;
     box-sizing: content-box;
     transition: border-color .2s ease-in;
-    &:hover {
-        border-color: $secondary;
-    }
 }
 
-a:hover {
-    .author-avatar {
+.no-touch {
+    a:hover {
+        .author-avatar {
+            border-color: $secondary;
+        }
+    }
+    .author-avatar:hover {
         border-color: $secondary;
     }
 }

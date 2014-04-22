@@ -17,15 +17,22 @@
             border-left: 3px solid transparent;
             color: $black;
             font-weight: 500;
-            &:hover {
-                border-left: 3px solid $secondary;
-                color: $secondary;
-            }
             &.active {
                 border-left: 3px solid $primary;
                 color: $primary;
                 cursor: default;
                 font-weight: 700;
+            }
+        }
+    }
+}
+
+.no-touch {
+    .sidebar {
+        li {
+            a:hover {
+                border-left: 3px solid $secondary;
+                color: $secondary;
             }
         }
     }

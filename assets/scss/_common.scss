@@ -8,37 +8,6 @@ body {
 a {
     color: $primary;
     transition: color .15s linear;
-    &:hover {
-        color: $secondary;
-        text-decoration: none;
-    }
-    &.heart:hover {
-        color: $red;
-    }
-    &.facebook:hover {
-        color: $facebook-color;
-    }
-    &.twitter:hover {
-        color: $twitter-color;
-    }
-    &.google-plus:hover {
-        color: $google-plus-color;
-    }
-}
-
-.touch {
-    a {
-        transition: none;
-        &.facebook {
-            color: $facebook-color;
-        }
-        &.twitter {
-            color: $twitter-color;
-        }
-        &.google-plus {
-            color: $google-plus-color;
-        }
-    }
 }
 
 q {
@@ -64,11 +33,6 @@ q {
     line-height: 2;
     transition: border-color .2s ease-in,
                 color .2s ease-in;
-    &:hover {
-        color: $secondary;
-        border-color: $secondary;
-        text-decoration: none;
-    }
 }
 
 .btn-load-more {
@@ -121,6 +85,49 @@ q {
     column-gap: 2em;
     li {
         margin-bottom: 1.5em;
+    }
+}
+
+.no-touch {
+    a {
+        &:hover {
+            color: $secondary;
+            text-decoration: none;
+        }
+        &.heart:hover {
+            color: $red;
+        }
+        &.facebook:hover {
+            color: $facebook-color;
+        }
+        &.twitter:hover {
+            color: $twitter-color;
+        }
+        &.google-plus:hover {
+            color: $google-plus-color;
+        }
+    }
+    .btn {
+        &:hover {
+            color: $secondary;
+            border-color: $secondary;
+            text-decoration: none;
+        }
+    }
+}
+
+.touch {
+    a {
+        transition: none;
+        &.facebook {
+            color: $facebook-color;
+        }
+        &.twitter {
+            color: $twitter-color;
+        }
+        &.google-plus {
+            color: $google-plus-color;
+        }
     }
 }
 

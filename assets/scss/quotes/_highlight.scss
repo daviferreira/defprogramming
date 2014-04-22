@@ -1,9 +1,6 @@
 .quote-highlight {
     padding: 8em 0 6em;
     color: $black;
-    a:hover {
-        text-decoration: none;
-    }
     q {
         position: relative;
         display: block;
@@ -63,6 +60,14 @@
     text-transform: uppercase;
     font-size: 1.3em;
     letter-spacing: -.05em;
+}
+
+.no-touch {
+    .quote-highlight {
+        a:hover {
+            text-decoration: none;
+        }
+    }
 }
 
 @media (max-width:767px) {

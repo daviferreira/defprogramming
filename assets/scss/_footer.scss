@@ -13,15 +13,22 @@ footer {
         border-top: 1px dotted darken($primary, 20);
         a {
             color: $secondary;
-            &:hover {
-                color: lighten($secondary, 10);
-            }
         }
         strong {
             border-bottom: 1px solid $secondary;
         }
         i {
             margin-right: .3em;
+        }
+    }
+}
+
+.no-touch {
+    footer {
+        .follow-twitter {
+            a:hover {
+                color: lighten($secondary, 10);
+            }
         }
     }
     .heart:hover {
