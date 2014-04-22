@@ -239,7 +239,8 @@ q:after {
   width: 0px;
   height: 0px;
   border: 0px solid #7b6980;
-  border-width: 15px 15px; }
+  border-width: 15px 15px;
+  border-radius: 50%; }
 
 .border-loading-indicator.row-1 {
   animation: border-loading-indicator-row-1 750ms linear infinite; }
