@@ -1,7 +1,9 @@
 # coding: utf-8
+import json
+
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.core.urlresolvers import reverse
-from django.http import HttpResponsePermanentRedirect
+from django.http import HttpResponsePermanentRedirect, HttpResponse
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 
@@ -12,19 +14,44 @@ from .forms import QuoteForm
 PER_PAGE = 25
 
 
-def index(request, page):
+def index(request, page=1, format=None):
     featured_quote = Quote.objects.filter(featured=True).order_by('?')[:1][0]
     quotes = Quote.objects.all() \
                           .exclude(id=featured_quote.id) \
                           .order_by('-publish_date')
     quotes = __validates_pagination(page, Paginator(quotes, PER_PAGE))
-    title = "defprogramming: quotes about coding"
-    description = "Quotes about programming, coding, computer science, " \
-                  "debugging, software industry, startups and motivation."
-    base_url_pagination = reverse('root')
-    return render_to_response('quotes/index.html',
-                              locals(),
-                              context_instance=RequestContext(request))
+
+    if format == 'json':
+        data = []
+        for quote in quotes:
+            data.append({
+                'body': quote.body,
+                'url': quote.get_absolute_url(),
+                'authors': [
+                    {
+                        'name': author.name,
+                        'url': author.get_absolute_url(),
+                        'avatar': author.get_avatar(),
+                    }
+                    for author in quote.authors.all()
+                ],
+                'tags': [
+                    {
+                        'name': tag.name,
+                        'url': tag.get_absolute_url(),
+                    }
+                    for tag in quote.tags.all()
+                ]
+            })
+        return HttpResponse(json.dumps(data), mimetype='application/json')
+    else:
+        title = "defprogramming: quotes about coding"
+        description = "Quotes about programming, coding, computer science, " \
+                      "debugging, software industry, startups and motivation."
+        base_url_pagination = reverse('root')
+        return render_to_response('quotes/index.html',
+                                  locals(),
+                                  context_instance=RequestContext(request))
 
 
 def detail(request, uuid):

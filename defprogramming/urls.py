@@ -46,7 +46,7 @@ urlpatterns = patterns(
     url(r'^random/$', 'random', name='random'),
     url(r'^submit/$', 'submit_quote', name='submit'),
 
-    url(r'^(page/(?P<page>\d+)/)?$', 'index', name='root'),
+    url(r'^(page/(?P<page>\d+)/)?(format/(?P<format>\w+)/)?$', 'index', name='root'),
 )
 
 urlpatterns += [

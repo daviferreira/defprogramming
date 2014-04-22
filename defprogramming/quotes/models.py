@@ -4,7 +4,8 @@ from datetime import datetime
 from django.db import models
 from django.core.urlresolvers import reverse
 
-from sorl.thumbnail import ImageField
+from sorl.thumbnail import ImageField, get_thumbnail
+from sorl.thumbnail.helpers import ThumbnailError
 
 
 class Author(models.Model):
@@ -23,6 +24,15 @@ class Author(models.Model):
 
     def get_absolute_url(self):
         return reverse('author', kwargs={'slug': self.slug})
+
+    def get_avatar(self, size='60x60'):
+        try:
+            return get_thumbnail(self.avatar,
+                                 size,
+                                 crop='center',
+                                 quality=70).url
+        except ThumbnailError:
+            return None
 
 
 class Tag(models.Model):
