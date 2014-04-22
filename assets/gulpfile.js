@@ -19,7 +19,7 @@
         gulp.src(['svgs/*.svg'], {base: ''})
             .pipe(iconfontCss({
                 fontName: fontName,
-                targetPath: '../../../assets/scss/_icons.scss',
+                targetPath: '../../../assets/scss/ui/_icons.scss',
                 fontPath: '../fonts/'
             }))
             .pipe(iconfont({

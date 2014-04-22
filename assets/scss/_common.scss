@@ -22,29 +22,6 @@ q {
     }
 }
 
-.btn {
-    display: inline-block;
-    padding: 0 1em;
-    background-color: transparent;
-    border: 2px solid $black;
-    border-radius: 4px;
-    color: $black;
-    font-weight: 700;
-    line-height: 2;
-    transition: border-color .2s ease-in,
-                color .2s ease-in;
-}
-
-.btn-load-more {
-    display: block;
-    margin: 3em auto;
-    text-align: center;
-    width: 50%;
-    border: 1px solid darken($grey, 20);
-    background-color: $grey;
-    padding: 0.75em;
-}
-
 .jumbotron {
     letter-spacing: -.035em;
     font-weight: 700;
@@ -107,13 +84,6 @@ q {
             color: $google-plus-color;
         }
     }
-    .btn {
-        &:hover {
-            color: $secondary;
-            border-color: $secondary;
-            text-decoration: none;
-        }
-    }
 }
 
 .touch {
@@ -150,8 +120,5 @@ q {
     }
     .list {
         column-count: 1;
-    }
-    .btn-load-more {
-        width: 100%;
     }
 }

@@ -2,15 +2,17 @@
 @import "mixins";
 @import "animations";
 
-@import "icons";
 @import "common";
-@import "loader";
+@import "ui/buttons";
+@import "ui/icons";
+@import "ui/loader";
 
-@import "masthead";
-@import "footer";
-@import "sidebar";
-@import "pagination";
+@import "components/masthead";
+@import "components/footer";
+@import "components/sidebar";
+@import "components/pagination";
 
+@import "quotes/container";
 @import "quotes/highlight";
 @import "quotes/card";
 @import "quotes/comments";

@@ -1,0 +1,28 @@
+.quotes {
+    h3 {
+        padding: 0 0 1em;
+        text-transform: uppercase;
+        font-size: .8em;
+        color: lighten($black, 50);
+        border-bottom: 1px dashed lighten($black, 70);
+        text-align: center;
+    }
+}
+
+.quote-cards-container {
+    column-count: 2;
+    column-gap: 2em;
+    &.single {
+        column-count: 3;
+        margin-top: 2em;
+    }
+}
+
+@media (max-width:767px) {
+    .quote-cards-container {
+        column-count: 1;
+        &.single {
+            column-count: 1;
+        }
+    }
+}

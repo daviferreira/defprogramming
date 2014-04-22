@@ -26,6 +26,123 @@
   100% {
     transform: translateY(0); } }
 
+body {
+  background-color: #f7f7f7;
+  font-family: "Open Sans", sans-serif;
+  font-size: 15px;
+  padding-top: 4em; }
+
+a {
+  color: #7b6980;
+  transition: color 0.15s linear; }
+
+q:before {
+  color: #f2f2f2;
+  content: '\201C';
+  font-size: 3em;
+  font-family: serif; }
+q:after {
+  content: ''; }
+
+.jumbotron {
+  letter-spacing: -0.035em;
+  font-weight: 700;
+  font-size: 3.65em;
+  line-height: 1.2; }
+
+.jumbotron-small {
+  letter-spacing: -0.025em;
+  font-size: 2em;
+  line-height: 1.4; }
+
+.jumbotron-header {
+  padding: 8em 0; }
+  .jumbotron-header h1 {
+    margin: 0;
+    line-height: 1; }
+  .jumbotron-header p {
+    margin: 1em 0 0; }
+  .jumbotron-header .actions {
+    font-size: 2em;
+    text-align: right; }
+    .jumbotron-header .actions a {
+      margin-right: 0.5em; }
+      .jumbotron-header .actions a:last-child {
+        margin-right: 0; }
+
+.list {
+  margin: 6em 0;
+  column-count: 4;
+  column-gap: 2em; }
+  .list li {
+    margin-bottom: 1.5em; }
+
+.no-touch a:hover {
+  color: #60a079;
+  text-decoration: none; }
+.no-touch a.heart:hover {
+  color: #cc2b2b; }
+.no-touch a.facebook:hover {
+  color: #3b5998; }
+.no-touch a.twitter:hover {
+  color: #00aced; }
+.no-touch a.google-plus:hover {
+  color: #dd4b39; }
+
+.touch a {
+  transition: none; }
+  .touch a.facebook {
+    color: #3b5998; }
+  .touch a.twitter {
+    color: #00aced; }
+  .touch a.google-plus {
+    color: #dd4b39; }
+
+@media (max-width: 767px) {
+  body {
+    font-size: 13px; }
+  .jumbotron {
+    letter-spacing: -0.035em;
+    font-size: 2em;
+    line-height: 1.2;
+    text-align: center; }
+  .jumbotron-header {
+    padding: 2em 0; }
+    .jumbotron-header .actions {
+      padding: 1em 0;
+      text-align: center; }
+  .list {
+    column-count: 1; } }
+
+.btn {
+  display: inline-block;
+  padding: 0 1em;
+  background-color: transparent;
+  border: 2px solid #333;
+  border-radius: 4px;
+  color: #333;
+  font-weight: 700;
+  line-height: 2;
+  transition: border-color 0.2s ease-in, color 0.2s ease-in; }
+
+.btn-load-more {
+  display: block;
+  margin: 3em auto;
+  text-align: center;
+  width: 50%;
+  border: 1px solid #bfbfbf;
+  background-color: #f2f2f2;
+  padding: 0.75em; }
+
+.no-touch .btn:hover {
+  color: #60a079;
+  border-color: #60a079;
+  text-decoration: none; }
+
+@media (max-width: 767px) {
+  .btn-load-more {
+    width: 100%; } }
+
 @font-face {
   font-family: "defprogramming";
   src: url('../fonts/defprogramming.eot');
@@ -77,120 +194,6 @@
 
 .icon-twitter:before {
   content: "\E00C"; }
-
-body {
-  background-color: #f7f7f7;
-  font-family: "Open Sans", sans-serif;
-  font-size: 15px;
-  padding-top: 4em; }
-
-a {
-  color: #7b6980;
-  transition: color 0.15s linear; }
-
-q:before {
-  color: #f2f2f2;
-  content: '\201C';
-  font-size: 3em;
-  font-family: serif; }
-q:after {
-  content: ''; }
-
-.btn {
-  display: inline-block;
-  padding: 0 1em;
-  background-color: transparent;
-  border: 2px solid #333;
-  border-radius: 4px;
-  color: #333;
-  font-weight: 700;
-  line-height: 2;
-  transition: border-color 0.2s ease-in, color 0.2s ease-in; }
-
-.btn-load-more {
-  display: block;
-  margin: 3em auto;
-  text-align: center;
-  width: 50%;
-  border: 1px solid #bfbfbf;
-  background-color: #f2f2f2;
-  padding: 0.75em; }
-
-.jumbotron {
-  letter-spacing: -0.035em;
-  font-weight: 700;
-  font-size: 3.65em;
-  line-height: 1.2; }
-
-.jumbotron-small {
-  letter-spacing: -0.025em;
-  font-size: 2em;
-  line-height: 1.4; }
-
-.jumbotron-header {
-  padding: 8em 0; }
-  .jumbotron-header h1 {
-    margin: 0;
-    line-height: 1; }
-  .jumbotron-header p {
-    margin: 1em 0 0; }
-  .jumbotron-header .actions {
-    font-size: 2em;
-    text-align: right; }
-    .jumbotron-header .actions a {
-      margin-right: 0.5em; }
-      .jumbotron-header .actions a:last-child {
-        margin-right: 0; }
-
-.list {
-  margin: 6em 0;
-  column-count: 4;
-  column-gap: 2em; }
-  .list li {
-    margin-bottom: 1.5em; }
-
-.no-touch a:hover {
-  color: #60a079;
-  text-decoration: none; }
-.no-touch a.heart:hover {
-  color: #cc2b2b; }
-.no-touch a.facebook:hover {
-  color: #3b5998; }
-.no-touch a.twitter:hover {
-  color: #00aced; }
-.no-touch a.google-plus:hover {
-  color: #dd4b39; }
-.no-touch .btn:hover {
-  color: #60a079;
-  border-color: #60a079;
-  text-decoration: none; }
-
-.touch a {
-  transition: none; }
-  .touch a.facebook {
-    color: #3b5998; }
-  .touch a.twitter {
-    color: #00aced; }
-  .touch a.google-plus {
-    color: #dd4b39; }
-
-@media (max-width: 767px) {
-  body {
-    font-size: 13px; }
-  .jumbotron {
-    letter-spacing: -0.035em;
-    font-size: 2em;
-    line-height: 1.2;
-    text-align: center; }
-  .jumbotron-header {
-    padding: 2em 0; }
-    .jumbotron-header .actions {
-      padding: 1em 0;
-      text-align: center; }
-  .list {
-    column-count: 1; }
-  .btn-load-more {
-    width: 100%; } }
 
 /*** Config ***/
 /* Colors */
@@ -484,6 +487,27 @@ footer {
   .pagination .next {
     margin-left: 1em; }
 
+.quotes h3 {
+  padding: 0 0 1em;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  color: #b3b3b3;
+  border-bottom: 1px dashed #e6e6e6;
+  text-align: center; }
+
+.quote-cards-container {
+  column-count: 2;
+  column-gap: 2em; }
+  .quote-cards-container.single {
+    column-count: 3;
+    margin-top: 2em; }
+
+@media (max-width: 767px) {
+  .quote-cards-container {
+    column-count: 1; }
+    .quote-cards-container.single {
+      column-count: 1; } }
+
 .quote-highlight {
   padding: 8em 0 6em;
   color: #333; }
@@ -561,21 +585,6 @@ footer {
     .quote-highlight-actions a:not(.special) {
       color: #60a079; } }
 
-.quotes h3 {
-  padding: 0 0 1em;
-  text-transform: uppercase;
-  font-size: 0.8em;
-  color: #b3b3b3;
-  border-bottom: 1px dashed #e6e6e6;
-  text-align: center; }
-
-.quote-cards-container {
-  column-count: 2;
-  column-gap: 2em; }
-  .quote-cards-container.single {
-    column-count: 3;
-    margin-top: 2em; }
-
 .quote-card {
   position: relative;
   display: inline-block;
@@ -645,12 +654,6 @@ footer {
   color: #60a079; }
 .no-touch .quote-card-author a:hover {
   color: #60a079; }
-
-@media (max-width: 767px) {
-  .quote-cards-container {
-    column-count: 1; }
-    .quote-cards-container.single {
-      column-count: 1; } }
 
 .comments {
   margin: 4em 0 8em;
