@@ -6,20 +6,20 @@ from .models import Quote, Author, Tag
 
 class QuotesRenderer(StaticSiteRenderer):
     def get_paths(self):
-        paths = [
+        paths = set([
             '/',
             '/authors/',
             '/tags/',
             '/random/',
             '/submit/',
             '/sitemap.xml',
-        ]
+        ])
 
         for data in [Quote, Author, Tag]:
             items = data.objects.all()
             for item in items:
-                paths.append(item.get_absolute_url())
+                paths.add(item.get_absolute_url())
 
-        return paths
+        return list(paths)
 
 renderers = [QuotesRenderer, ]
