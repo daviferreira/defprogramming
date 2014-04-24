@@ -75,6 +75,8 @@ MEDUSA_RENDERER_CLASS = "django_medusa.renderers.DiskStaticSiteRenderer"
 MEDUSA_MULTITHREAD = False
 MEDUSA_DEPLOY_DIR = os.path.join(BASE_DIR, 'cache', 'html')
 
+DEFAULT_CACHE_TIME = 60 * 15
+
 try:
     from settings_local import *  # NOQA
 except ImportError:
