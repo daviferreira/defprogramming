@@ -323,6 +323,7 @@ q:after {
       border-color: #fafafa; }
 
 .no-touch .masthead h1 a:hover {
+  color: #333;
   text-decoration: none; }
 .no-touch .masthead nav a:hover {
   color: #60a079; }
