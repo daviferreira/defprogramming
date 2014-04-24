@@ -52,6 +52,7 @@
         gulp.src(['js/smartbar.js',
                   'js/menu.js',
                   'js/paginator.js',
+                  'js/sandwich.js',
                   'js/main.js'])
             .pipe(jshint())
             .pipe(jshint.reporter('default'))

@@ -1,0 +1,35 @@
+.widget-sandwich {
+    background-color: rgba($white, .8);
+    border: 1px solid $grey;
+    button {
+        display: block;
+        width: 100%;
+        padding: .3em 0;
+        i:before {
+            height: 1em;
+            display: block;
+            text-align: center;
+            line-height: 1em;
+            font-size: 1em;
+        }
+        &[disabled="disabled"] {
+            border: 1px solid lighten($black, 50);
+            color: lighten($black, 50);
+            background-color: $grey;
+        }
+    }
+    h3 {
+        margin: 0;
+        padding: .3em;
+        font-weight: 700;
+        font-size: 1.3em;
+        background-color: $primary;
+        color: $white;
+    }
+}
+
+.widget-sandwich-content {
+    padding: 1em 0;
+    height: 65vh;
+    overflow: hidden;
+}

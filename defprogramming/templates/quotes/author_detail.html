@@ -40,18 +40,24 @@
         <div class="container">
             <div class="row">
                 <aside class="col-md-3 hidden-xs sidebar">
-                    <h3>Authors</h3>
-                    <ul>
-                        {% for a in authors %}
-                            <li>
-                                <a href="{{ a.get_absolute_url }}"
-                                    {% if a.id == author.id %}
-                                    class="active"{% endif %}>
-                                    {{ a.name }} ({{ a.quote_set.all.count }})
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </ul>
+                    <div class="widget-sandwich" id="authors-sandwich">
+                        <h3>Authors</h3>
+                        <button disabled="disabled" class="widget-sandwich-up"><i class="icon icon-up"></i></button>
+                        <div class="widget-sandwich-content">
+                            <ul>
+                                {% for a in authors %}
+                                    <li>
+                                        <a href="{{ a.get_absolute_url }}"
+                                            {% if a.id == author.id %}
+                                            class="active"{% endif %}>
+                                            {{ a.name }} ({{ a.quote_set.all.count }})
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <button class="widget-sandwich-down"><i class="icon icon-down"></i></button>
+                    </div>
                 </aside>
                 <div class="col-md-9 col-xs-12">
                     <div class="quote-cards-container">
@@ -65,3 +71,11 @@
         {% include "quotes/pagination.html" %}
     </section>
 {% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script>
+    var el = document.getElementById('authors-sandwich'),
+        sandwich = new Sandwich(el, el.querySelector('ul'));
+    </script>
+{% endblock scripts %}

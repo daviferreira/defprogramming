@@ -19,7 +19,7 @@
    enable-background="new 0 0 100 100"
    xml:space="preserve"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="fi-play.svg"><metadata
+   sodipodi:docname="fi-down.svg"><metadata
      id="metadata11"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
@@ -44,7 +44,7 @@
      inkscape:window-maximized="1"
      inkscape:current-layer="Layer_1" /><g
      id="g3"
-     transform="matrix(0,1,-1,0,99.9995,-5e-4)"><path
+     transform="matrix(0,-1,1,0,5e-4,99.9995)"><path
        d="m 76.982,50 c 0,-0.847 -0.474,-1.575 -1.167,-1.957 L 26.541,19.595 c -0.363,-0.253 -0.803,-0.404 -1.279,-0.404 -1.239,0 -2.244,1.004 -2.244,2.243 0,0.087 0.016,0.169 0.026,0.253 h -0.026 v 57.131 h 0.026 c 0.127,1.119 1.066,1.99 2.218,1.99 0.409,0 0.787,-0.117 1.117,-0.308 l 0.02,0.035 49.476,-28.565 -0.02,-0.035 C 76.526,51.547 76.982,50.83 76.982,50 z"
        id="path5"
        inkscape:connector-curvature="0" /></g></svg>
