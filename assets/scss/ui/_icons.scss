@@ -1,7 +1,7 @@
 @font-face {
 	font-family: "defprogramming";
 	src: url('../fonts/defprogramming.eot');
-	src: url('../fonts/defprogramming.eot?#iefix') format('embedded-opentype'),
+	src: url('../fonts/defprogramming.eot?#iefix') format('eot'),
 		url('../fonts/defprogramming.woff') format('woff'),
 		url('../fonts/defprogramming.ttf') format('truetype'),
 		url('../fonts/defprogramming.svg#defprogramming') format('svg');
@@ -24,46 +24,58 @@
 	content: "\E001";
 }
 
-.icon-facebook:before {
+.icon-down:before {
 	content: "\E002";
 }
 
-.icon-google-plus:before {
+.icon-facebook:before {
 	content: "\E003";
 }
 
-.icon-heart:before {
+.icon-google-plus:before {
 	content: "\E004";
 }
 
-.icon-link:before {
+.icon-heart:before {
 	content: "\E005";
 }
 
-.icon-megaphone:before {
+.icon-link:before {
 	content: "\E006";
 }
 
-.icon-menu:before {
+.icon-megaphone:before {
 	content: "\E007";
 }
 
-.icon-pinterest:before {
+.icon-menu:before {
 	content: "\E008";
 }
 
-.icon-rss:before {
+.icon-pinterest:before {
 	content: "\E009";
 }
 
-.icon-share:before {
+.icon-rss:before {
 	content: "\E00A";
 }
 
-.icon-tags:before {
+.icon-share:before {
 	content: "\E00B";
 }
 
-.icon-twitter:before {
+.icon-tags:before {
 	content: "\E00C";
+}
+
+.icon-twitter:before {
+	content: "\E00D";
+}
+
+.icon-up:before {
+	content: "\E00E";
+}
+
+.icon-x:before {
+	content: "\E00F";
 }
