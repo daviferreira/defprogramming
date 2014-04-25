@@ -27,20 +27,6 @@
     <section class="tag-quotes">
         <div class="container">
             <div class="row">
-                <aside class="col-md-3 sidebar hidden-xs">
-                    <h3>Tags</h3>
-                    <ul>
-                        {% for t in tags %}
-                            <li>
-                                <a href="{{ t.get_absolute_url }}"
-                                    {% if t.id == tag.id %}
-                                    class="active"{% endif %}>
-                                    {{ t.name }} ({{ t.quote_set.all.count }})
-                                </a>
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </aside>
                 <div class="col-md-9 col-xs-12">
                     <div class="quote-cards-container">
                         {% for quote in quotes.object_list %}
@@ -48,8 +34,35 @@
                         {% endfor %}
                     </div>
                 </div>
+                <aside class="col-md-3 sidebar hidden-xs">
+                    <div class="widget-sandwich" id="tags-sandwich">
+                        <h3>Tags</h3>
+                        <button disabled="disabled" class="widget-sandwich-up"><i class="icon icon-up"></i></button>
+                        <div class="widget-sandwich-wrapper">
+                            <ul class="widget-sandwich-content">
+                                {% for t in tags %}
+                                    <li class="widget-sandwich-item">
+                                        <a href="{{ t.get_absolute_url }}"
+                                            {% if t.id == tag.id %}
+                                            class="active"{% endif %}>
+                                            {{ t.name }} ({{ t.quote_set.all.count }})
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <button class="widget-sandwich-down"><i class="icon icon-down"></i></button>
+                    </div>
+                </aside>
             </div>
         </div>
         {% include "quotes/pagination.html" %}
     </section>
 {% endblock %}
+
+{% block scripts %}
+    {{ block.super }}
+    <script>
+    var sandwich = new Sandwich(document.getElementById('tags-sandwich'));
+    </script>
+{% endblock scripts %}
