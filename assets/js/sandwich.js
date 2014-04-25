@@ -1,6 +1,6 @@
-function Sandwich(el, list) {
+function Sandwich(el) {
     'use strict';
-    this.init(el, list);
+    this.init(el);
 }
 
 (function () {
@@ -8,7 +8,7 @@ function Sandwich(el, list) {
 
     Sandwich.prototype = {
 
-        init: function init(el, list) {
+        init: function init(el) {
             this.root = el;
             this.setup()
                 .bind();
@@ -19,19 +19,21 @@ function Sandwich(el, list) {
             this.content = this.root.querySelector('.widget-sandwich-content');
             this.btnUp = this.root.querySelector('.widget-sandwich-up');
             this.btnDown = this.root.querySelector('.widget-sandwich-down');
-            this.calculatePageHeight();
+            this.setupItems();
             return this;
         },
 
-        calculatePageHeight: function calculatePageHeight() {
+        setupItems: function setupItems() {
             var maxHeight = this.root.querySelector('.widget-sandwich-wrapper').offsetHeight,
                 height = 0,
                 items = this.content.querySelectorAll('.widget-sandwich-item'),
                 i = 0;
-            for (i = 0; i < items.length; i += 1) {
+            this.totalItems = items.length;
+            for (i = 0; i < this.totalItems; i += 1) {
                 height += items[i].offsetHeight;
                 if (height > maxHeight) {
-                    this.pageHeight = height - items[i].offsetHeight;
+                    this.itemHeight = items[i].offsetHeight;
+                    this.itemsPerPage = i;
                     return;
                 }
             }
@@ -57,25 +59,25 @@ function Sandwich(el, list) {
         },
 
         getPageHeight: function getPageHeight(page) {
-            var height = (this.pageHeight * page) - this.pageHeight;
+            var height = (this.itemHeight * this.itemsPerPage) * (page - 1),
+                pageTotalItems = this.itemsPerPage * page;
             this.isLastPage = false;
-            if (height > this.content.offsetHeight) {
+            if (pageTotalItems > this.totalItems) {
                 this.isLastPage = true;
-                return height - this.root.offsetHeight - 20;
             }
             return height;
         },
 
         setButtonStates: function setButtonStates() {
-            if (this.currentPage === 1) {
-                this.btnUp.disabled = true;
-            } else if (this.btnUp.disabled) {
-                this.btnUp.disabled = false;
-            }
-            if (this.isLastPage) {
-                this.btnDown.disabled = true;
-            } else if (this.btnDown.disabled) {
-                this.btnDown.disabled = false;
+            this.setButtonState(this.btnUp, this.currentPage === 1);
+            this.setButtonState(this.btnDown, this.isLastPage);
+        },
+
+        setButtonState: function setButtonState(btn, condition) {
+            if (condition) {
+                btn.disabled = true;
+            } else if (btn.disabled) {
+                btn.disabled = false;
             }
         }
 
