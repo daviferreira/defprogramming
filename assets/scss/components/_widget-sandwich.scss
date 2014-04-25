@@ -12,7 +12,7 @@
             line-height: 1em;
             font-size: 1em;
         }
-        &[disabled="disabled"] {
+        &[disabled] {
             border: 1px solid lighten($black, 50);
             color: lighten($black, 50);
             background-color: $grey;
@@ -20,16 +20,21 @@
     }
     h3 {
         margin: 0;
-        padding: .3em;
+        padding: 1em;
         font-weight: 700;
-        font-size: 1.3em;
-        background-color: $primary;
-        color: $white;
+        font-size: 1em;
+        background-color: $white;
+        border-top: 3px solid $primary;
+        text-align: center;
     }
 }
 
-.widget-sandwich-content {
+.widget-sandwich-wrapper {
     padding: 1em 0;
     height: 65vh;
     overflow: hidden;
+}
+
+.widget-sandwich-content {
+    transition: margin-top .5s cubic-bezier(0.250, 0.460, 0.450, 0.940);
 }

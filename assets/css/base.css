@@ -465,7 +465,7 @@ footer {
   display: block; }
   .sidebar li a {
     display: block;
-    padding: 0.4em 1.3em;
+    padding: 0.75em 1.5em;
     border-left: 3px solid transparent;
     color: #333;
     font-weight: 500; }
@@ -507,22 +507,26 @@ footer {
       text-align: center;
       line-height: 1em;
       font-size: 1em; }
-    .widget-sandwich button[disabled="disabled"] {
+    .widget-sandwich button[disabled] {
       border: 1px solid #b3b3b3;
       color: #b3b3b3;
       background-color: #f2f2f2; }
   .widget-sandwich h3 {
     margin: 0;
-    padding: 0.3em;
+    padding: 1em;
     font-weight: 700;
-    font-size: 1.3em;
-    background-color: #7b6980;
-    color: #fafafa; }
+    font-size: 1em;
+    background-color: #fafafa;
+    border-top: 3px solid #7b6980;
+    text-align: center; }
 
-.widget-sandwich-content {
+.widget-sandwich-wrapper {
   padding: 1em 0;
   height: 65vh;
   overflow: hidden; }
+
+.widget-sandwich-content {
+  transition: margin-top 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
 
 .quotes h3 {
   padding: 0 0 1em;
