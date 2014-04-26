@@ -16,7 +16,6 @@ function Sandwich(el) {
 
         setup: function setup() {
             this.currentPage = 1;
-            this.marginDiff = 0;
             this.content = this.root.querySelector('.widget-sandwich-content');
             this.btnUp = this.root.querySelector('.widget-sandwich-up');
             this.btnDown = this.root.querySelector('.widget-sandwich-down');
@@ -66,8 +65,7 @@ function Sandwich(el) {
             this.isLastPage = false;
             if (pageTotalItems > this.totalItems) {
                 this.isLastPage = true;
-                this.marginDiff = ((pageTotalItems - this.totalItems) * this.itemHeight);
-                return margin + this.marginDiff;
+                return margin + ((pageTotalItems - this.totalItems) * this.itemHeight);
             }
             return margin;
         },
