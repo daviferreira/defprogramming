@@ -16,6 +16,7 @@ function Sandwich(el) {
 
         setup: function setup() {
             this.currentPage = 1;
+            this.marginDiff = 0;
             this.content = this.root.querySelector('.widget-sandwich-content');
             this.btnUp = this.root.querySelector('.widget-sandwich-up');
             this.btnDown = this.root.querySelector('.widget-sandwich-down');
@@ -34,6 +35,7 @@ function Sandwich(el) {
                 if (height > maxHeight) {
                     this.itemHeight = items[i].offsetHeight;
                     this.itemsPerPage = i;
+                    this.pageHeight = this.itemHeight * this.itemsPerPage;
                     return;
                 }
             }
@@ -53,19 +55,31 @@ function Sandwich(el) {
         },
 
         paginate: function paginate(page) {
-            this.content.style.marginTop = -(this.getPageHeight(page)) + 'px';
+            this.content.style.marginTop = this.getMargin(page) + 'px';
             this.currentPage = page;
             this.setButtonStates();
         },
 
-        getPageHeight: function getPageHeight(page) {
-            var height = (this.itemHeight * this.itemsPerPage) * (page - 1),
+        getMargin: function getMargin(page) {
+            var margin = this.calculateMargin(page),
                 pageTotalItems = this.itemsPerPage * page;
             this.isLastPage = false;
             if (pageTotalItems > this.totalItems) {
                 this.isLastPage = true;
+                this.marginDiff = ((pageTotalItems - this.totalItems) * this.itemHeight);
+                return margin + this.marginDiff;
             }
-            return height;
+            return margin;
+        },
+
+        calculateMargin: function calculateMargin(page) {
+            if (page === 1) {
+                return 0;
+            }
+            if (page < this.currentPage) {
+                return parseInt(this.content.style.marginTop, 10) + this.pageHeight;
+            }
+            return -(this.pageHeight * (page - 1));
         },
 
         setButtonStates: function setButtonStates() {
