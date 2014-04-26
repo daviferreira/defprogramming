@@ -24,7 +24,8 @@ function Sandwich(el) {
         },
 
         setupItems: function setupItems() {
-            var maxHeight = this.root.querySelector('.widget-sandwich-wrapper').offsetHeight,
+            var maxHeight = this.root.querySelector('.widget-sandwich-wrapper')
+                                     .offsetHeight,
                 height = 0,
                 items = this.content.querySelectorAll('.widget-sandwich-item'),
                 i = 0;
@@ -65,7 +66,9 @@ function Sandwich(el) {
             this.isLastPage = false;
             if (pageTotalItems > this.totalItems) {
                 this.isLastPage = true;
-                return margin + ((pageTotalItems - this.totalItems) * this.itemHeight);
+                return margin +
+                       ((pageTotalItems - this.totalItems) *
+                       this.itemHeight);
             }
             return margin;
         },
@@ -75,7 +78,8 @@ function Sandwich(el) {
                 return 0;
             }
             if (page < this.currentPage) {
-                return parseInt(this.content.style.marginTop, 10) + this.pageHeight;
+                return parseInt(this.content.style.marginTop, 10) +
+                       this.pageHeight;
             }
             return -(this.pageHeight * (page - 1));
         },
