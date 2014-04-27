@@ -17,37 +17,48 @@ function Sticker(container, sticky) {
             }
             this.container = container;
             this.sticky = sticky;
+            this.isStuck = false;
             this.bind();
         },
 
         bind: function bind() {
             var timer,
                 lastScrollTop = 0,
-                scrollDirection,
                 self = this;
 
             this.scrollHandler = function () {
                 clearTimeout(timer);
                 timer = setTimeout(function () {
-                    scrollDirection = self.getScrollDirection(lastScrollTop);
-                    // TODO: scroll + height > footer
-                    if (window.pageYOffset >= self.container.offsetTop
-                            && !self.isStuck
-                            && scrollDirection === 'down') {
-                        self.glue();
-                    } else if (window.pageYOffset < self.container.offsetTop
-                                && self.isStuck) {
-                        self.unglue();
-                    }
+                    self.check(lastScrollTop);
                     lastScrollTop = window.pageYOffset;
-                }, 30);
+                }, 20);
             };
 
             window.addEventListener('scroll', this.scrollHandler);
         },
 
+        check: function check(lastScrollTop) {
+            var scrollDirection = this.getScrollDirection(lastScrollTop);
+            if (this.isStuck) {
+                this.checkStuck(scrollDirection);
+            } else  if (window.pageYOffset >= this.container.offsetTop
+                    && scrollDirection === 'down') {
+                this.glue();
+            }
+        },
+
+        checkStuck: function checkStuck(scrollDirection) {
+            if (window.pageYOffset + window.outerHeight > this.container.offsetTop + this.container.offsetHeight) {
+                this.sticky.style.top = ((this.container.offsetTop + this.container.offsetHeight) - (window.pageYOffset + window.outerHeight)) + 'px';
+            } else if (window.pageYOffset < this.container.offsetTop) {
+                this.unglue();
+            } else if (scrollDirection === 'up' && this.sticky.style.top !== '2em') {
+                this.sticky.style.top = '2em';
+            }
+        },
+
         getScrollDirection: function getScrollDirection(lastScrollTop) {
-            if (window.pageYOffset > lastScrollTop) {
+            if (window.pageYOffset >= lastScrollTop) {
                 return 'down';
             }
             return 'up';
