@@ -18,6 +18,8 @@ function Sticker(container, sticky) {
             this.container = container;
             this.sticky = sticky;
             this.isStuck = false;
+            this.styleTop = '2em';
+            this.diffLeft = 15;
             this.bind();
         },
 
@@ -48,12 +50,17 @@ function Sticker(container, sticky) {
         },
 
         checkStuck: function checkStuck(scrollDirection) {
-            if (window.pageYOffset + window.outerHeight > this.container.offsetTop + this.container.offsetHeight) {
-                this.sticky.style.top = ((this.container.offsetTop + this.container.offsetHeight) - (window.pageYOffset + window.outerHeight)) + 'px';
+            var scrollDistance = window.pageYOffset + window.outerHeight,
+                containerDistance = this.container.offsetTop +
+                                    this.container.offsetHeight;
+            if (scrollDistance > containerDistance) {
+                this.sticky.style.top = (containerDistance - scrollDistance) +
+                                        'px';
             } else if (window.pageYOffset < this.container.offsetTop) {
                 this.unglue();
-            } else if (scrollDirection === 'up' && this.sticky.style.top !== '2em') {
-                this.sticky.style.top = '2em';
+            } else if (scrollDirection === 'up'
+                    && this.sticky.style.top !== this.styleTop) {
+                this.sticky.style.top = this.styleTop;
             }
         },
 
@@ -66,12 +73,10 @@ function Sticker(container, sticky) {
 
         glue: function glue() {
             this.sticky.style.width = this.sticky.offsetWidth + 'px';
-            // TODO: dynamically get the left diff, calculate it right
             this.sticky.style.left = this.container.offsetLeft +
-                                     15 +
+                                     this.diffLeft +
                                      this.container.offsetWidth + 'px';
-            // TODO: dynamically calulate margin top
-            this.sticky.style.top = '2em';
+            this.sticky.style.top = this.styleTop;
             this.sticky.style.position = 'fixed';
             this.isStuck = true;
         },
