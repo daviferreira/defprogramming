@@ -53,10 +53,14 @@ function Sticker(container, sticky) {
         },
 
         glue: function glue() {
-            this.sticky.style.position = 'fixed';
-            this.sticky.style.top = '2em';
-            this.sticky.style.left = this.sticky.offsetLeft +
+            this.sticky.style.width = this.sticky.offsetWidth + 'px';
+            // TODO: dynamically get the left diff, calculate it right
+            this.sticky.style.left = this.container.offsetLeft +
+                                     15 +
                                      this.container.offsetWidth + 'px';
+            // TODO: dynamically calulate margin top
+            this.sticky.style.top = '2em';
+            this.sticky.style.position = 'fixed';
             this.isStuck = true;
         },
 
@@ -64,6 +68,7 @@ function Sticker(container, sticky) {
             this.sticky.style.position = '';
             this.sticky.style.top = '';
             this.sticky.style.left = '';
+            this.sticky.style.width = '';
             this.isStuck = false;
         }
 

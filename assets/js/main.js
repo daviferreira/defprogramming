@@ -13,7 +13,7 @@
         (function () {
             return new Sticker(
                 document.querySelector('.quote-cards-container').parentNode || false,
-                document.querySelector('.sidebar')
+                document.querySelector('.widget-sandwich')
             );
         }());
     }
