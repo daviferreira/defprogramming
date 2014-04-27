@@ -11,7 +11,8 @@ function Sticker(container, sticky) {
     Sticker.prototype = {
 
         init: function init(container, sticky) {
-            if (!container || !sticky) {
+            if (!container || !sticky
+                    || (container.offsetHeight < sticky.offsetHeight)) {
                 return false;
             }
             this.container = container;
