@@ -1,4 +1,4 @@
-/*global Modernizr, mobileMenu, smartBar*/
+/*global Modernizr, mobileMenu, smartBar, Sticker*/
 
 (function (window, document, undefined) {
     'use strict';
@@ -7,6 +7,15 @@
         smartBar.init(document.getElementById('masthead'), 200);
     } else if (document.documentElement.offsetWidth < 768) {
         mobileMenu.init();
+    }
+
+    if (document.documentElement.offsetWidth >= 768) {
+        (function () {
+            return new Sticker(
+                document.querySelector('.quote-cards-container').parentNode || false,
+                document.querySelector('.sidebar')
+            );
+        }());
     }
 
     var credits = document.getElementById('credits'),

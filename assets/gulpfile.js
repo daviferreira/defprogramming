@@ -53,6 +53,7 @@
                   'js/menu.js',
                   'js/paginator.js',
                   'js/sandwich.js',
+                  'js/sticker.js',
                   'js/main.js'])
             .pipe(jshint())
             .pipe(jshint.reporter('default'))
