@@ -18,10 +18,14 @@ PER_PAGE = 25
 
 @cache_page(settings.DEFAULT_CACHE_TIME)
 def index(request, page=1, format=None):
-    featured_quote = Quote.objects.filter(featured=True).order_by('?')[:1][0]
-    quotes = Quote.objects.all() \
-                          .exclude(id=featured_quote.id) \
-                          .order_by('-publish_date')
+    try:
+        featured_quote = Quote.objects.filter(featured=True) \
+                                      .order_by('?')[:1][0]
+        quotes = Quote.objects.all() \
+                              .exclude(id=featured_quote.id) \
+                              .order_by('-publish_date')
+    except IndexError:
+        quotes = Quote.objects.all().order_by('-publish_date')
     quotes = __validates_pagination(page, Paginator(quotes, PER_PAGE))
 
     if format == 'json':

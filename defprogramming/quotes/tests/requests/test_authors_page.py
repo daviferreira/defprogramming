@@ -4,10 +4,10 @@ from lxml import html
 from django.test import TestCase
 from django.test.client import Client
 
-from utils import create_multiple_test_authors
+from quotes.tests.utils import create_multiple_test_authors
 
 
-class testAuthorsPage(TestCase):
+class AuthorsPageTestCase(TestCase):
 
     def setUp(self):
         self.client = Client()
@@ -32,14 +32,8 @@ class testAuthorsPage(TestCase):
         authors_list = self.dom.cssselect('#authors-list li')
         assert len(authors_list), 100
 
-    def testAuthorsPageShouldHaveLinkToGoBackToTheHomePage(self):
-        self.__load_dom()
-        home_link = self.dom.cssselect('p.back a')
-        assert len(home_link), 1
-        assert home_link[0].text, '&larr; go back to the home page'
-        assert home_link[0].attrib['href'], '/'
-
     def testAuthorNameShouldHaveQuotesCount(self):
         self.authors = create_multiple_test_authors()
         self.__load_dom()
-        assert self.dom.cssselect('#authors-list li a')[0].text, 'Author 0 (10)'
+        assert self.dom.cssselect('#authors-list li a')[0].text_content(), \
+               'Author 0 (10)'

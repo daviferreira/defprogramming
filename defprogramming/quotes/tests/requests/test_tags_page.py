@@ -4,10 +4,10 @@ from lxml import html
 from django.test import TestCase
 from django.test.client import Client
 
-from utils import create_multiple_test_tags
+from quotes.tests.utils import create_multiple_test_tags
 
 
-class testTagsPage(TestCase):
+class TagsPageTestCase(TestCase):
 
     def setUp(self):
         self.client = Client()
@@ -30,14 +30,7 @@ class testTagsPage(TestCase):
         tags_list = self.dom.cssselect('#tags-list li')
         assert len(tags_list), 100
 
-    def testTagsPageShouldHaveLinkToGoBackToTheHomePage(self):
-        self.__load_dom()
-        home_link = self.dom.cssselect('p.back a')
-        assert len(home_link), 1
-        assert home_link[0].text, '&larr; go back to the home page'
-        assert home_link[0].attrib['href'], '/'
-
     def testTagNameShouldHaveQuotesCount(self):
         self.tags = create_multiple_test_tags()
         self.__load_dom()
-        assert self.dom.cssselect('#tags-list li a')[0].text, 'Tag 0 (10)'
+        assert self.dom.cssselect('#tags-list li a')[0].text_content(), 'Tag 0 (10)'

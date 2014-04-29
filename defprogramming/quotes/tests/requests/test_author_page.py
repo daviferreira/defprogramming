@@ -4,10 +4,10 @@ from lxml import html
 from django.test import TestCase
 from django.test.client import Client
 
-from utils import create_test_author
+from quotes.tests.utils import create_test_author
 
 
-class test_author_page(TestCase):
+class AuthorPageTestCase(TestCase):
 
     def setUp(self):
         self.client = Client()
@@ -19,24 +19,17 @@ class test_author_page(TestCase):
         self.author = ''
 
     def __load_dom(self):
-        response = self.client.get('/author/author/')
+        response = self.client.get('/quotes-by/author/')
         self.dom = html.fromstring(response.content)
 
     def testAuthorPageResponse(self):
-        response = self.client.get('/author/author/')
+        response = self.client.get('/quotes-by/author/')
         self.failUnlessEqual(response.status_code, 200)
 
     def testAuthorPageShouldHaveTheRightTitle(self):
         self.__load_dom()
-        assert self.dom.cssselect('h1')[0].text, 'Quotes by Author'
+        assert self.dom.cssselect('h1.jumbotron')[0].text_content(), self.author.name
 
     def testAuthorPageShouldListAuthorsQuotes(self):
         self.__load_dom()
-        assert len(self.dom.cssselect('div.box')), 10
-
-    def testAuthorPageShouldHaveALinkToGoBackToTheHomePage(self):
-        self.__load_dom()
-        home_link = self.dom.cssselect('p.back a')
-        assert len(home_link), 1
-        assert home_link[0].text, '&larr; go back to the home page'
-        assert home_link[0].attrib['href'], '/'
+        assert len(self.dom.cssselect('.quote-card')), 10

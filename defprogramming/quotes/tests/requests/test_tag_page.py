@@ -4,10 +4,10 @@ from lxml import html
 from django.test import TestCase
 from django.test.client import Client
 
-from utils import create_test_tag
+from quotes.tests.utils import create_test_tag
 
 
-class testTagPage(TestCase):
+class TagPageTestCase(TestCase):
 
     def setUp(self):
         self.client = Client()
@@ -19,24 +19,17 @@ class testTagPage(TestCase):
         self.tag = ''
 
     def __load_dom(self):
-        response = self.client.get('/tag/tag/')
+        response = self.client.get('/quotes-tagged-with/tag/')
         self.dom = html.fromstring(response.content)
 
     def testTagPageResponse(self):
-        response = self.client.get('/tag/tag/')
+        response = self.client.get('/quotes-tagged-with/tag/')
         self.failUnlessEqual(response.status_code, 200)
 
     def testTagPageShouldHaveTheRightTitle(self):
         self.__load_dom()
-        assert self.dom.cssselect('h1')[0].text, 'Quotes by Tag'
+        assert self.dom.cssselect('h1')[0].text_content(), 'Quotes by Tag'
 
     def testTagPageShouldListTagsQuotes(self):
         self.__load_dom()
-        assert len(self.dom.cssselect('div.box')), 10
-
-    def testTagPageShouldHaveLinkToGoBackToTheHomePage(self):
-        self.__load_dom()
-        home_link = self.dom.cssselect('p.back a')
-        assert len(home_link), 1
-        assert home_link[0].text, '&larr; go back to the home page'
-        assert home_link[0].attrib['href'], '/'
+        assert len(self.dom.cssselect('div.quote-card')), 10

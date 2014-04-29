@@ -4,10 +4,10 @@ from lxml import html
 from django.test import TestCase
 from django.test.client import Client
 
-from utils import create_test_tag
+from quotes.tests.utils import create_test_tag
 
 
-class testSubmitQuotePage(TestCase):
+class SubmitQuotePageTestCase(TestCase):
 
     def setUp(self):
         self.client = Client()
@@ -28,27 +28,20 @@ class testSubmitQuotePage(TestCase):
 
     def testSubmitQuotePageShouldHaveTheRightTitle(self):
         self.__load_dom()
-        assert self.dom.cssselect('h1')[0].text, 'Submit Quote'
-
-    def testSubmitQuotePageShouldHaveLinkToGoBackToTheHomePage(self):
-        self.__load_dom()
-        home_link = self.dom.cssselect('p.back a')
-        assert len(home_link), 1
-        assert home_link[0].text, '&larr; go back to the home page'
-        assert home_link[0].attrib['href'], '/'
+        assert self.dom.cssselect('h1')[0].text_content(), 'Submit Quote'
 
     def testSubmitQuotePageShouldHaveAFormToSubmitQuotes(self):
         self.__load_dom()
-        form = self.dom.cssselect('div.box form')
+        form = self.dom.cssselect('form[role="form"]')
         assert len(form), 1
         assert form[0].attrib['action'], '/submit/'
-        assert len(self.dom.cssselect('div.box form input[type="text"][name="name"]')), 1
-        assert len(self.dom.cssselect('div.box form input[type="text"][name="email"]')), 1
-        assert len(self.dom.cssselect('div.box form input[type="text"][name="source"]')), 1
-        assert len(self.dom.cssselect('div.box form input[type="text"][name="authors"]')), 1
-        assert len(self.dom.cssselect('div.box form input[type="text"][name="tags"]')), 1
-        assert len(self.dom.cssselect('div.box form textarea[name="quote"]')), 1
-        assert len(self.dom.cssselect('div.box form input[type="submit"]')), 1
+        assert len(self.dom.cssselect('form[role="form"] input[type="text"][name="name"]')), 1
+        assert len(self.dom.cssselect('form[role="form"] input[type="email"][name="email"]')), 1
+        assert len(self.dom.cssselect('form[role="form"] input[type="text"][name="source"]')), 1
+        assert len(self.dom.cssselect('form[role="form"] input[type="text"][name="authors"]')), 1
+        assert len(self.dom.cssselect('form[role="form"] input[type="text"][name="tags"]')), 1
+        assert len(self.dom.cssselect('form[role="form"] textarea[name="quote"]')), 1
+        assert len(self.dom.cssselect('form[role="form"] input[type="submit"]')), 1
 
     def testUserShouldBeAbleToSubmitQuoteWithPOST(self):
         self.__load_dom()
@@ -72,7 +65,7 @@ class testSubmitQuotePage(TestCase):
         self.dom = html.fromstring(response.content)
         errorlist = self.dom.cssselect('ul.errorlist li')
         assert len(errorlist), 1
-        assert errorlist[0].text, 'Enter a valid e-mail address.'
+        assert errorlist[0].text_content(), 'Enter a valid e-mail address.'
 
     def testFormSubmittedWithValidDataShouldDisplaySuccessMessage(self):
         response = self.client.post('/submit/', {
@@ -84,7 +77,7 @@ class testSubmitQuotePage(TestCase):
             'source': 'www.defprogramming.com',
         })
         self.dom = html.fromstring(response.content)
-        assert self.dom.cssselect('p.success')[0].text, 'Your quote was successfully submitted, thank you! :-)'
+        assert self.dom.cssselect('p.success')[0].text_content(), 'Your quote was successfully submitted, thank you! :-)'
 
     def testFormSubmittedWithValidDataShouldSendQuoteByEmail(self):
         self.client.post('/submit/', {
