@@ -1,0 +1,6 @@
+-r requirements.txt
+
+flake8
+ipdb
+lxml==3.3.5
+cssselect==0.9.1
