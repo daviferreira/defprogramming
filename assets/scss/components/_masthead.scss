@@ -84,6 +84,11 @@
             .btn:hover {
                 border-color: darken($white, 10);
             }
+            h1 {
+                a:hover {
+                    color: $white;
+                }
+            }
         }
     }
 }

@@ -338,6 +338,8 @@ q:after {
   color: #60a079; }
 .no-touch .masthead[data-visible="true"] .btn:hover {
   border-color: #e1e1e1; }
+.no-touch .masthead[data-visible="true"] h1 a:hover {
+  color: #fafafa; }
 
 @media (max-width: 767px) {
   .masthead h1 {
