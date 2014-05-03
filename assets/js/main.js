@@ -11,8 +11,9 @@
 
     if (document.documentElement.offsetWidth >= 768) {
         (function () {
+            var cardContainer = document.querySelector('.quote-cards-container');
             return new Sticker(
-                document.querySelector('.quote-cards-container').parentNode || false,
+                (cardContainer ? cardContainer.parentNode : false),
                 document.querySelector('.widget-sandwich')
             );
         }());
