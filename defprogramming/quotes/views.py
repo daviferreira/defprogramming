@@ -56,7 +56,7 @@ def quote_redirect(request, slug):
 def random(request):
     quote = Quote.objects.order_by('?')[0]
     return render_to_response('quotes/random.html',
-                              locals(),
+                              {'quote': quote},
                               context_instance=RequestContext(request))
 
 
