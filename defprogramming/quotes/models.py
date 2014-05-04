@@ -17,7 +17,8 @@ class Author(models.Model):
                         blank=True,
                         null=True)
 
-    ordering = ['name']
+    class Meta:
+        ordering = ['name']
 
     def __unicode__(self):
         return self.name
@@ -40,7 +41,8 @@ class Tag(models.Model):
     slug = models.SlugField(max_length=100, blank=True)
     uuid = models.CharField(max_length=100, blank=True, null=True)
 
-    ordering = ['name']
+    class Meta:
+        ordering = ['name']
 
     def __unicode__(self):
         return self.name
@@ -59,7 +61,8 @@ class Quote(models.Model):
         featured = models.BooleanField(default=False)
         uuid = models.CharField(max_length=100, blank=True, null=True)
 
-        ordering = ['-publish_date']
+        class Meta:
+            ordering = ['-publish_date']
 
         def __unicode__(self):
             return self.body

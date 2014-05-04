@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container">
     <ul id="authors-list" class="list clearfix">
-        {% for author in authors %}
+        {% for author in object_list %}
             <li>
                 <a href="{{ author.get_absolute_url }}">
                     <strong>{{ author.name }}</strong>

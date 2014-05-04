@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container">
     <ul id="tags-list" class="list clearfix">
-        {% for tag in tags %}
+        {% for tag in object_list %}
             <li>
                 <a href="{{ tag.get_absolute_url }}">
                     <strong>{{ tag.name }}</strong>

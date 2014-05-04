@@ -4,7 +4,8 @@ from django.conf.urls import patterns
 from django.conf.urls import url
 from django.views.decorators.cache import cache_page
 
-from .views import QuoteDetailView, AuthorDetailView, TagDetailView
+from .views import (QuoteDetailView, AuthorDetailView, TagDetailView,
+                    AuthorListView, TagListView)
 
 
 urlpatterns = patterns(
@@ -20,15 +21,27 @@ urlpatterns = patterns(
     url(r'^quote/(?P<slug>[\w-]+)/$', 'quote_redirect'),
 
     url(
+        regex=r'^authors/$',
+        view=cache_page(settings.DEFAULT_CACHE_TIME)(
+            AuthorListView.as_view()
+        ),
+        name='authors'
+    ),
+    url(
         regex=r'^quotes-by/(?P<slug>[\w-]+)/(page/(?P<page>\d+)/)?$',
         view=cache_page(settings.DEFAULT_CACHE_TIME)(
             AuthorDetailView.as_view()
         ),
         name='author'
     ),
-    url(r'^authors/$', 'authors', name='authors'),
 
-    url(r'^tags/$', 'tags', name='tags'),
+    url(
+        regex=r'^tags/$',
+        view=cache_page(settings.DEFAULT_CACHE_TIME)(
+            TagListView.as_view()
+        ),
+        name='tags'
+    ),
     url(
         regex=r'^quotes-tagged-with/(?P<slug>[\w-]+)/(page/(?P<page>\d+)/)?$',
         view=cache_page(settings.DEFAULT_CACHE_TIME)(

@@ -8,7 +8,7 @@ from django.http import HttpResponsePermanentRedirect, HttpResponse
 from django.shortcuts import render_to_response, get_object_or_404
 from django.template import RequestContext
 from django.views.decorators.cache import cache_page
-from django.views.generic import DetailView
+from django.views.generic import DetailView, ListView
 
 from .models import Author, Tag, Quote
 from .forms import QuoteForm
@@ -23,10 +23,9 @@ def index(request, page=1, format=None):
         featured_quote = Quote.objects.filter(featured=True) \
                                       .order_by('?')[:1][0]
         quotes = Quote.objects.all() \
-                              .exclude(id=featured_quote.id) \
-                              .order_by('-publish_date')
+                              .exclude(id=featured_quote.id)
     except IndexError:
-        quotes = Quote.objects.all().order_by('-publish_date')
+        quotes = Quote.objects.all()
     quotes = Paginator(quotes, PER_PAGE).page(
         page or 1
     )
@@ -61,28 +60,6 @@ def random(request):
                               context_instance=RequestContext(request))
 
 
-@cache_page(settings.DEFAULT_CACHE_TIME)
-def authors(request):
-    authors = Author.objects.all().order_by('name')
-    title = "Listing all authors | defprogramming"
-    description = "List of all the authors with quotes published. Quotes " \
-                  "about programming, coding, software industry."
-    return render_to_response('quotes/authors.html',
-                              locals(),
-                              context_instance=RequestContext(request))
-
-
-@cache_page(settings.DEFAULT_CACHE_TIME)
-def tags(request):
-    tags = Tag.objects.all().order_by('name')
-    title = "Listing all tags | defprogramming"
-    description = "Tags list. Quotes about programming, coding, software " \
-                  "industry."
-    return render_to_response('quotes/tags.html',
-                              locals(),
-                              context_instance=RequestContext(request))
-
-
 def submit_quote(request):
     title = "Submit a quote | defprogramming"
     description = "Use this form to submit a quote. Please send only quotes " \
@@ -111,18 +88,30 @@ class QuoteDetailView(DetailView):
         return get_object_or_404(Quote, uuid=self.kwargs['uuid'])
 
 
+class AuthorListView(ListView):
+    model = Author
+
+    def get_context_data(self, **kwargs):
+        context = super(AuthorListView, self).get_context_data(**kwargs)
+        context['title'] = "Listing all authors | defprogramming"
+        context['description'] = "List of all the authors with quotes " \
+                                 "published. Quotes about programming, " \
+                                 "coding, software industry."
+        return context
+
+
 class AuthorDetailView(DetailView):
     model = Author
 
     def get_context_data(self, **kwargs):
         context = super(AuthorDetailView, self).get_context_data(**kwargs)
 
-        quotes = self.object.quote_set.all().order_by('-publish_date')
+        quotes = self.object.quote_set.all()
         context['quotes'] = Paginator(quotes, PER_PAGE).page(
             self.kwargs.get('page') or 1
         )
 
-        context['authors'] = self.model.objects.all().order_by('name')
+        context['authors'] = self.model.objects.all()
 
         context['title'] = "Programming quotes by " + self.object.name + \
                            " | defprogramming"
@@ -138,18 +127,30 @@ class AuthorDetailView(DetailView):
         return context
 
 
+class TagListView(ListView):
+    model = Tag
+
+    def get_context_data(self, **kwargs):
+        context = super(TagListView, self).get_context_data(**kwargs)
+        context['title'] = "Listing all tags | defprogramming"
+        context['description'] = "List of all the tags with quotes " \
+                                 "published. Quotes about programming, " \
+                                 "coding, software industry."
+        return context
+
+
 class TagDetailView(DetailView):
     model = Tag
 
     def get_context_data(self, **kwargs):
         context = super(TagDetailView, self).get_context_data(**kwargs)
 
-        quotes = self.object.quote_set.all().order_by('-publish_date')
+        quotes = self.object.quote_set.all()
         context['quotes'] = Paginator(quotes, PER_PAGE).page(
             self.kwargs.get('page') or 1
         )
 
-        context['tags'] = self.model.objects.all().order_by('name')
+        context['tags'] = self.model.objects.all()
 
         context['title'] = "Programming quotes tagged under " + \
                            self.object.name + \
