@@ -31,30 +31,9 @@ sitemaps = {
 }
 
 urlpatterns = patterns(
-    'quotes.views',
-    url(r'^q/(?P<uuid>[\w_-]+)/$', 'detail', name='quote'),
-    url(r'^quote/(?P<slug>[\w_-]+)/$', 'quote_redirect'),
-
-    url(r'^authors/$', 'authors', name='authors'),
-    url(r'^quotes-by/(?P<slug>[\w_-]+)/(page/(?P<page>\d+)/)?$',
-        'author_detail', name='author'),
-
-    url(r'^tags/$', 'tags', name='tags'),
-    url(r'^quotes-tagged-with/(?P<slug>[\w_-]+)/(page/(?P<page>\d+)/)?$',
-        'tag_detail', name='tag'),
-
-    url(r'^random/$', 'random', name='random'),
-    url(r'^submit/$', 'submit_quote', name='submit'),
-
-    url(r'^(page/(?P<page>\d+)/)?(format/(?P<format>\w+)/)?$', 'index', name='root'),
-)
-
-urlpatterns += [
-    url(r'^feed/$', LatestEntriesFeed(), name='feed'),
-]
-
-urlpatterns += patterns(
     '',
+    url(r'^', include('quotes.urls')),
+    url(r'^feed/$', LatestEntriesFeed(), name='feed'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^sitemap\.xml$', 'django.contrib.sitemaps.views.sitemap',
         {'sitemaps': sitemaps}),
