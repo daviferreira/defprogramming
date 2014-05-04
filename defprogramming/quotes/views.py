@@ -81,10 +81,17 @@ def submit_quote(request):
                               context_instance=RequestContext(request))
 
 
-class DetailViewBase(DetailView):
+class QuoteDetailView(DetailView):
+    model = Quote
+
+    def get_object(self):
+        return get_object_or_404(Quote, uuid=self.kwargs['uuid'])
+
+
+class DetailViewMixin(DetailView):
 
     def get_context_data(self, **kwargs):
-        context = super(DetailViewBase, self).get_context_data(**kwargs)
+        context = super(DetailViewMixin, self).get_context_data(**kwargs)
 
         quotes = self.object.quote_set.all()
         context['quotes'] = Paginator(quotes, PER_PAGE).page(
@@ -92,7 +99,9 @@ class DetailViewBase(DetailView):
         )
 
         key = self.model._meta.verbose_name_plural.lower()
-        context[key] = self.model.objects.all()
+        context[key] = self.model.objects.extra(select={
+            'name_lower': 'lower(name)'}
+        ).order_by('name_lower')
 
         context['title'] = self.title % self.object.name
         context['description'] = self.description % self.object.name
@@ -107,15 +116,13 @@ class DetailViewBase(DetailView):
         return context
 
 
-class QuoteDetailView(DetailView):
-    model = Quote
-
-    def get_object(self):
-        return get_object_or_404(Quote, uuid=self.kwargs['uuid'])
-
-
 class AuthorListView(ListView):
     model = Author
+
+    def get_queryset(self):
+        return self.model.objects.extra(select={
+            'name_lower': 'lower(name)'}
+        ).order_by('name_lower')
 
     def get_context_data(self, **kwargs):
         context = super(AuthorListView, self).get_context_data(**kwargs)
@@ -126,7 +133,7 @@ class AuthorListView(ListView):
         return context
 
 
-class AuthorDetailView(DetailViewBase):
+class AuthorDetailView(DetailViewMixin):
     model = Author
     title = "Programming quotes by %s | defprogramming"
     description = "Listing all programming quotes by %s. Quotes about " \
@@ -145,7 +152,7 @@ class TagListView(ListView):
         return context
 
 
-class TagDetailView(DetailViewBase):
+class TagDetailView(DetailViewMixin):
     model = Tag
     title = "Programming quotes tagged under %s | defprogramming"
     description = "Listing all programming quotes tagged under %s. "\
