@@ -7,29 +7,29 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-10 author-meta-data">
-                    {% if author.avatar %}
-                        {% thumbnail author.avatar "120x120" crop="center" as im %}
+                    {% if object.avatar %}
+                        {% thumbnail object.avatar "120x120" crop="center" as im %}
                             <img src="{{ im.url }}" class="author-avatar"
                                 width="120" height="120">
                         {% endthumbnail %}
                     {% endif %}
                     <div class="author-info">
-                        <h1 class="jumbotron">{{ author.name }}</h1>
-                        {% if author.short_bio %}
-                            {{ author.short_bio|safe|linebreaks }}
+                        <h1 class="jumbotron">{{ object.name }}</h1>
+                        {% if object.short_bio %}
+                            {{ object.short_bio|safe|linebreaks }}
                         {% endif %}
                     </div>
                 </div>
                 <div class="col-md-2 actions author-actions">
                     <!-- a href="#" class="heart"><i class="icon icon-heart"></i></a -->
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=http://defprogramming.com{{ author.get_absolute_url }}"
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=http://defprogramming.com{{ object.get_absolute_url }}"
                     target="_blank" class="facebook">
                         <i class="icon icon-facebook"></i>
                     </a>
-                    <a href="https://twitter.com/home?status=Check it out! Inspiring quotes by {{ author.name }} http://defprogramming.com{{ author.get_absolute_url }}" target="_blank" class="twitter">
+                    <a href="https://twitter.com/home?status=Check it out! Inspiring quotes by {{ object.name }} http://defprogramming.com{{ object.get_absolute_url }}" target="_blank" class="twitter">
                         <i class="icon icon-twitter"></i>
                     </a>
-                    <a href="https://plus.google.com/share?url=http://defprogramming.com{{ author.get_absolute_url }}" target="_blank" class="google-plus">
+                    <a href="https://plus.google.com/share?url=http://defprogramming.com{{ object.get_absolute_url }}" target="_blank" class="google-plus">
                         <i class="icon icon-google-plus"></i>
                     </a>
                 </div>
@@ -55,7 +55,7 @@
                                 {% for a in authors %}
                                     <li class="widget-sandwich-item">
                                         <a href="{{ a.get_absolute_url }}"
-                                            {% if a.id == author.id %}
+                                            {% if a.id == object.id %}
                                             class="active"{% endif %}>
                                             {{ a.name }} ({{ a.quote_set.all.count }})
                                         </a>

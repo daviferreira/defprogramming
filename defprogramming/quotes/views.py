@@ -81,6 +81,32 @@ def submit_quote(request):
                               context_instance=RequestContext(request))
 
 
+class DetailViewBase(DetailView):
+
+    def get_context_data(self, **kwargs):
+        context = super(DetailViewBase, self).get_context_data(**kwargs)
+
+        quotes = self.object.quote_set.all()
+        context['quotes'] = Paginator(quotes, PER_PAGE).page(
+            self.kwargs.get('page') or 1
+        )
+
+        key = self.model._meta.verbose_name_plural.lower()
+        context[key] = self.model.objects.all()
+
+        context['title'] = self.title % self.object.name
+        context['description'] = self.description % self.object.name
+
+        context['base_url_pagination'] = reverse(
+            self.model.__name__.lower(),
+            kwargs={
+                'slug': self.object.slug
+            }
+        )
+
+        return context
+
+
 class QuoteDetailView(DetailView):
     model = Quote
 
@@ -100,31 +126,11 @@ class AuthorListView(ListView):
         return context
 
 
-class AuthorDetailView(DetailView):
+class AuthorDetailView(DetailViewBase):
     model = Author
-
-    def get_context_data(self, **kwargs):
-        context = super(AuthorDetailView, self).get_context_data(**kwargs)
-
-        quotes = self.object.quote_set.all()
-        context['quotes'] = Paginator(quotes, PER_PAGE).page(
-            self.kwargs.get('page') or 1
-        )
-
-        context['authors'] = self.model.objects.all()
-
-        context['title'] = "Programming quotes by " + self.object.name + \
-                           " | defprogramming"
-        context['description'] = "Listing all programming quotes by " + \
-                                 self.object.name + \
-                                 ". Quotes about programming, coding, " \
-                                 "software industry."
-
-        context['base_url_pagination'] = reverse('author', kwargs={
-            'slug': self.object.slug
-        })
-
-        return context
+    title = "Programming quotes by %s | defprogramming"
+    description = "Listing all programming quotes by %s. Quotes about " \
+                  "programming, coding, software industry."
 
 
 class TagListView(ListView):
@@ -139,29 +145,8 @@ class TagListView(ListView):
         return context
 
 
-class TagDetailView(DetailView):
+class TagDetailView(DetailViewBase):
     model = Tag
-
-    def get_context_data(self, **kwargs):
-        context = super(TagDetailView, self).get_context_data(**kwargs)
-
-        quotes = self.object.quote_set.all()
-        context['quotes'] = Paginator(quotes, PER_PAGE).page(
-            self.kwargs.get('page') or 1
-        )
-
-        context['tags'] = self.model.objects.all()
-
-        context['title'] = "Programming quotes tagged under " + \
-                           self.object.name + \
-                           " | defprogramming"
-        context['description'] = "Listing all programming quotes tagged under " + \
-                                 self.object.name + \
-                                 ". Quotes about programming, coding, " \
-                                 "software industry."
-
-        context['base_url_pagination'] = reverse('tag', kwargs={
-            'slug': self.object.slug
-        })
-
-        return context
+    title = "Programming quotes tagged under %s | defprogramming"
+    description = "Listing all programming quotes tagged under %s. "\
+                  "Quotes about programming, coding, software industry."
