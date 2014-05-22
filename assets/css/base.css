@@ -324,13 +324,13 @@ q:after {
     opacity: 1; }
     .masthead[data-visible="true"] h1 a, .masthead[data-visible="true"] nav a {
       color: #fafafa; }
-      .masthead[data-visible="true"] h1 a:hover, .masthead[data-visible="true"] nav a:hover {
-        color: #e1e1e1; }
     .masthead[data-visible="true"] h2 {
       color: #f2f2f2; }
     .masthead[data-visible="true"] .btn {
       border-color: #fafafa; }
 
+.no-touch .masthead[data-visible="true"] h1 a:hover, .no-touch .masthead[data-visible="true"] nav a:hover {
+  color: #e1e1e1; }
 .no-touch .masthead h1 a:hover {
   color: #333;
   text-decoration: none; }
