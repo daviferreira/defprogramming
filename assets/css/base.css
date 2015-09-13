@@ -636,10 +636,7 @@ footer {
   width: 100%;
   border-top: 3px solid #7b6980;
   background-color: #fafafa;
-  text-align: center;
-  break-inside: avoid;
-  overflow: hidden;
-  max-height: 4000px; }
+  text-align: center; }
   .quote-card q {
     position: relative;
     display: block;
