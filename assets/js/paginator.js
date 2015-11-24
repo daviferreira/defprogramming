@@ -68,9 +68,6 @@ var paginator;
             } else {
                 author = authors[0];
                 html += '<a href="' + author.url + '">';
-                if (author.avatar) {
-                    html += '<img src="' + author.avatar + '" class="author-avatar" width="60" height="60">';
-                }
                 html += '<p>' + author.name + '</p>';
                 html += '</a>';
             }
