@@ -7,12 +7,6 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-10 author-meta-data">
-                    {% if object.avatar %}
-                        {% thumbnail object.avatar "120x120" crop="center" as im %}
-                            <img src="{{ im.url }}" class="author-avatar"
-                                width="120" height="120">
-                        {% endthumbnail %}
-                    {% endif %}
                     <div class="author-info">
                         <h1 class="jumbotron">{{ object.name }}</h1>
                         {% if object.short_bio %}
