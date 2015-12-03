@@ -69,6 +69,7 @@ INSTALLED_APPS = (
     'quotes',
     'sorl.thumbnail',
     'django_medusa',
+    'opbeat.contrib.django',
 )
 
 MEDUSA_RENDERER_CLASS = "django_medusa.renderers.DiskStaticSiteRenderer"
