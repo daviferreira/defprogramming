@@ -70,6 +70,7 @@ INSTALLED_APPS = (
     'sorl.thumbnail',
     'django_medusa',
     'opbeat.contrib.django',
+    'rest_framework',
 )
 
 MEDUSA_RENDERER_CLASS = "django_medusa.renderers.DiskStaticSiteRenderer"
@@ -77,6 +78,22 @@ MEDUSA_MULTITHREAD = False
 MEDUSA_DEPLOY_DIR = os.path.join(BASE_DIR, 'cache', 'html')
 
 DEFAULT_CACHE_TIME = 60 * 15
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ],
+    'DEFAULT_THROTTLE_CLASSES': (
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle'
+    ),
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '1000/day',
+        'user': '10000/day'
+    }
+}
 
 try:
     from settings_local import *  # NOQA
