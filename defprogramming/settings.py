@@ -4,13 +4,6 @@ BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 ADMINS = ()
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db/development.sqlite3'),
-    }
-}
-
 TIME_ZONE = 'America/Chicago'
 LANGUAGE_CODE = 'en-us'
 SITE_ID = 1
@@ -48,7 +41,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'urls'
+ROOT_URLCONF = 'defprogramming.urls'
 
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates/'),
