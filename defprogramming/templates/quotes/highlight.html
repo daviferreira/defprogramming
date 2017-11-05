@@ -11,13 +11,13 @@
                         <div class="quote-highlight-actions">
                             <!-- a href="#" class="heart special"><i class="icon icon-heart"></i></a -->
                             <!-- a href="#"><i class="icon icon-megaphone"></i></a -->
-                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://defprogramming.com{{ quote.get_absolute_url }}" target="_blank" class="facebook special">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u=http://www.defprogramming.com{{ quote.get_absolute_url }}" target="_blank" class="facebook special">
                                 <i class="icon icon-facebook"></i>
                             </a>
-                            <a href="https://twitter.com/home?status=%22{{ quote.body|urlencode|truncatechars:140 }}%22 https://defprogramming.com{{ quote.get_absolute_url }}" target="_blank" class="twitter special">
+                            <a href="https://twitter.com/home?status=%22{{ quote.body|urlencode|truncatechars:140 }}%22 http://www.defprogramming.com{{ quote.get_absolute_url }}" target="_blank" class="twitter special">
                                 <i class="icon icon-twitter"></i>
                             </a>
-                            <a href="https://plus.google.com/share?url=https://defprogramming.com{{ quote.get_absolute_url }}" target="_blank" class="google-plus special">
+                            <a href="https://plus.google.com/share?url=http://www.defprogramming.com{{ quote.get_absolute_url }}" target="_blank" class="google-plus special">
                                 <i class="icon icon-google-plus"></i>
                             </a>
                             <a href="{% if not detail %}{{ quote.get_absolute_url }}{% endif %}#comments"><i class="icon icon-comments"></i></a>
