@@ -17,7 +17,7 @@
         {% if quote %}
             <meta property="og:title" content="Quote by {% for author in quote.authors.all %}{{ author.name }}{% if not forloop.last %} and {% endif %}{% endfor %}">
             <meta property="og:description" content="{{ quote.body }}">
-            <meta property="og:url" content="http://www.defprogramming.com{{ quote.get_absolute_url }}">
+            <meta property="og:url" content="https://www.defprogramming.com{{ quote.get_absolute_url }}">
             <meta property="og:type" content="blog">
             <meta property="og:image" content="{% static 'quote.gif' %}">
             <meta property="og:site_name" content="defprogramming: quotes about coding">
@@ -25,7 +25,7 @@
             <meta property="fb:app_id" content="236133366405921">
         {% endif %}
         <link rel="alternate" type="application/atom+xml" title="defprogramming: recent quotes" href="{% url 'feed' %}">
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,700">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,700">
         <link rel="stylesheet" href="{% static 'css/defprogramming.min.css' %}">
         <link rel="shortcut icon" href="{% static 'favicon.png' %}" />
         <script src="{% static 'js/vendor/modernizr-2.6.2.min.js' %}"></script>
@@ -66,7 +66,7 @@
                             by <a href="http://www.daviferreira.com/en" target="_blank">Davi Ferreira</a>.
                         </p>
                         <p class="follow-twitter">
-                            <a href="http://www.twitter.com/davitferreira" target="_blank">
+                            <a href="https://www.twitter.com/davitferreira" target="_blank">
                                 <i class="icon icon-twitter"></i> <strong>Follow me on Twitter</strong>
                             </a>
                         </p>
@@ -81,13 +81,13 @@
                 </header>
                 <ul>
                     <li><a href="https://www.djangoproject.com/" target="_blank">Django</a></li>
-                    <li><a href="http://gulpjs.com/" target="_blank">Gulp</a></li>
-                    <li><a href="http://html5boilerplate.com/" target="_blank">HTML5 Boilerplate</a></li>
-                    <li><a href="http://modernizr.com/" target="_blank">Modernizr</a></li>
-                    <li><a href="http://getbootstrap.com/" target="_blank">Bootstrap</a></li>
-                    <li><a href="http://www.google.com/fonts/specimen/Open+Sans" target="_blank">Open Sans</a></li>
-                    <li><a href="http://zurb.com/playground/foundation-icons" target="_blank">Foundation Icon Fonts</a></li>
-                    <li><a href="http://www.colourlovers.com/palette/2289364/Emerald_eyes" target="_blank">Colour Lovers</a></li>
+                    <li><a href="https://gulpjs.com/" target="_blank">Gulp</a></li>
+                    <li><a href="https://html5boilerplate.com/" target="_blank">HTML5 Boilerplate</a></li>
+                    <li><a href="https://modernizr.com/" target="_blank">Modernizr</a></li>
+                    <li><a href="https://getbootstrap.com/" target="_blank">Bootstrap</a></li>
+                    <li><a href="https://www.google.com/fonts/specimen/Open+Sans" target="_blank">Open Sans</a></li>
+                    <li><a href="https://zurb.com/playground/foundation-icons" target="_blank">Foundation Icon Fonts</a></li>
+                    <li><a href="https://www.colourlovers.com/palette/2289364/Emerald_eyes" target="_blank">Colour Lovers</a></li>
                 </ul>
                 <p>Source code available @ <a href="https://github.com/daviferreira/defprogramming" target="_blank">github</a><small>pull requests are more than welcome ;-)</small></p>
             </section>
