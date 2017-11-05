@@ -28,10 +28,12 @@ class Author(models.Model):
 
     def get_avatar(self, size='60x60'):
         try:
-            return get_thumbnail(self.avatar,
+            thumbnail = get_thumbnail(self.avatar,
                                  size,
                                  crop='center',
-                                 quality=70).url
+                                 quality=70)
+            if thumbnail:
+                return thumbnail.url
         except ThumbnailError:
             return None
 
