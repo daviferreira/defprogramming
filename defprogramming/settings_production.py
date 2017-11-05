@@ -1,3 +1,4 @@
+import os
 from defprogramming.settings import *
 
 ALLOWED_HOSTS = ['*']
@@ -15,3 +16,5 @@ DATABASES['default'].update(db_from_env)
 # MIDDLEWARE_CLASSES += ('sslify.middleware.SSLifyMiddleware',)
 
 PREPEND_WWW = True
+
+SECRET_KEY = os.environ['SECRET_KEY']
