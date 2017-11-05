@@ -31,3 +31,4 @@ sorl-thumbnail==11.12.1b0
 South==0.8.4
 traitlets==4.3.2
 wcwidth==0.1.7
+whitenoise==2.0.6

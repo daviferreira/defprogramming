@@ -13,3 +13,4 @@ media/
 cache/
 .env/
 defprogramming/static/admin
+staticfiles/
