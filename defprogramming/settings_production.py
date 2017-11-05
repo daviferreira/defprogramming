@@ -1,5 +1,7 @@
 from defprogramming.settings import *
 
+ALLOWED_HOSTS = ['*']
+
 DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
