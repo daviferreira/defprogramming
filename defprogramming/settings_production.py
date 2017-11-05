@@ -12,4 +12,4 @@ DATABASES['default'].update(db_from_env)
 
 # MIDDLEWARE_CLASSES += ('sslify.middleware.SSLifyMiddleware',)
 
-PREPEND_WWW = True
+# PREPEND_WWW = True
