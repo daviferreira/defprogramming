@@ -11,3 +11,5 @@ DATABASES['default'].update(db_from_env)
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 MIDDLEWARE_CLASSES += ('sslify.middleware.SSLifyMiddleware',)
+
+PREPEND_WWW = True
