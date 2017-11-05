@@ -1,6 +1,6 @@
 from defprogramming.settings import *
 
-DEBUG = False
+DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 # Update database configuration with $DATABASE_URL.
