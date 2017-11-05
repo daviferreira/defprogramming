@@ -11,6 +11,13 @@ SITE_ID = 1
 USE_I18N = True
 USE_L10N = True
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db/development.sqlite3'),
+    }
+}
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
