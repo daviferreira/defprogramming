@@ -17,7 +17,7 @@
         {% if quote %}
             <meta property="og:title" content="Quote by {% for author in quote.authors.all %}{{ author.name }}{% if not forloop.last %} and {% endif %}{% endfor %}">
             <meta property="og:description" content="{{ quote.body }}">
-            <meta property="og:url" content="https://www.defprogramming.com{{ quote.get_absolute_url }}">
+            <meta property="og:url" content="http://www.defprogramming.com{{ quote.get_absolute_url }}">
             <meta property="og:type" content="blog">
             <meta property="og:image" content="{% static 'quote.gif' %}">
             <meta property="og:site_name" content="defprogramming: quotes about coding">
