@@ -13,8 +13,12 @@ USE_L10N = True
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db/development.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'defprogramming',
+        'USER': 'defprogramming',
+        'PASSWORD': 'defprogramming',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -69,7 +73,6 @@ INSTALLED_APPS = (
     'quotes',
     'sorl.thumbnail',
     'django_medusa',
-    'opbeat.contrib.django',
     'rest_framework',
 )
 
